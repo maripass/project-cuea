@@ -86,9 +86,9 @@ label #cancel{
     margin-left: 250px;
 }
 section{
-    background: url('../images/bg.jpg');
+    /* background: url('../images/bg.jpg');
     background-position: center;
     background-size: cover;
     height: 100vh;
-    transition: all .5s;
+    transition: all .5s; */
 }
