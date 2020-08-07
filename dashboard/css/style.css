@@ -53,6 +53,15 @@ label #btn, label #cancel{
     background: #042331;
     border-radius: 3px;
 }
+.btn{
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #3274d6;
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
 label #btn{
     left: 0px;
     top: 0px;
