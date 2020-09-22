@@ -49,3 +49,12 @@ body{
      -webkit-background-size: cover;
      background-size: cover;
  }
+ .about-area, .service-area, .contact-area,  .FAQ-area{
+     position: relative;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap;
+     flex-direction: row;
+     height: 700px;
+ }
