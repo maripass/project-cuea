@@ -68,7 +68,7 @@ body{
      font-family: Audiowide;
 }
 p{
-    font-size: 24px;
+    font-size: 20px;
     line-height: 50px;
 }
 .about-area, .contact-area{
@@ -82,12 +82,13 @@ html{
     scroll-behavior: smooth;
 }
 footer {
-
+     
     /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: red;
+    font-size: 10px;
+    background-color: #555555;
     color: white;
     text-align: center;
  }
