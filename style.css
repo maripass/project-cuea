@@ -71,10 +71,22 @@ p{
     font-size: 24px;
     line-height: 50px;
 }
-.about-area, .service-area{
+.about-area, .contact-area{
     background: #fefefe;
 }
-.contact-area, .faq-area{
+.service-area, .faq-area{
     background: #262626;
     color: #fff;
 }
+html{
+    scroll-behavior: smooth;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
