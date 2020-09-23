@@ -65,22 +65,21 @@ body{
  }
  h1{
      font-size: 30px;
-     font-family: Audiowide;
+     color: #3274d6;
 }
 p{
     font-size: 18px;
     line-height: 50px;
+    color: #000;
 }
 .about-area, .contact-area{
     background: #fefefe;
 }
 .service-area, .faq-area{
-    background: #262626;
+    background: #F7F7F7;
     color: #fff;
 }
-html{
-    scroll-behavior: smooth;
-}
+
 footer {
      
     /* position: fixed; */
