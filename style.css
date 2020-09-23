@@ -72,7 +72,7 @@ p{
     line-height: 30px;
     color: #000;
 }
-input[type=text], select, textarea {
+input[type=text], input[type=email], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -84,7 +84,7 @@ input[type=text], select, textarea {
   }
   
   input[type=submit] {
-    background-color: #4CAF50;
+    background-color: #3274d6;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -93,14 +93,10 @@ input[type=text], select, textarea {
   }
   
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #FBB434;
   }
   
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
+
 .about-area, .faq-area{
     background: #fefefe;
 }
