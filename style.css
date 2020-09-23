@@ -72,26 +72,8 @@ p{
     line-height: 30px;
     color: #000;
 }
-.about-area, .contact-area{
-    background: #fefefe;
-}
-.service-area, .faq-area{
-    background: #F7F7F7;
-    color: #fff;
-}
 
-footer {
-     
-    /* position: fixed; */
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-size: 10px;
-    background-color: #555555;
-    color: white;
-    text-align: center;
- }
- input[type=text], select, textarea {
+input[type=text], select, textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -120,3 +102,23 @@ footer {
     background-color: #f2f2f2;
     padding: 20px;
   }
+.about-area, .contact-area{
+    background: #fefefe;
+}
+.service-area, .faq-area{
+    background: #F7F7F7;
+    color: #fff;
+}
+
+footer {
+     
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-size: 10px;
+    background-color: #555555;
+    color: white;
+    text-align: center;
+ }
+ 
