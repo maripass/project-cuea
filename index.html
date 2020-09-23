@@ -23,7 +23,7 @@
 
     <div class="about-area" id="About">
         <div class="text-part">
-            <h1>About-area</h1>
+            <h1>About</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Ipsam voluptate veritatis, ratione in architecto minima, amet,
@@ -48,7 +48,7 @@
         </div>
     <div class="service-area" id="Service">
         <div class="text-part">
-            <h1>Service-area</h1>
+            <h1>Services</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Ipsam voluptate veritatis, ratione in architecto minima, amet,
@@ -74,7 +74,7 @@
     </div>
     <div class="contact-area" id="Contact">
         <div class="text-part">
-            <h1>Contac-area</h1>
+            <h1>Contact</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Ipsam voluptate veritatis, ratione in architecto minima, amet,
@@ -100,7 +100,7 @@
     </div>
     <div class="faq-area" id="FAQ">
         <div class="text-part">
-            <h1>FAQ-area</h1>
+            <h1>FAQ</h1>
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Ipsam voluptate veritatis, ratione in architecto minima, amet,
@@ -112,13 +112,37 @@
 
 
 <footer>
-    <p> 
+    <p style="color:white;"> 
         Nairobi Kenya <br>
-        <a href="terms-of-use.html" style="color: black;">TERMS OF USE</a><br>
-        <a href="privacy-and-policy.html" style="color: black;">PRIVACY AND POLICY</a><br>
+        <a href="terms-of-use.html" style="color: white;">TERMS OF USE</a><br>
+        <a href="privacy-and-policy.html" style="color: white;">PRIVACY AND POLICY</a><br>
         Copyright © 2020 E-B-M-S. All rights reserved.
     </p>
 </footer>
+
+<h3>Contact Form</h3>
+
+<div class="container">
+  <form action="/action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+    </select>
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
      
 </body>
 
