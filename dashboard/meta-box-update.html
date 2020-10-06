@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user-update</title>
+    <title>Update meta-box</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
+
     <input type="checkbox" id="check">
     <label for="check">
         <i class="fas fa-bars" id="btn"></i>
@@ -29,7 +30,7 @@
     </div>
     <section class="banner">
         <div class="banner-left">
-           Update User
+            Add Meter box
         </div>
     </section>
     <section>
@@ -39,28 +40,39 @@
                 <label for="username">
                     <i class="fa fa-user"></i>
                 </label>
-                <input type="text" name="username" placeholder="First Name" id="username" required>
+                <input type="text" name="username" placeholder="Meter box Number" id="username" required>
 
                 <label for="username">
                     <i class="fa fa-user"></i>
                 </label>
-                <input type="email" name="username" placeholder="Last Name" id="username" required>
+                <select>
+                    <option>Select a user</option>
+                    <option>User 1</option>
+                    <option>User 2</option>
+                    <option>User</option>
+                </select>
 
                 <label for="username">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-user"></i>
                 </label>
-                <input type="text" name="username" placeholder="Email" id="username" required>
+                <select>
+                    <option>Active</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
 
                 <label for="username">
-                    <i class="fa fa-phone"></i>
+                    <i class="fa fa-user"></i>
                 </label>
-                <input type="text" name="username" placeholder="Telephone" id="username" required>
+                <select>
+                    <option>Electricity Active</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
 
-                <label for="username">
-                    <i class="fa fa-map-marker"></i>
-                </label>
-                <input type="text" name="username" placeholder="Address" id="username" required>
-                <input type="submit" value="Update User">
+                
+                
+                <input type="submit" value="Update Meter box">
             
                     
                 </label>
@@ -68,6 +80,7 @@
             </form>
         </div>
     </section>
-     
+    
+    
 </body>
 </html>
