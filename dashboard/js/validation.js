@@ -19,7 +19,26 @@ $(document).ready(function() {
     //  ADD-METER-BOX VALIDATION FORM
     $(".add-meter-box-validation-form").validate({
         rules: {
-            user: 'required'
+            user: 'required',
+            meterBoxActive: 'required',
+            electricityActive: 'required',
         }
     });
+
+});
+//  ADD-USER-VALIDATION FORM
+$(".add-user-validation-form").validate({
+    rules: {
+        firstName: 'required',
+        lastName: 'required',
+        userAddress: 'required',
+        userEmail: {
+            required: true,
+            email: true
+        },
+        phoneNumber: {
+            required: true,
+            number: true
+        }
+    }
 });
