@@ -62,3 +62,12 @@ $(".company-details-validation-form").validate({
         }
     }
 });
+//  UPDATE-METER-BOX VALIDATION FORM
+$(".update-meter-box-validation-form").validate({
+    rules: {
+        user: 'required',
+        meterBoxActive: 'required',
+        electricityActive: 'required',
+    }
+});
+
