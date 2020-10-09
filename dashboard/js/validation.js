@@ -71,3 +71,19 @@ $(".update-meter-box-validation-form").validate({
     }
 });
 
+//  UPDATE-USER-VALIDATION FORM
+$(".update-user-validation-form").validate({
+    rules: {
+        firstName: 'required',
+        lastName: 'required',
+        userAddress: 'required',
+        userEmail: {
+            required: true,
+            email: true
+        },
+        phoneNumber: {
+            required: true,
+            number: true
+        }
+    }
+});
