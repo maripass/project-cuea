@@ -16,4 +16,10 @@ $(document).ready(function() {
         }
     });
     
+    //  ADD-METER-BOX VALIDATION FORM
+    $(".add-meter-box-validation-form").validate({
+        rules: {
+            user: 'required'
+        }
+    });
 });

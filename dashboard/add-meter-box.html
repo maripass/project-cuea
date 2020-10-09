@@ -37,50 +37,46 @@
             <!-- <h1>Login</h1> -->
             <form class="add-meter-box-validation-form" method="post">
                 <div style="width: 100%;">
-            <form action="./dashboard/index.html" method="post">
-                <label for="username">
-                    
-                </label>
-                <input type="text" name="username" placeholder="Meter box Number" id="username" required>
+                    <select name="user" name="user">
+                        <option>Select a user</option>
+                        <option>User 1</option>
+                        <option>User 2</option>
+                        <option>User</option>
+                    </select>
+                </div><br><br><br><br>
 
-                <label for="username">
-                    
-                </label>
-                <select>
-                    <option>Select a user</option>
-                    <option>User 1</option>
-                    <option>User 2</option>
-                    <option>User</option>
-                </select>
-
-                <label for="username">
-                    
-                </label>
-                <select>
-                    <option>Active</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-
-                <label for="username">
-                    
-                </label>
-                <select>
-                    <option>Electricity Active</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>
-
+                <div style="width: 100%;">
+                    <select name="active" name="active">
+                        <option>Active</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div><br><br><br><br>
+                
+                <div style="width: 100%;">
+                    <select name="electricityActiv" name="electricityActiv">
+                        <option>Electricity Active</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div><br><br><br><br>
                 
                 
                 <input type="submit" value="Create Meter box">
             
-                    
-                </label>
+            
                 
             </form>
         </div>
     </section>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <!-- import validation page -->
+    <script src="js/validation.js"></script>
     
 </body>
 </html>
