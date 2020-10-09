@@ -42,3 +42,23 @@ $(".add-user-validation-form").validate({
         }
     }
 });
+//  COMPANY-DETAILS-VALIDATION FORM
+$(".company-details-validation-form").validate({
+    rules: {
+        firstName: 'required',
+        lastName: 'required',
+        userAddress: 'required',
+        userEmail: {
+            required: true,
+            email: true
+        },
+        phoneNumber: {
+            required: true,
+            number: true,
+        },
+        CostPerKgWatt: {
+            required: true,
+            number: true,
+        }
+    }
+});

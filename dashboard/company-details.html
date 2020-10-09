@@ -35,38 +35,47 @@
         
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form action="./dashboard/index.html" method="post">
-                <label for="username">
-                    <i class="fa fa-user"></i>
-                </label>
-                <input type="text" name="username" placeholder="Name" id="username" required>
+            <form class="company-details-validation-form" method="post">
+                <div style="width: 100%;">
+                    <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                </div><br><br><br><br>
 
-                <label for="username">
-                    <i class="fa fa-envelope"></i>
-                </label>
-                <input type="email" name="username" placeholder="Email" id="username" required>
+                <div style="width: 100%;">
+                    <input type="email" name="lastName" placeholder="Last Name" id="lastName">
+                </div><br><br><br><br>
 
-                <label for="username">
-                    <i class="fa fa-map-marker"></i>
-                </label>
-                <input type="text" name="username" placeholder="Address" id="username" required>
+                <div style="width: 100%;">
+                    <input type="text" name="userEmail" placeholder="Email" id="userEmail">
+                </div><br><br><br><br>
 
-                <label for="username">
-                    <i class="fa fa-phone"></i>
-                </label>
-                <input type="text" name="username" placeholder="Telephone" id="username" required>
 
-                <label for="username">
-                    <i class="fa fa-clock"></i>
-                </label>
-                <input type="text" name="username" placeholder="cost per kg watt" id="username" required>
-                <input type="submit" value="Update">
+                <div style="width: 100%;">
+                    <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
+                </div><br><br><br><br>
+
             
-                    
-                </label>
+                <div style="width: 100%;">
+                    <input type="text" name="username" placeholder="Address" id="username" required>
+                </div><br><br><br><br>
+
+                <div style="width: 100%;">
+                  <input type="text" name="CostPerKgWatt" placeholder="cost per kg watt" id="username" required>
+                </div><br><br><br><br>
+
+                    <input type="submit" value="Update">
+            
+            
                 
             </form>
         </div>
     </section>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <!-- import validation page -->
+    <script src="js/validation.js"></script>
 </body>
 </html>
