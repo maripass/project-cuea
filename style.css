@@ -59,7 +59,7 @@ body{
      -webkit-background-size: cover;
      background-size: cover;
  }
- .about-area, .service-area, .contact-area, .faq-area{
+ .about-area, .service-area, .blog-area, .contact-area, .faq-area{
      position: relative;
      display: flex;
      justify-content: space-around;
@@ -114,10 +114,10 @@ input[type=text], input[type=email], select, textarea {
   }
   
 
-.about-area, .faq-area{
+.about-area, .faq-area .contact-area{
     background: #fefefe;
 }
-.service-area, .contact-area{
+.service-area, .blog-area{
     background: #F7F7F7;
     color: #fff;
 }
