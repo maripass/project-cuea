@@ -158,4 +158,9 @@ footer {
   overflow: hidden;
 }
 
+.blog-content{
+  height: 200px;
+  width: 100%;
+  background-color: #444;
+}
  
