@@ -161,6 +161,19 @@ footer {
 .blog-content{
   height: 200px;
   width: 100%;
-  background-color: #444;
+  background-color: #3274d6;
+  /* background-color: #444; */
 }
  
+
+
+
+.btn{
+  padding: 15px;
+  margin-top: 20px;
+  background-color: #3274d6;
+  border: 0;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+}
