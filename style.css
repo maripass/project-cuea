@@ -177,3 +177,8 @@ footer {
   font-weight: bold;
   color: #ffffff;
 }
+.btn:hover{
+  /* color: black; */
+  background-color:#FFCC66 ;
+  opacity: 1;
+}
