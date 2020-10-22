@@ -158,20 +158,26 @@
         <div class="text-part" style="padding-top: 20px;">
             <h1>Contact</h1>
             <form name="contactForm" method="POST" onsubmit="return contactValidation()">
-                <label for="" style="color: black;">First Name</label>
-                <input type="text" id="firstNae" name="firstName" placeholder="Your name..">
+                <div>
+                    <input type="text" id="firstNae" name="firstName" placeholder="First Name">
+                </div>
             
-                <label for="" style="color: rgb(104, 60, 60);">Last Name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Your last name..">
+                <div>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
 
-                <label for="email" style="color: black;">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your email..">
+                </div>
+                <div>
+                    <input type="email" id="email" name="email" placeholder="Email">
+                </div>
                 
-                <label for="" style="color: black;">Subject</label>
-                <input type="text" id="subject" name="subject" placeholder="Your subject..">
+                <div>
+                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                </div>
                 
-                <label for="" style="color: black;">Message</label>
-                <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
+                
+                <div>
+                    <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
+                </div>
             
                 <input type="submit" value="Submit">
             </form>

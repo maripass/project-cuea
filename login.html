@@ -6,15 +6,17 @@
     <div class="login">
         <h1>Login</h1>
         <form name="loginForm" method="POST" onsubmit="return loginValidation()">
-            <label for="username">
-                <i class="fa fa-user"></i>
-            </label>
+        <div>
             <input type="email" name="userEmail"  id="userEmail" placeholder="Username">
-            <label for="password">
-                <i class="fa fa-lock"></i>
-            </label>
-            <input type="password" name="userPassword" placeholder="Password" id="userPassword">
-            <input type="submit" value="Login">
+        </div>
+            
+            <div>
+                <input type="password" name="userPassword" placeholder="Password" id="userPassword">
+            </div>
+            <div>
+                <input type="submit" value="Login">
+            </div>
+            
         </form>
     </div>
 
