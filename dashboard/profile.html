@@ -36,7 +36,7 @@
     <section>
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form class="profile-validation-form" method="post">
+            <form name="profileForm" method="POST" onsubmit="return profileValidation()">
                 <div style="width: 100%;">
                     <input type="text" name="firstName" placeholder="First Name" id="firstName">
                 </div><br><br><br><br>
@@ -50,10 +50,6 @@
                     <input type="text" name="userEmail" placeholder="Email" id="userEmail">
                 </div><br><br><br><br>
 
-
-                <div style="width: 100%;">
-                    <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
-                </div><br><br><br><br>
 
                 <div style="width: 100%;">
                     <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">

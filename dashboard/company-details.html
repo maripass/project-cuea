@@ -35,7 +35,7 @@
         
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form class="company-details-validation-form" method="post">
+            <form name="companyDetailsForm" method="POST" onsubmit="return companyDetailsValidation()">
                 <div style="width: 100%;">
                     <input type="text" name="firstName" placeholder="First Name" id="firstName">
                 </div><br><br><br><br>
@@ -55,11 +55,11 @@
 
             
                 <div style="width: 100%;">
-                    <input type="text" name="username" placeholder="Address" id="username" required>
+                    <input type="text" name="username" placeholder="Address" id="username">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                  <input type="text" name="CostPerKgWatt" placeholder="cost per kg watt" id="username" required>
+                  <input type="text" name="CostPerKgWatt" placeholder="cost per kg watt" id="username">
                 </div><br><br><br><br>
 
                     <input type="submit" value="Update">
