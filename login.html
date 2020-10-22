@@ -5,7 +5,7 @@
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form name="loginForm" method="POST" onsubmit="return loginValidation()">
+        <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
         <div>
             <input type="email" name="userEmail"  id="userEmail" placeholder="Username">
         </div>
@@ -13,10 +13,8 @@
             <div>
                 <input type="password" name="userPassword" placeholder="Password" id="userPassword">
             </div>
-            <div>
-                <input type="submit" value="Login">
-            </div>
             
+            <input type="submit" value="Login">
         </form>
     </div>
 
