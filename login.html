@@ -1,27 +1,24 @@
 <html>
 <head>
-<title> Login Form Design </title>
+<title> Login || </title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<!-- IMPORT FONT AWSOME -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <body>
-
-
     <div class="login">
         <h1>Login</h1>
-        <form action="./dashboard/index.html" method="post">
+        <form name="loginForm" method="POST" onsubmit="return loginValidation()">
             <label for="username">
                 <i class="fa fa-user"></i>
             </label>
-            <input type="email" name="username" placeholder="Username" id="username" required>
+            <input type="email" name="userEmail"  id="userEmail" placeholder="Username">
             <label for="password">
                 <i class="fa fa-lock"></i>
             </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
+            <input type="password" name="userPassword" placeholder="Password" id="userPassword">
             <input type="submit" value="Login">
         </form>
     </div>
 
+    <script src="js/main.js"></script>
 </body>
 </head>
 </html
