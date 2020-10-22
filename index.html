@@ -157,7 +157,7 @@
     <div class="contact-area" id="Contact" >
         <div class="text-part" style="padding-top: 20px;">
             <h1>Contact</h1>
-            <form class="contact-form" >
+            <form name="contactForm" method="POST" onsubmit="return contactValidation()">
                 <label for="" style="color: black;">First Name</label>
                 <input type="text" id="firstNae" name="firstName" placeholder="Your name..">
             
@@ -221,7 +221,7 @@
         }
     </script>
 
-     
+     <script src="js/validation.js"></script> 
 </body>
 
 </html>
