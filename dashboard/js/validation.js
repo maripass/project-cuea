@@ -1,32 +1,31 @@
 // CompanyDetails INPUT VALIDATION
 function companyDetailsValidation() {
-    var firstName = document.forms["companyDetailsForm"]["Name"].value;
-    var email     = document.forms["companyDetailsForm"]["email"].value;
-    var telephone   = document.forms["companyDetailsForm"]["telephone"].value;
-    var adress   = document.forms["ccompanyDetailsForm"]["adress"].value;
-    var costperkgwatt   = document.forms["companyDetailsForm"]["costperkgwatt"].value;
-    if(Name =='') {
-        alert( " Name is required." );
-        document.companyDetailsForm.firstName.focus() ;
+    var companyName = document.forms["companyDetailsForm"]["companyName"].value;
+    var userEmail     = document.forms["companyDetailsForm"]["userEmail"].value;
+    var phoneNumber   = document.forms["companyDetailsForm"]["phoneNumber"].value;
+    var address   = document.forms["companyDetailsForm"]["address"].value;
+    var CostPerKgWatt   = document.forms["companyDetailsForm"]["CostPerKgWatt"].value;
+    if(companyName =='') {
+        alert("Name is required.");
+        document.companyDetailsForm.companyName.focus() ;
         return false;
-    }  else if(email == '') {
+    } else if(userEmail == '') {
         alert("Email is required.");
-      document.companyDetailsForm.email.focus() ;
+      document.companyDetailsForm.userEmail.focus() ;
        return false;
-   } else if(telephone == '') {
-        alert("telephone is required.");
-      document.companyDetailsForm.telephone.focus() ;
+   } else if(phoneNumber == '') {
+        alert("Telephone is required.");
+      document.companyDetailsForm.phoneNumber.focus() ;
        return false;
-   } else if(adress == '') {
-       alert("adress is required.");
-       document.companyDetailsForm.adress.focus() ;
+   } else if(address == '') {
+       alert("Address is required.");
+       document.companyDetailsForm.address.focus() ;
        return false;
-    }
-    else if(costperkgwatt == '') {
-        alert("costperkgwatt is required.");
-        document.companyDetailsForm.costperkgwatt.focus() ;
+    } else if(CostPerKgWatt == '') {
+        alert("Costperkgwatt is required.");
+        document.companyDetailsForm.CostPerKgWatt.focus() ;
         return false;
-     }
+ }
      
 }
 
@@ -56,6 +55,25 @@ function profileValidation() {
    } else if(userAddress == '') {
        alert("Adress is required.");
        document.profileForm.userAddress.focus() ;
+       return false;
+    }
+}
+// UPDATE-METER-BOX INPUT VALIDATION
+function UpdateMeterBoxValidation() {
+    var user = document.forms["UpdateMeterBoxForm"]["user"].value;
+    var meterBoxActive  = document.forms["UpdateMeterBoxForm"]["meterBoxActive"].value;
+    var electricityActive     = document.forms["UpdateMeterBoxForm"]["electricityActive"].value;
+    if(user =='') {
+        alert( "user is required." );
+        document.UpdateMeterBoxForm.user.focus() ;
+        return false;
+    } else if(meterBoxActive =='') {
+         alert("meterBoxActive is required.");
+       document.UpdateMeterBoxForm.meterBoxActive.focus() ;
+        return false;
+    } else if(electricityActive == '') {
+        alert("electricityActive is required.");
+      document.UpdateMeterBoxForm.electricityActive.focus() ;
        return false;
     }
 }

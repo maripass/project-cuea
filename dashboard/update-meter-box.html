@@ -36,9 +36,9 @@
     <section>
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form class="update-meter-box-validation-form" method="post">
+            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
                 <div style="width: 100%;">
-                    <select name="user" name="user">
+                    <select name="user" >
                         <option value="">Select a user</option>
                         <option value="asas">User 1</option>
                         <option value="asas">User 2</option>
@@ -48,7 +48,7 @@
 
                 
                 <div style="width: 100%;">
-                    <select name="meterBoxActive" name="meterBoxActive">
+                    <select name="meterBoxActive" >
                         <option value="">Active</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -56,7 +56,7 @@
                 </div><br><br><br><br>
                 
                 <div style="width: 100%;">
-                    <select name="electricityActive" name="electricityActive">
+                    <select name="electricityActive" >
                         <option value="">Electricity Active</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
