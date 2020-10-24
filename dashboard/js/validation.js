@@ -77,3 +77,23 @@ function UpdateMeterBoxValidation() {
        return false;
     }
 }
+
+// ADD-METER-BOX INPUT VALIDATION
+function AddMeterBoxValidation() {
+    var user = document.forms["AddMeterBoxForm"]["Select a user"].value;
+    var meterBoxActive  = document.forms["AddMeterBoxForm"]["meterBoxActive"].value;
+    var electricityActive     = document.forms["AddMeterBoxForm"]["electricityActive"].value;
+    if(user =='') {
+        alert( "Select a user is required." );
+        document.AddMeterBoxForm.user.focus() ;
+        return false;
+    } else if(meterBoxActive =='') {
+         alert("meterBoxActive is required.");
+       document.AddMeterBoxForm.meterBoxActive.focus() ;
+        return false;
+    } else if(electricityActive == '') {
+        alert("electricityActive is required.");
+      document.AddMeterBoxForm.electricityActive.focus() ;
+       return false;
+    }
+}
