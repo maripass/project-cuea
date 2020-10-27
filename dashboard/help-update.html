@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>
     <link rel="stylesheet" href="css/style.css">
     
 </head>
 <body>
+
     <input type="checkbox" id="check">
     <label for="check">
         <div id="btn">
@@ -21,8 +23,6 @@
         <ul>
             <li><a href="users.html">Users</a></li>
             <li><a href="meter-box.html">Meter Box</a></li>
-            <li><a href="company-details.html">Company Detail</a></li>
-            <li><a href="admin-activities.html">Admin Activities</a></li>
             <li><a href="consumption.html">Consumption</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -33,41 +33,45 @@
     </div>
     <section class="banner">
         <div class="banner-left">
-            Company details
+            Help
         </div>
     </section>
     <section>
-        
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form name="companyDetailsForm" method="POST" onsubmit="return companyDetailsValidation()">
+            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
                 <div style="width: 100%;">
-                    <input type="text" name="companyName" placeholder="Name" id="companyName">
+                    <select name="user" >
+                        <option value="">Select a user</option>
+                        <option value="asas">User 1</option>
+                        <option value="asas">User 2</option>
+                        <option value="asas">User</option>
+                    </select>
                 </div><br><br><br><br>
 
                 
-
                 <div style="width: 100%;">
-                    <input type="text" name="userEmail" placeholder="Email" id="userEmail">
+                    <select name="meterBoxActive" >
+                        <option value="">Active</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div><br><br><br><br>
-
-
+                
                 <div style="width: 100%;">
-                    <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
+                    <select name="electricityActive" >
+                        <option value="">Electricity Active</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div><br><br><br><br>
-
+                
+                
+                
+                <input type="submit" value="Update Meter box">
             
-                <div style="width: 100%;">
-                    <input type="text" name="address" placeholder="Address" id="address">
-                </div><br><br><br><br>
-
-                <div style="width: 100%;">
-                  <input type="text" name="CostPerKgWatt" placeholder="cost per kg watt" id="CostPerKgWatt">
-                </div><br><br><br><br>
-
-                    <input type="submit" value="Update">
-            
-            
+                    
+                
                 
             </form>
         </div>
@@ -80,5 +84,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
     <!-- import validation page -->
     <script src="js/validation.js"></script>
+    
 </body>
 </html>
