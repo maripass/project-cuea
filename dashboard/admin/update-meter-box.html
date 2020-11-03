@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Meter box</title>
+    <title>Update meta-box</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
+
     <input type="checkbox" id="check">
     <label for="check">
         <div id="btn">
@@ -19,25 +21,27 @@
     <div class="sidebar">
         <header>Dasboard</header>
         <ul>
+            <li><a href="users.html">Users</a></li>
             <li><a href="meter-box.html">Meter Box</a></li>
-            <li><a href="meter-cost.html">Meter Cost</a></li>
             <li><a href="consumption.html">Consumption</a></li>
-            <li><a href="help.html">Help</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="help.html">help</a></li>
             <li><a href="profile.html">Profile</a></li>
             <li><a style="color:white;" href="../index.html">Logout</a></li>
         </ul>
     </div>
     <section class="banner">
         <div class="banner-left">
-            Add Meter box
+            Update Meter box
         </div>
     </section>
     <section>
         <div class="login">
             <!-- <h1>Login</h1> -->
-            <form class="AddMeterBoxForm" method="POST" onsubmit="return AddMeterboxValidation()">
+            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
                 <div style="width: 100%;">
-                    <select name="user" name="user">
+                    <select name="user" >
                         <option value="">Select a user</option>
                         <option value="asas">User 1</option>
                         <option value="asas">User 2</option>
@@ -47,7 +51,7 @@
 
                 
                 <div style="width: 100%;">
-                    <select name="meterBoxActive" name="meterBoxActive">
+                    <select name="meterBoxActive" >
                         <option value="">Active</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -55,7 +59,7 @@
                 </div><br><br><br><br>
                 
                 <div style="width: 100%;">
-                    <select name="electricityActive" name="electricityActive">
+                    <select name="electricityActive" >
                         <option value="">Electricity Active</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
@@ -63,9 +67,11 @@
                 </div><br><br><br><br>
                 
                 
-                <input type="submit" value="Create Meter box">
+                
+                <input type="submit" value="Update Meter box">
             
-            
+                    
+                
                 
             </form>
         </div>
