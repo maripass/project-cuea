@@ -2,7 +2,6 @@
 function loginValidation() {
     var userEmail = document.forms["loginForm"]["userEmail"].value;
     var userPassword = document.forms["loginForm"]["userPassword"].value;
-    var emailFilter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     if(userEmail =='') {
         alert( "Email is required." );
         document.loginForm.userEmail.focus() ;
@@ -11,12 +10,39 @@ function loginValidation() {
         alert("Password is required.");
         document.loginForm.userPassword.focus() ;
         return false;
-    } else if(!emailFilter.test(userEmail)){
-        alert( "Enter valid email." );
-        document.loginForm.userEmail.focus() ;
+    }
+}
+
+
+// FORGOT PASSWORD INPUT VALIDATION
+function forgotPasswordValidation() {
+    var userEmail = document.forms["forgotPasswordForm"]["userEmail"].value;
+    if(userEmail =='') {
+        alert( "Email is required." );
+        document.forgotPasswordForm.userEmail.focus() ;
         return false;
     }
 }
+
+
+// CREATE ACCOUNT INPUT VALIDATION
+function createAccountValidation() {
+    var userEmail    = document.forms["createAccountForm"]["firstName"].value;
+    var userPassword = document.forms["createAccountForm"]["lastName"].value;
+    var userPassword = document.forms["createAccountForm"]["userEmail"].value;
+    var userPassword = document.forms["createAccountForm"]["userPassword"].value;
+    var userPassword = document.forms["createAccountForm"]["confirmUserPassword"].value;
+    if(userEmail =='') {
+        alert( "Email is required." );
+        document.createAccountForm.userEmail.focus() ;
+        return false;
+    } else if(userPassword=='') {
+        alert("Password is required.");
+        document.createAccountForm.userPassword.focus() ;
+        return false;
+    }
+}
+
 
 // CONTACT INPUT VALIDATION
 function contactValidation() {
