@@ -27,18 +27,39 @@ function forgotPasswordValidation() {
 
 // CREATE ACCOUNT INPUT VALIDATION
 function createAccountValidation() {
-    var userEmail    = document.forms["createAccountForm"]["firstName"].value;
-    var userPassword = document.forms["createAccountForm"]["lastName"].value;
-    var userPassword = document.forms["createAccountForm"]["userEmail"].value;
+    var firstName    = document.forms["createAccountForm"]["firstName"].value;
+    var lastName     = document.forms["createAccountForm"]["lastName"].value;
+    var userEmail    = document.forms["createAccountForm"]["userEmail"].value;
     var userPassword = document.forms["createAccountForm"]["userPassword"].value;
-    var userPassword = document.forms["createAccountForm"]["confirmUserPassword"].value;
-    if(userEmail =='') {
-        alert( "Email is required." );
+    var confirmUserPassword = document.forms["createAccountForm"]["confirmUserPassword"].value;
+    if(firstName =='') {
+        alert( "First Name is required." );
+        document.createAccountForm.firstName.focus() ;
+        return false;
+    } else if(lastName=='') {
+        alert("Last Name is required.");
+        document.createAccountForm.lastName.focus() ;
+        return false;
+    } else if(userEmail=='') {
+        alert("Email is required.");
         document.createAccountForm.userEmail.focus() ;
         return false;
     } else if(userPassword=='') {
         alert("Password is required.");
         document.createAccountForm.userPassword.focus() ;
+        return false;
+    }
+    else if(userPassword.length < 6) {
+        alert("Password should be greater than 6 characters.");
+        document.createAccountForm.userPassword.focus() ;
+        return false;
+    } else if(confirmUserPassword=='') {
+        alert("Confirm Password is required.");
+        document.createAccountForm.confirmUserPassword.focus() ;
+        return false;
+    } else if(userPassword != confirmUserPassword) {
+        alert("Passwords do not match.");
+        document.createAccountForm.confirmUserPassword.focus() ;
         return false;
     }
 }
