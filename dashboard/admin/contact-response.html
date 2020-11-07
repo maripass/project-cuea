@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user-add</title>
+    <title>Update Contact</title>
     <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
+
     <input type="checkbox" id="check">
     <label for="check">
         <div id="btn">
@@ -33,42 +35,46 @@
     </div>
     <section class="banner">
         <div class="banner-left">
-            Add User
+            Contact Response
         </div>
     </section>
     <section>
-        <div class="login">
-            <!-- <h1>Login</h1> -->
-            <div class="login">
-                <!-- <h1>Login</h1> -->
-                <form class="add-user-validation-form" method="post">
-                    <div style="width: 100%;">
-                        <input type="text" name="firstName" placeholder="First Name" id="firstName">
-                    </div><br><br><br><br>
+        <br><br>
+        <div style="width: 50%;margin-left: 25%;">
+            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+                <div>
+                    <input type="text" name="" id="" placeholder="First Name">
+                </div><br>
 
-                    <div style="width: 100%;">
-                        <input type="email" name="lastName" placeholder="Last Name" id="lastName">
-                    </div><br><br><br><br>
-    
-                    <div style="width: 100%;">
-                        <input type="text" name="userEmail" placeholder="Email" id="userEmail">
-                    </div><br><br><br><br>
-    
+                <div>
+                    <input type="text" name="" id="" placeholder="Last Name">
+                </div><br>
 
-                    <div style="width: 100%;">
-                        <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
-                    </div><br><br><br><br>
-    
+                <div>
+                    <input type="text" name="" id="" placeholder="Email Address">
+                </div><br>
+
+                <div>
+                    <input type="text" name="" id="" placeholder="Subject">
+                </div><br>
+
+                <div>
+                    <textarea name="" id="" style="height: 200px;" placeholder="Message"></textarea>
+                </div>
                 
-                    <div style="width: 100%;">
-                        <input type="text" name="username" placeholder="Address" id="username" required>
-                    </div><br><br><br><br>
-                    
-                        <input type="submit" value="Create User">
-            
-                    
-                </label>
+            </form>
+        </div>
+
+        
+        <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
+            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+                <div>
+                    <textarea name="" id="" style="height: 100px;" placeholder="Respond to the message"></textarea>
+                </div>
                 
+                <div style="margin-right: -30px;">
+                    <input type="submit" value="Send">
+                </div>
             </form>
         </div>
     </section>
