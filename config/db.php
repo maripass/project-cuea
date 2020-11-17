@@ -31,12 +31,11 @@ if(isset($_POST['createNewUser'])){
     }
     
     if(count($errors) ==0 ){
-        $userPasswordh= crypt($userPassword, "salt@.com");
-        // echo $userPasswordh;
-        $creatUserQuery="INSERT INTO user (firstName,lastName,userEmail,userPassword) VALUES('$firstName', '$lastName','$userEmail','$userPassword')";
-        $CreateUserlResult=mysqli_query($con, $creatUserQuery);
+        $userPasswordh= crypt($userPassword, "salt@#.com");
+        $creatUserQuery="INSERT INTO user (firstName,lastName,userEmail,userPassword) VALUES('$firstName', '$lastName','$userEmail','$userPasswordh')";
+        mysqli_query($con, $creatUserQuery);
         $_SESSION['success'] = "Account created successfully";
-        header('Lacotion:login.php;');
+        header('Location: login.php');
     }
 }
 
