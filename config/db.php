@@ -19,9 +19,25 @@ if(isset($_POST['createNewUser'])){
     $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
     $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
     $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
-    $confirmUserPassword= mysqli_real_escape_string($con, $_POST['confirmUserPassword']);
-    echo $lastName ." ".$userEmail ." ". $userPassword;
+    // echo $lastName ." ".$userEmail ." ". $userPassword;
+
+    $checkEmailQuery="SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";
+    $checkEmailResult=mysqli_query($con,$checkEmailQuery);
+    $user=mysqli_fetch_assoc($checkEmailResult);
+    if($user) {
+        if($user['$userEmail'] ==$userEmail ){
+            array_push($errors, "Email already exists.");
+        }
+    }
     
+    if(count($errors) ==0 ){
+        $userPasswordh= crypt($userPassword, "salt@.com");
+        // echo $userPasswordh;
+        $creatUserQuery="INSERT INTO user (firstName,lastName,userEmail,userPassword) VALUES('$firstName', '$lastName','$userEmail','$userPassword')";
+        $CreateUserlResult=mysqli_query($con, $creatUserQuery);
+        $_SESSION['success'] = "Account created successfully";
+        header('Lacotion:login.php;');
+    }
 }
 
 
