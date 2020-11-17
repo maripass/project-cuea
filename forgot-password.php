@@ -5,7 +5,7 @@
 <body>
     <div class="login">
         <h1>Reset Password</h1>
-        <form name="forgotPasswordForm" method="POST" onsubmit="return forgotPasswordValidation()" action="dashboard/index.html">
+        <form name="forgotPasswordForm" method="POST" onsubmit="return forgotPasswordValidation()" >
             <div>
                 <input type="email" name="userEmail"  id="userEmail" placeholder="Email Address">
             </div>
@@ -14,7 +14,7 @@
                 <input type="submit" value="Reset Password">
             </div>
 
-            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="login.html">Do you remember your password? Login</a>
+            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="login.php">Do you remember your password? Login</a>
         </form>
     </div>
 

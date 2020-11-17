@@ -5,7 +5,7 @@
 <body>
     <div class="login">
         <h1>Create Account</h1>
-        <form name="createAccountForm" method="POST" onsubmit="return createAccountValidation()" action="dashboard/index.html">
+        <form name="createAccountForm" method="POST" onsubmit="return createAccountValidation()">
             <div>
                 <input type="text" name="firstName"  id="firstName" placeholder="First Name">
             </div>
@@ -31,7 +31,7 @@
                 <input type="submit" value="Create Account">
             </div>
 
-            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="login.html">Already have an account? Login</a>
+            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="login.php">Already have an account? Login</a>
         </form>
     </div>
 

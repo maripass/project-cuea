@@ -1,3 +1,8 @@
+<?php
+require_once('config/db.php');
+
+?>
+
 <html>
 <head>
 <title> Login || </title>
@@ -5,7 +10,7 @@
 <body>
     <div class="login">
         <h1>Login</h1>
-        <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+        <form name="loginForm" method="POST" onsubmit="return loginValidation()">
         <div>
             <input type="email" name="userEmail"  id="userEmail" placeholder="Email Address">
         </div>
@@ -14,13 +19,13 @@
                 <input type="password" name="userPassword" placeholder="Password" id="userPassword">
             </div>
 
-            <div style="margin-left: 190px;"><a href="forgot-password.html">Forgot Password?</a></div>
+            <div style="margin-left: 190px;"><a href="forgot-password.php">Forgot Password?</a></div>
             
             <div style="margin-left: 45px; margin-right: 45px; width: 100%;">
                 <input type="submit" value="Login">
             </div>
 
-            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="create-account.html">Don't have an account? Create Account</a>
+            <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="create-account.php">Don't have an account? Create Account</a>
         </form>
     </div>
 
