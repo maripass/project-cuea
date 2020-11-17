@@ -16,11 +16,12 @@ die("connection failed: ".mysqli_connect_error());
 //create new user
 if(isset($_POST['createNewUser'])){
     $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
-    // $lastName=
-    // $userEmail=
-    // $userPassword=
-    // $confirmUserPassword=
-    echo $firstName;
+    $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+    $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+    $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
+    $confirmUserPassword= mysqli_real_escape_string($con, $_POST['confirmUserPassword']);
+    echo $lastName ." ".$userEmail ." ". $userPassword;
+    
 }
 
 
