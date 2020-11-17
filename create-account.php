@@ -1,3 +1,9 @@
+
+
+<?php
+require_once('config/db.php');
+
+?>
 <html>
 <head>
 <title> Login || </title>
@@ -28,7 +34,7 @@
 
             
             <div style="margin-left: 45px; margin-right: 45px; width: 100%;">
-                <input type="submit" value="Create Account">
+                <input type="submit" value="Create Account" name="createNewUser">
             </div>
 
             <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="login.php">Already have an account? Login</a>
