@@ -22,7 +22,7 @@ require_once('config/db.php');
             <div style="margin-left: 190px;"><a href="forgot-password.php">Forgot Password?</a></div>
             
             <div style="margin-left: 45px; margin-right: 45px; width: 100%;">
-                <input type="submit" value="Login">
+                <input type="submit" value="Login"  name="UserLogin">
             </div>
 
             <a style="margin-bottom: 25px; margin-top: 25px; text-decoration: none;" href="create-account.php">Don't have an account? Create Account</a>

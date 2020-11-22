@@ -39,6 +39,20 @@ if(isset($_POST['createNewUser'])){
     }
 }
 
+//User Login
+if(isset($_POST['UserLogin'])){
+    $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+    // $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+    // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+    // $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
+    // echo $lastName ." ".$userEmail ." ". $userPassword;
+
+    echo $userEmail;
+}
+
+
+
+
 
 
 
