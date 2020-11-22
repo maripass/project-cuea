@@ -12,7 +12,17 @@ require_once('config/db.php');
         <h1>Login</h1>
         <form name="loginForm" method="POST" onsubmit="return loginValidation()">
         <div>
-            <input type="email" name="userEmail"  id="userEmail" placeholder="Email Address">
+            <?php
+            include("errors.php");
+            ?><br>
+        </div>
+        <div>
+            <?php
+            include("success.php");
+            ?><br>
+        </div>
+        <div>
+            <input type="email" name="userEmail" id="userEmail" placeholder="Email Address">
         </div>
             
             <div>

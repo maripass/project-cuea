@@ -43,11 +43,25 @@ if(isset($_POST['createNewUser'])){
 if(isset($_POST['UserLogin'])){
     $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
     $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
-    // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
-    // $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
-    // echo $lastName ." ".$userEmail ." ". $userPassword;
+    $userPasswordh= crypt($userPassword, "salt@#.com");
 
-    echo $userPassword;
+    $query="SELECT * FROM user WHERE userEmail='$userEmail' AND userPassword='$userPasswordh' LIMIT 1";
+    $result=mysqli_query($con, $query);
+    if(mysqli_num_rows($result) == 1){
+        $userData=mysqli_fetch_assoc($result);
+        if($userData['isAdmin'] == 1){
+            $_SESSION['isAdmin'] = $userData['isAdmin'];
+            $_SESSION['userId'] = $userData['userId'];
+            $_SESSION['userEmail'] = $userData['userEmail'];
+            header('Location: dashboard/admin/index.php');
+        } else {
+            $_SESSION['userId'] = $userData['userId'];
+            $_SESSION['userEmail'] = $userData['userEmail'];
+            header('Location: dashboard/index.php');
+        }
+    } else {
+        array_push($errors,"Wrong email/password combination.");
+    }
 }
 
 
