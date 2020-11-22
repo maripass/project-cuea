@@ -29,7 +29,7 @@
             <li><a href="help.html">Help</a></li>
             <li><a href="news-letter.html">Newsletter</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a style="color:red;" href="../index.html">Logout</a></li>
+            <li><a style="color:red;" href="../../logout.php">Logout</a></li>
         </ul>
     </div>
 
