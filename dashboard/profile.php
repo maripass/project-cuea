@@ -56,30 +56,41 @@
         <div class="login">
             <!-- <h1>Login</h1> -->
             <form name="profileForm" method="POST" onsubmit="return profileValidation()">
+
+            <div>
+            <?php
+            include("../errors.php");
+            ?><br>
+        </div>
+        <div>
+            <?php
+            include("../success.php");
+            ?><br>
+        </div>
                 <div style="width: 100%;">
-                    <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                    <input type="text" value="<?php echo $profileData['firstName'] ?>" name="firstName" placeholder="First Name" id="firstName">
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" name="lastName" placeholder="Last Name" id="lastName">
+                    <input type="text" value="<?php echo $profileData['lastName'] ?>" name="lastName" placeholder="Last Name" id="lastName">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="email" name="userEmail" placeholder="Email" id="userEmail">
-                </div><br><br><br><br>
-
-
-                <div style="width: 100%;">
-                    <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
+                    <input type="email" value="<?php echo $profileData['userEmail'] ?>" name="userEmail" placeholder="Email" id="userEmail">
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" name="userAddress" placeholder="Address" id="userAddress">
+                    <input type="text" value="" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
                 </div><br><br><br><br>
 
-                <input type="submit" value="Update Profile">
+
+                <div style="width: 100%;">
+                    <input type="text" value="" name="userAddress" placeholder="Address" id="userAddress">
+                </div><br><br><br><br>
+
+                <input type="submit" value="Update Profile" name="updateProfile">
             <button class="btn">Change password</button> <button class="btn" style="background-color: red;margin-left:130px;">Delete account</button>
                     
                 </label>

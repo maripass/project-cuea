@@ -65,7 +65,15 @@ if(isset($_POST['UserLogin'])){
 }
 
 
-
+//create new user
+if(isset($_POST['updateProfile'])){
+    // $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
+    // $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+    // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+    // $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
+    // echo $lastName ." ".$userEmail ." ". $userPassword;
+ echo "it works";
+}
 
 
 

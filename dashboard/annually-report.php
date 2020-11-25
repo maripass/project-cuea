@@ -1,3 +1,11 @@
+<?php 
+	require_once('../config/db.php');
+	
+	if (!isset($_SESSION['userId'])) {
+		header('location: ../login.php');
+  }
+  
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
