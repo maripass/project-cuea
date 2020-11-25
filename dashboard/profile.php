@@ -1,9 +1,20 @@
 <?php 
-    require_once("config/db.php");
-    if(!isset($_SESSION['userId'])){
-        header('location: ../login.php')
-    
+	require_once('../config/db.php');
+	
+	if (!isset($_SESSION['userId'])) {
+		header('location: ../login.php');
+	}
+	
+	$userId = $_SESSION['userId'];
+	$query   = "SELECT * FROM user WHERE userId = '$userId'";
+	$results = mysqli_query($con, $query);
+	if (mysqli_num_rows($results) == 1) {
+		$profileData = $results->fetch_assoc();		
+	}
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
