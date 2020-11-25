@@ -3,7 +3,8 @@
 	require_once('../config/db.php');
 	
 	if (!isset($_SESSION['userId'])) {
-		header('location: ../login.php');
+        header('location: ../login.php');
+        echo "it works";
   }
   
   ?>
