@@ -1,3 +1,10 @@
+<?php 
+    require_once("config/db.php");
+    if(!isset($_SESSION['userId'])){
+        header('location: ../login.php')
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -19,12 +26,12 @@
     <div class="sidebar">
         <header>Dasboard</header>
         <ul>
-            <li><a href="meter-box.html">Meter Box</a></li>
-            <li><a href="monthly-report.html">Monthly Report</a></li>
-            <li><a href="annually-report.html">Annually Report</a></li>
-            <li><a href="help.html">Help</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a style="color:red;" href="../index.html">Logout</a></li>
+            <li><a href="meter-box.php">Meter Box</a></li>
+            <li><a href="monthly-report.php">Monthly Report</a></li>
+            <li><a href="annually-report.php">Annually Report</a></li>
+            <li><a href="help.php">Help</a></li>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a style="color:red;" href="../logout.php">Logout</a></li>
         </ul>
     </div>
 
