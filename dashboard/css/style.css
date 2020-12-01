@@ -9,6 +9,9 @@ body {
     text-decoration: none;
 
 }
+.success {
+    color: green;
+}
 .sidebar{
     position: fixed;
     left: -250px;

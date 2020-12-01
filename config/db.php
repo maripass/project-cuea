@@ -71,10 +71,17 @@ if(isset($_POST['updateProfile'])){
     $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
     $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
     $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
-    $Telephone= mysqli_real_escape_string($con, $_POST['Telephone']);
-    $Address= mysqli_real_escape_string($con, $_POST['Address']);
-    echo $lastName ." ".$userEmail ." ". $userPassword;
- echo "it works";
+    $Telephone= mysqli_real_escape_string($con, $_POST['phoneNumber']);
+    $Address= mysqli_real_escape_string($con, $_POST['userAddress']);
+    $userId= $_SESSION['userId'];
+    
+    $query="UPDATE user SET firstName='$firstName', lastName='$lastName', userEmail='$userEmail', telephone='$Telephone', address='$Address' WHERE userId='$userId'";
+    $result=mysqli_query($con, $query);
+    if($result){
+        $_SESSION['success'] = "Profile updated successfully";
+    } else{
+        array_push($errors,"Could not update.");
+    }
 }
 
 

@@ -37,7 +37,6 @@
     <div class="sidebar">
         <header>Dasboard</header>
         <ul>
-           <li><a href="consumption.php">Consumption</a></li>
             <li><a href="meter-box.php">Meter Box</a></li>
             <li><a href="monthly-report.php">Monthly Report</a></li>
             <li><a href="annually-report.php">Annually Report</a></li>
@@ -63,7 +62,7 @@
             include("../errors.php");
             ?><br>
         </div>
-        <div>
+        <div style="color:green;">
             <?php
             include("../success.php");
             ?><br>
