@@ -13,6 +13,7 @@ if(!$con){
 die("connection failed: ".mysqli_connect_error());
 }
 
+
 //create new user
 if(isset($_POST['createNewUser'])){
     $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
@@ -67,11 +68,12 @@ if(isset($_POST['UserLogin'])){
 
 //create new user
 if(isset($_POST['updateProfile'])){
-    // $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
-    // $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
-    // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
-    // $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
-    // echo $lastName ." ".$userEmail ." ". $userPassword;
+    $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
+    $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+    $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+    $Telephone= mysqli_real_escape_string($con, $_POST['Telephone']);
+    $Address= mysqli_real_escape_string($con, $_POST['Address']);
+    echo $lastName ." ".$userEmail ." ". $userPassword;
  echo "it works";
 }
 
