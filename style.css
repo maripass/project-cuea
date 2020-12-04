@@ -58,6 +58,16 @@ body{
      -webkit-background-size: cover;
      background-size: cover;
  }
+ .other-banner-area{
+  position: relative;
+  background-image: url(images/image.jpg);
+  width: 100%;
+  padding-top: 100px;
+  height: 200px;
+  background-repeat:no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
  .about-area, .service-area, .blog-area, .contact-area, .faq-area{
      position: relative;
      display: flex;
