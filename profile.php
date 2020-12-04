@@ -1,8 +1,8 @@
 <?php 
-	require_once('../config/db.php');
+	require_once('config/db.php');
 	
 	if (!isset($_SESSION['userId'])) {
-		header('location: ../login.php');
+		header('location: login.php');
 	}
 	
 	$userId = $_SESSION['userId'];
@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     
 </head>
 <body>
@@ -42,7 +42,7 @@
             <li><a href="annually-report.php">Annually Report</a></li>
             <li><a href="help.php">Help</a></li>
             <li><a href="profile.php">Profile</a></li>
-            <li><a style="color:red;" href="../logout.php">Logout</a></li>
+            <li><a style="color:red;" href="logout.php">Logout</a></li>
         </ul>
     </div>
 
@@ -59,22 +59,22 @@
 
             <div>
             <?php
-            include("../errors.php");
+            include("errors.php");
             ?><br>
         </div>
         <style>
             .success {
-	padding: 0px 2px;
-    border: 1px solid #3c763d;
-    color: #3c763d; 
-    background: #dff0d8; 
-    font-size: 14px;
-	text-align: center;
-}
+                padding: 0px 2px;
+                border: 1px solid #3c763d;
+                color: #3c763d; 
+                background: #dff0d8; 
+                font-size: 14px;
+                text-align: center;
+            }
         </style>
         <div>
             <?php
-            include("../success.php");
+            include("success.php");
             ?><br>
         </div>
                 <div style="width: 100%;">
@@ -114,9 +114,7 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <!-- import validation page -->
-    <script src="js/validation.js"></script>
+    <script src="js/dashboard-validation"></script>
 
 </body>
 </html>

@@ -54,11 +54,11 @@ if(isset($_POST['UserLogin'])){
             $_SESSION['isAdmin'] = $userData['isAdmin'];
             $_SESSION['userId'] = $userData['userId'];
             $_SESSION['userEmail'] = $userData['userEmail'];
-            header('Location: dashboard/admin/index.php');
+            header('Location: admin/index.php');
         } else {
             $_SESSION['userId'] = $userData['userId'];
             $_SESSION['userEmail'] = $userData['userEmail'];
-            header('Location: dashboard/index.php');
+            header('Location: dashboard-index.php');
         }
     } else {
         array_push($errors,"Wrong email/password combination.");

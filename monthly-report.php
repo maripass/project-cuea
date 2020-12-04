@@ -1,9 +1,9 @@
 
 <?php 
-	require_once('../config/db.php');
+	require_once('config/db.php');
 	
 	if (!isset($_SESSION['userId'])) {
-		header('location: ../login.php');
+		header('location: login.php');
   }
   
   ?>
@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     
 </head>
 <body>
@@ -34,7 +34,7 @@
             <li><a href="annually-report.php">Annually Report</a></li>
             <li><a href="help.php">Help</a></li>
             <li><a href="profile.php">Profile</a></li>
-            <li><a style="color:red;" href="../logout.php">Logout</a></li>
+            <li><a style="color:red;" href="logout.php">Logout</a></li>
         </ul>
   </div>
 
