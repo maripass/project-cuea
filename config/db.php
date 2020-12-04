@@ -89,16 +89,17 @@ if(isset($_POST['ContactSubmit'])){
     $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
     $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
     $email= mysqli_real_escape_string($con, $_POST['email']);
+    $telephone= mysqli_real_escape_string($con, $_POST['telephone']);
     $subject= mysqli_real_escape_string($con, $_POST['subject']);
     $message= mysqli_real_escape_string($con, $_POST['message']);
     
     
-    $query="UPDATE user SET firstName='$firstName', lastName='$lastName', userEmail='$userEmail', telephone='$Telephone', address='$Address' WHERE userId='$userId'";
+    $query="INSERT INTO contact (firstName,lastName,email,subject,telephone,message) VALUES('$firstName', '$lastName','$email', '$subject','$telephone','$message')";
     $result=mysqli_query($con, $query);
     if($result){
-        $_SESSION['success'] = "Profile updated successfully";
+        $_SESSION['success'] = "your message has been sent successfully. we will get back to you as soon as possible";
     } else{
-        array_push($errors,"Could not update.");
+        array_push($errors,"error connection fail. $query");
     }
 }
 

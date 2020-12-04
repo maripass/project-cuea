@@ -35,6 +35,26 @@
         <div class="text-part" style="padding-top: 20px;">
             
             <form name="contactForm" method="POST" onsubmit="return contactValidation()">
+            <div>
+            <?php
+            include("errors.php");
+            ?><br>
+        </div>
+        <style>
+            .success {
+	padding: 0px 2px;
+    border: 1px solid #3c763d;
+    color: #3c763d; 
+    background: #dff0d8; 
+    font-size: 14px;
+	text-align: center;
+}
+        </style>
+        <div>
+            <?php
+            include("success.php");
+            ?><br>
+        </div>
                 <div>
                     <input type="text" id="firstNae" name="firstName" placeholder="First Name">
                 </div>
@@ -46,6 +66,10 @@
                 <div>
                     <input type="email" id="email" name="email" placeholder="Email">
                 </div>
+                <div>
+                    <input type="text" id="telephone" name="telephone" placeholder="Phone Number">
+                </div>
+                        
                 
                 <div>
                     <input type="text" id="subject" name="subject" placeholder="Subject">

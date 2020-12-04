@@ -70,6 +70,7 @@ function contactValidation() {
     var firstName = document.forms["contactForm"]["firstName"].value;
     var lastName  = document.forms["contactForm"]["lastName"].value;
     var email     = document.forms["contactForm"]["email"].value;
+    var telephone     = document.forms["contactForm"]["telephone"].value;
     var subject   = document.forms["contactForm"]["subject"].value;
     var message   = document.forms["contactForm"]["message"].value;
     if(firstName =='') {
@@ -84,7 +85,11 @@ function contactValidation() {
         alert("Email is required.");
       document.contactForm.email.focus() ;
        return false;
-   } else if(subject == '') {
+   } else if(telephone == '') {
+        alert("Telephone is required.");
+        document.contactForm.telephone.focus() ;
+        return false;
+    } else if(subject == '') {
         alert("Subject is required.");
       document.contactForm.subject.focus() ;
        return false;
