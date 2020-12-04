@@ -1,3 +1,7 @@
+<?php 
+	require_once('config/db.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +56,7 @@
                     <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
                 </div>
             
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" name="ContactSubmit">
             </form>
 
         </div>
