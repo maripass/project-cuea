@@ -33,21 +33,11 @@
                 libero at accusantium asperiores
                 repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
+            
             </p>
+            <div style="text-align: center;">
+                <button class="btn">Read More</button>
+            </div>
         </div>
     </div>
     <div class="service-area" id="Services">
@@ -77,41 +67,7 @@
         </div> 
     </div>
 
-    <div class="faq-area" id="FAQ">
-        <div class="text-part" style="margin-bottom: 25px;">
-            <h1>FAQ</h1>
-
-            <button class="accordion">Section 1</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 2</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 3</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <button class="accordion">Section 4</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 5</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 6</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-        </div>
-    </div>
+    
 
 
     <!-- BLOG  -->
@@ -155,36 +111,7 @@
 
       
 
-    <div class="contact-area" id="Contact" >
-        <div class="text-part" style="padding-top: 20px;">
-            <h1>Contact</h1>
-            <form name="contactForm" method="POST" onsubmit="return contactValidation()">
-                <div>
-                    <input type="text" id="firstNae" name="firstName" placeholder="First Name">
-                </div>
-            
-                <div>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
 
-                </div>
-                <div>
-                    <input type="email" id="email" name="email" placeholder="Email">
-                </div>
-                
-                <div>
-                    <input type="text" id="subject" name="subject" placeholder="Subject">
-                </div>
-                
-                
-                <div>
-                    <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
-                </div>
-            
-                <input type="submit" value="Submit">
-            </form>
-
-        </div>
-    </div>
     
     <footer>
         <p style="color:white;"> 

@@ -23,65 +23,15 @@
         </ul>
     </div>
     <div class="other-banner-area">
-        <h1 style="margin-top:100px; text-align: center;">About</h1>
+        <h1 style="margin-top:100px; text-align: center;">FAQ</h1>
     </div>
 
-    <div class="about-area" id="About">
-        <div class="text-part">
-            <h1>About</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
+    
+    
 
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-            </p>
-        </div>
-    </div>
-    <div class="service-area" id="Services">
-        <div class="text-part">
-            <h1>Services</h1>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-            </p>
-        </div> 
-    </div>
-
-    <div class="faq-area" id="FAQ">
+    <div class="faq-area" id="FAQ" style="margin-top:30px;">
         <div class="text-part" style="margin-bottom: 25px;">
-            <h1>FAQ</h1>
+           
 
             <button class="accordion">Section 1</button>
             <div class="panel">
@@ -115,79 +65,6 @@
         </div>
     </div>
 
-
-    <!-- BLOG  -->
-    <div class="blog-area" id="Blog">
-        <div class="text-part" style="margin-bottom: 25px;">
-            <h1>BLOG</h1>
-            <div class="blog-content" > 
-                <div class="blog-image">
-                    <img src="images/image.jpg" style="width: 250px;height: 200px;" alt="">
-                </div>
-                <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                    <div style=" font-size: 22px;">Blog Name Here</div></br>
-                    <div>
-                        Description Here Description Here Description Here Description Here
-                        Description Here Description Here Description Here Description Here
-                    </div>
-                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;">Date: 10/10/2020</div>
-                </div>
-            </div>
-        </br>
-            <div class="blog-content" > 
-                <div class="blog-image">
-                    <img src="images/image.jpg" style="width: 250px;height: 200px;" alt="">
-                </div>
-                <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                    <div style=" font-size: 22px;">Blog Name Here</div></br>
-                    <div>
-                        Description Here Description Here Description Here Description Here
-                        Description Here Description Here Description Here Description Here
-                    </div>
-                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;">Date: 10/10/2020</div>
-                </div>
-            </div>
-
-            
-            <div style="text-align: center;">
-                <button class="btn">View More</button>
-            </div>
-        </div>
-    </div>
-
-      
-
-    <div class="contact-area" id="Contact" >
-        <div class="text-part" style="padding-top: 20px;">
-            <h1>Contact</h1>
-            <form name="contactForm" method="POST" onsubmit="return contactValidation()">
-                <div>
-                    <input type="text" id="firstNae" name="firstName" placeholder="First Name">
-                </div>
-            
-                <div>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name">
-
-                </div>
-                <div>
-                    <input type="email" id="email" name="email" placeholder="Email">
-                </div>
-                
-                <div>
-                    <input type="text" id="subject" name="subject" placeholder="Subject">
-                </div>
-                
-                
-                <div>
-                    <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
-                </div>
-            
-                <input type="submit" value="Submit">
-            </form>
-
-        </div>
-    </div>
-    
     <footer>
         <p style="color:white;"> 
             Subcribe to our newsletter
