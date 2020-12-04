@@ -13,7 +13,7 @@
         <a href="" class="logo">EBMS</a>
         <ul class="nav">
             <li><a href="#Home">Home</a></li>
-            <li><a href="#About">About</a></li>
+            <li><a href="about.php">About</a></li>
             <li><a href="#Services">Services</a></li>
             <li><a href="#FAQ">FAQ</a></li>
             <li><a href="#Blog">Blog</a></li>
