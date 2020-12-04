@@ -60,10 +60,10 @@ body{
  }
  .other-banner-area{
   position: relative;
-  background-image: url(images/image.jpg);
+  background-image: url(images/other-banner.jpeg);
   width: 100%;
   padding-top: 100px;
-  height: 200px;
+  height: 250px;
   background-repeat:no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
