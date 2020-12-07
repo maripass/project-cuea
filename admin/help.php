@@ -1,3 +1,12 @@
+<?php 
+	require_once('query/query.php');
+	
+	if (!isset($_SESSION['userId'])) {
+        header('location: login.php');
+
+    }
+  
+  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
