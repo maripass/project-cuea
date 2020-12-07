@@ -30,13 +30,26 @@
         
         
         <div style="width: 50%; margin: auto;">
-            <div style="float: right; right: 0px; background-color: #3274d6; width: 70%; padding: 10px; margin: 10px -25px 0 0;">
-                <div style="margin-bottom: 10px; font-size: 20px;">Me</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim qui ullam soluta asperiores architecto molestiae aperiam dolore doloremque sapiente iusto ducimus iste ratione, mollitia rem, id harum laborum expedita!
-                </div>
-            </div>
-    
+        <?php 
+            $userId=$_SESSION['userId'];
+            $query="SELECT * FROM help WHERE userId='$userId'";
+            $result=mysqli_query($con, $query);
+            if(mysqli_num_rows($result) > 0){
+                while($row= $result->fetch_assoc()) {
+                    ?>
+                    <div style="float: right; right: 0px; background-color: #3274d6; width: 70%; padding: 10px; margin: 10px -25px 0 0;">
+                        <div style="margin-bottom: 10px; font-size: 20px;">Me</div>
+                        <div>
+                        <?php echo $row['message'] ?>
+                        </div>
+                    </div>
+                <?php
+                }
+                
+            }
+        
+
+            ?>
             <div style="float: left; left: 0px; background-color: #dcdcdc; width: 70%; padding: 10px; margin: 10px 0 0 0px;">
                 <div style="margin-bottom: 10px; font-size: 20px;">Admin</div>
                 <div>
