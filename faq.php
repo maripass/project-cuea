@@ -33,9 +33,9 @@
         <div class="text-part" style="margin-bottom: 25px;">
            
 
-            <button class="accordion">Section 1</button>
+            <button class="accordion">Can I check my bill online?</button>
             <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Yes. You can view your bill on My Vodafone. When your latest bill is available online, we will send you a notification text and email. Please ensure you have a valid email address recorded in your personal details on My Vodafone. </p>
             </div>
 
             <button class="accordion">Section 2</button>

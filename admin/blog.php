@@ -49,18 +49,18 @@
         <table id="customers">
             <tr>
                 <th>Name</th>
-                <th>Categary</th>
+                <th>Category</th>
                 <th>Date</th>
             </tr>
             <tr onclick="window.location.href='blog-update.html'">
                 <td>Name1</td>
-                <td>Categary1</td>
+                <td>Category1</td>
                 <td>20-21-2014</td>
         
             </tr>
             <tr onclick="window.location.href='blog-update.html'">
                 <td>Name2</td>
-                <td>Categary2</td>
+                <td>Category2</td>
                 <td>21-12-2015</td>
                 
             </tr>

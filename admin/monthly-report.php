@@ -35,7 +35,7 @@
 
     <section class="banner">
         <div class="banner-left">
-          Annually Report
+          Monthly Report
         </div>
     </section>
     <section>
