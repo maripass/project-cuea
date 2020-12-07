@@ -19,7 +19,7 @@
 </head>
 
 <body>
-   <!-- <?php include('header.php'); ?> -->
+   <?php include('header.php'); ?>
 
     <section class="banner">
         <div class="banner-left">
@@ -46,13 +46,14 @@
         </div>
 
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
-            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+            <form name="loginForm" method="POST" onsubmit="return loginValidation()">
                 <div>
-                    <textarea name="" id="" style="height: 100px;"></textarea>
+                    <textarea name="message" id="message" style="height: 100px;"></textarea>
                 </div>
                 
                 <div style="margin-right: -30px;">
-                    <input type="submit" value="Send">
+                    <input type="submit" value="Send" name="helpSubmit">
+
                 </div>
             </form>
         </div>

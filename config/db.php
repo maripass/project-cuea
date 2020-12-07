@@ -101,7 +101,29 @@ if(isset($_POST['ContactSubmit'])){
     } else{
         array_push($errors,"error connection fail. $query");
     }
+
 }
+
+// help
+if(isset($_POST['helpSubmit'])){
+    $message= mysqli_real_escape_string($con, $_POST['message']);
+    // $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+    // $email= mysqli_real_escape_string($con, $_POST['email']);
+    // $telephone= mysqli_real_escape_string($con, $_POST['telephone']);
+    // $subject= mysqli_real_escape_string($con, $_POST['subject']);
+    // $message= mysqli_real_escape_string($con, $_POST['message']);
+    
+    
+    // $query="INSERT INTO contact (firstName,lastName,email,subject,telephone,message) VALUES('$firstName', '$lastName','$email', '$subject','$telephone','$message')";
+    // $result=mysqli_query($con, $query);
+    // if($result){
+    //     $_SESSION['success'] = "your message has been sent successfully. we will get back to you as soon as possible";
+    // } else{
+    //     array_push($errors,"error connection fail. $query");
+    // }
+    echo $message;
+}
+
 
 
 
