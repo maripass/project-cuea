@@ -47,6 +47,26 @@
 
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
             <form name="loginForm" method="POST" onsubmit="return loginValidation()">
+            <div>
+            <?php
+            include("errors.php");
+            ?><br>
+        </div>
+        <style>
+            .success {
+                padding: 0px 2px;
+                border: 1px solid #3c763d;
+                color: #3c763d; 
+                background: #dff0d8; 
+                font-size: 14px;
+                text-align: center;
+            }
+        </style>
+        <div>
+            <?php
+            include("success.php");
+            ?><br>
+        </div>
                 <div>
                     <textarea name="message" id="message" style="height: 100px;"></textarea>
                 </div>
