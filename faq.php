@@ -38,28 +38,42 @@
             <p>Yes. You can view your bill on My Vodafone. When your latest bill is available online, we will send you a notification text and email. Please ensure you have a valid email address recorded in your personal details on My Vodafone. </p>
             </div>
 
-            <button class="accordion">Section 2</button>
+            <button class="accordion">Can I receive my bill by email?</button>
             <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Yes. We can email you a copy of your bill (if the billing period is over 12 months). Please connect with our live chat team through the 'Chat' button on the right of the screen.</p>
             </div>
 
-            <button class="accordion">Section 3</button>
+            <button class="accordion">How do I change my billing format?  </button>
             <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Log in to My Vodafone and choose 'Account preferences' from the main menu then under 'Invoice' you will be able to change your invoice format type. Please note, choosing 'Email' will mean that you will get a notification advising that your bill is available online.</p>
             </div>
-            <button class="accordion">Section 4</button>
+            <button class="accordion">If I change the billing format to Email will I still receive a paper bill?</button>
             <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-
-            <button class="accordion">Section 5</button>
-            <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>No. You will receive an email notifcation to view your bills online. </p>
             </div>
 
-            <button class="accordion">Section 6</button>
+            <button class="accordion">Can I get a paper bill?</button>
             <div class="panel">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Yes. However, paperless billing is the preferred option. With paperless billing you have access to all of the same information that you receive in a paper bill as well as additional benefits:</br>
+•	Detailed analysis </br>
+•	Call details </br>
+•	Less paper waste </br>
+•	Account control </br>
+•	Names on bills not just numbers
+Please note online bills are also valid for tax and accounts.
+If you'd like to change your billing format, simply log into My Vodafone and choose 'Account preferences' and change the option under 'Invoice'.
+</p>
+            </div>
+
+            <button class="accordion">Can I download a copy of my bill in PDF Format?</button>
+            <div class="panel">
+            <p>Yes, you can do this on My Vodafone. Simply log in and go to 'Bills & payments' then just click the download icon. </p>
+            </div>
+            <button class="accordion">Can I view or analyse bills that are more than 12 months old?</button>
+            <div class="panel">
+            <p>No, bills are only available for analysis or download for the previous 12 months.
+
+</p>
             </div>
 
         </div>
