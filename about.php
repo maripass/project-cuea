@@ -30,25 +30,7 @@
         <div class="text-part">
             <h1>About</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
+                <h1>Meet Us</h1>
             </p>
         </div>
     </div>
