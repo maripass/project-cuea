@@ -31,7 +31,7 @@
 
     <div class="faq-area" id="FAQ" style="margin-top:30px;">
         <div class="text-part" style="margin-bottom: 25px;">
-           
+        <h1>Frequency asked Qestions</h1>
 
             <button class="accordion">Can I check my bill online?</button>
             <div class="panel">
@@ -69,6 +69,8 @@ If you'd like to change your billing format, simply log into My Vodafone and cho
             <div class="panel">
             <p>Yes, you can do this on My Vodafone. Simply log in and go to 'Bills & payments' then just click the download icon. </p>
             </div>
+
+
             <button class="accordion">Can I view or analyse bills that are more than 12 months old?</button>
             <div class="panel">
             <p>No, bills are only available for analysis or download for the previous 12 months.
