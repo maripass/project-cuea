@@ -22,7 +22,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Meter box
+           Consumption
         </div>
     </section>
     <style>
