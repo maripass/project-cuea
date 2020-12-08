@@ -45,9 +45,9 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='help-reponse.html'">
+                            <tr onclick="window.location.href='help-reponse.php'">
                                 <td><?php echo $row['userId'] ?></td>
-                                <td><?php echo date('M d Y', strtotime(($row['createdAt'])) ?></td> 
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                             </tr>
                         <?php
                     }
