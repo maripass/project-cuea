@@ -39,34 +39,23 @@
                 <th>Email</th>
                 <th>Date</th>
             </tr>
-            <tr onclick="window.location.href='contact-response.html'">
-                <td>Azziza</td>
-                <td>Victoria</td>
-                <td>azzizasolmemvictoria@gmail.com</td>
-                <td>01-03-2015</td>
+            <?php
+                $query="SELECT * FROM contact ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        ?>
+                            <tr onclick="window.location.href='contact-response.php'">
+                                <td><?php echo $row['firstName'] ?></td>
+                                <td><?php echo $row['lastName'] ?></td>
+                                <td><?php echo $row['email'] ?></td>
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
+                            </tr >
+                        <?php
+                    }
+                }
+            ?>
             
-            </tr >
-            <tr onclick="window.location.href='contact-response.html'">
-                <td>Pascal</td>
-                <td>Heza</td>
-                <td>pascal@gmail.com</td>
-                <td>01-03-2015</td>
-            
-            </tr >
-            <tr onclick="window.location.href='contact-response.html'">
-                <td>Eric</td>
-                <td>Balole</td>
-                <td>eric@gmail.com</td>
-                <td>01-03-2015</td>
-            
-            </tr >
-            <tr onclick="window.location.href='contact-response.html'">
-                <td>Anna</td>
-                <td>Poline</td>
-                <td>anna@gmail.com</td>
-                <td>01-03-2015</td>
-            
-            </tr >
 
         </table>
     </section>
