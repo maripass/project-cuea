@@ -1,3 +1,9 @@
+<?php 
+	require_once('query/query.php');
+	if (!isset($_SESSION['isAdmin'])) {
+        header('location: ../login.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -16,22 +22,7 @@
           <img src="images/icons/close.svg" width="20px" height="20px" alt="">
       </div>
   </label>
-    <div class="sidebar">
-      <header>Dasboard</header>
-      <ul>
-        <li><a href="monthly-report.html">Monthly Report</a></li>
-        <li><a href="annually-report.html">Annually Report</a></li>
-        <li><a href="meter-box.html">Meter Box</a></li>
-        <li><a href="meter-cost.html">Meter Cost</a></li>
-        <li><a href="users.html">Users</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="help.html">Help</a></li>
-        <li><a href="news-letter.html">Newsletter</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a style="color:red;" href="../index.html">Logout</a></li>
-    </ul>
-  </div>
+  <?Php include('header.php'); ?>
 
     <section class="banner">
         <div class="banner-left">
