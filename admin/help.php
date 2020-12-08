@@ -39,28 +39,20 @@
                 <th>User</th>
                 <th>Date</th>
             </tr>
-            <tr onclick="window.location.href='help-reponse.html'">
-                <td>azzizasolmemvictoria@gmail.com</td>
-                <td>20-21-2014</td>
-        
-                
-            </tr>
-            <tr onclick="window.location.href='help-reponse.html'">
-                <td>allarassem@gmail.com</td>
-                <td>13-09-2012</td>
-              
-            </tr>
-            <tr onclick="window.location.href='help-reponse.html'">
-                <td>Denembayefelicite@yahoo.com</td>
-                <td>01-03-2015</td>
-               
-            </tr>
-            <tr onclick="window.location.href='help-reponse.html'">
-                <td>victoriasolmem@gmail.com</td>
-                <td>12-12-2017</td>
-   
-            </tr>
-
+            <?php
+                $query="SELECT * FROM help ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        ?>
+                            <tr onclick="window.location.href='help-reponse.html'">
+                                <td><?php echo $row['userId'] ?></td>
+                                <td><?php echo date('M d Y', strtotime(($row['createdAt'])) ?></td> 
+                            </tr>
+                        <?php
+                    }
+                }
+            ?>
         </table>
     </section>
 
