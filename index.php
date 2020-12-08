@@ -28,13 +28,12 @@
         <div class="text-part">
             <h1>About</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
             
-            </p>
+            Become the best and most complete  website </br>
+            and post-paid system education platform.</br>
+                We dedicate our time on helping people.we make their dreams come true by </br>
+                making a good system  to manage their electricty bill.
+           </p>
             <div style="text-align: center;">
                 <button class="btn">Read More</button>
             </div>
@@ -42,28 +41,21 @@
     </div>
     <div class="service-area" id="Services">
         <div class="text-part">
-            <h1>Services</h1>
+        <h1>How it works</h1>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Ipsam voluptate veritatis, ratione in architecto minima, amet,
-                libero at accusantium asperiores
-                repudiandae voluptates reprehenderit delectus fuga sunt dolores soluta? Vitae, asperiores!
+                The electricty bill allows the communication between the meter box </br>
+                company and the users.
             </p>
+            <p>
+            <h1>Track your balance</h1>
+            <p>
+            Check your balance in the dashboard and know where your money is going.
+        </p>
+            <h1>Check your record month and annully</h1>
+            <p>
+                Here,we show the previous per month and year, in the case  </br>
+                of the annually report,subcribers can see thier all bill since they joined the company.
+           </p>
         </div> 
     </div>
 
