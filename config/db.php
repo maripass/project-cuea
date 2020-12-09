@@ -20,13 +20,12 @@ if(isset($_POST['createNewUser'])){
     $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
     $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
     $userPassword= mysqli_real_escape_string($con, $_POST['userPassword']);
-    // echo $lastName ." ".$userEmail ." ". $userPassword;
 
     $checkEmailQuery="SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";
-    $checkEmailResult=mysqli_query($con,$checkEmailQuery);
+    $checkEmailResult=mysqli_query($con, $checkEmailQuery);
     $user=mysqli_fetch_assoc($checkEmailResult);
     if($user) {
-        if($user['$userEmail'] ==$userEmail ){
+        if($user['userEmail'] ==$userEmail ){
             array_push($errors, "Email already exists.");
         }
     }

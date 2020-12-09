@@ -12,6 +12,8 @@ require_once('config/db.php');
     <div class="login">
         <h1>Create Account</h1>
         <form name="createAccountForm" method="POST" onsubmit="return createAccountValidation()">
+        <?php include('errors.php'); ?>
+        <?php include('success.php'); ?>
             <div>
                 <input type="text" name="firstName"  id="firstName" placeholder="First Name">
             </div>

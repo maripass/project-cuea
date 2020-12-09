@@ -35,7 +35,9 @@
                 making a good system  to manage their electricty bill.
            </p>
             <div style="text-align: center;">
-                <button class="btn">Read More</button>
+                <button class="btn">
+                    <a href="about.php">Read More</a>
+                </button>
             </div>
         </div>
     </div>
@@ -47,7 +49,7 @@
                 company and the users.
             </p>
             <p>
-            <h1>Track your balance</h1>
+            <h1>Track use of your electricity</h1>
             <p>
             Check your balance in the dashboard and know where your money is going.
         </p>
