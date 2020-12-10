@@ -33,7 +33,7 @@
     <section>
         <table id="customers">
             <tr>
-                <th>Meter box</th>
+                <th>Meter box number</th>
                 <th>Active</th>
                 <th>Date</th>
                 
