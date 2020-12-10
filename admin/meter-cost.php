@@ -3,7 +3,7 @@
 	require_once('query/query.php');
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
-    
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -36,29 +36,15 @@
             <!-- <h1>Login</h1> -->
             <form name="profileForm" method="POST" onsubmit="return profileValidation()">
                 <div style="width: 100%;">
-                    <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                    <input type="text" name="firstName" placeholder="Metter cost per kwatt" id="firstName">
                 </div><br><br><br><br>
-
-
-                <div style="width: 100%;">
-                    <input type="text" name="lastName" placeholder="Last Name" id="lastName">
-                </div><br><br><br><br>
-
-
-                <input type="submit" value="Update Cost">
-                    
-                </label>
                 
+                <input type="submit" value="Update Cost">
             </form>
         </div>
     </section>
 
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
     <!-- import validation page -->
     <script src="js/validation.js"></script>
 
