@@ -101,10 +101,27 @@ if(isset($_POST['profileChangePassword'])){
         header('Location: login.php');
     } else {
         array_push($errors,"Current password is not correct.");
-    }
-    
+    } 
 }
 
+
+//profile Delete Account
+if(isset($_POST['profileDeleteAccount'])){
+    $password= mysqli_real_escape_string($con, $_POST['password']);;
+    $userId= $_SESSION['userId'];
+    $passwordHash =  crypt($password, "salt@#.com");
+    
+    $checkUser= mysqli_query($con, "SELECT * FROM user WHERE userId='$userId' LIMIT 1");
+    $row = mysqli_fetch_assoc($checkUser);
+    if($passwordHash == $row['userPassword']) {
+        mysqli_query($con, "DELETE FROM user WHERE userId='$userId'");
+        $_SESSION['success'] = "Password changed successfully.";
+        session_destroy();
+        header('Location: login.php');
+    } else {
+        array_push($errors,"Current password is not correct.");
+    } 
+}
 
 //create new user
 if(isset($_POST['ContactSubmit'])){
