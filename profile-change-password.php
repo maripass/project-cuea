@@ -49,16 +49,16 @@
                     ?><br>
                 </div>
                 <div style="width: 100%;">
-                    <input type="text" value="" name="oldPassword" placeholder="Old password" id="oldPassword">
+                    <input type="password" value="" name="oldPassword" placeholder="Old password" id="oldPassword">
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" value="" name="newPassword" placeholder="New Password" id="newPassword">
+                    <input type="password" value="" name="newPassword" placeholder="New Password" id="newPassword">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="text" value="" name="confirmPassword" placeholder="Confirm New passwor" id="confirmPassword">
+                    <input type="password" value="" name="confirmPassword" placeholder="Confirm New passwor" id="confirmPassword">
                 </div><br><br><br><br>
 
                 <input type="submit" value="Change Password" name="profileChangePassword">

@@ -110,7 +110,7 @@
         </div>
     </section>
   
-    <script src="js/dashboard-validation"></script>
+    <script src="js/dashboard-validation.js"></script>
 
 </body>
 </html>

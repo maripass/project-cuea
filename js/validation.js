@@ -37,8 +37,8 @@ function profileChangePasswordValidation() {
         alert( "New Password is required." );
         document.profileChangePasswordForm.newPassword.focus() ;
         return false;
-    }  else if(confirmPassword =='') {
-        alert( "Confirm Password is required." );
+    }  else if(confirmPassword !=newPassword) {
+        alert( "Passwords do not match." );
         document.profileChangePasswordForm.confirmPassword.focus() ;
         return false;
     }
