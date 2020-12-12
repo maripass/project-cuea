@@ -42,34 +42,24 @@
         <table id="customers">
             <tr>
                 <th>Name</th>
-                <th>Category</th>
                 <th>Date</th>
             </tr>
-            <tr onclick="window.location.href='blog-update.html'">
-                <td>Name1</td>
-                <td>Category1</td>
-                <td>20-21-2014</td>
-        
-            </tr>
-            <tr onclick="window.location.href='blog-update.html'">
-                <td>Name2</td>
-                <td>Category2</td>
-                <td>21-12-2015</td>
-                
-            </tr>
-            <tr onclick="window.location.href='blog-update.html'" >
-                <td>Name3</td>
-                <td>Category3</td>
-                <td>22-11-2016</td>
-        
-            </tr>
-            <tr onclick="window.location.href='blog-update.html'">
-                <td>Name4</td>
-                <td>Category4</td>
-                <td>12-12-2017</td>
-                
-            </tr>
 
+            <?php
+                $query="SELECT * FROM blog ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        ?>
+                            <tr onclick="window.location.href='blog-update.php'">
+                               <td><?php echo $row['name'] ?></td>
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
+                            </tr >
+                        <?php
+                    }
+                }
+            ?>
+            
         </table>
     </section>
 
