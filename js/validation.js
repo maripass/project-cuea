@@ -45,6 +45,16 @@ function profileChangePasswordValidation() {
 }
 
 
+// FORGOT PASSWORD INPUT VALIDATION
+function profileDeleteAccountValidation() {
+    var password = document.forms["profileDeleteAccountForm"]["password"].value;
+    if(password =='') {
+        alert( "Password is required." );
+        document.profileDeleteAccountForm.password.focus() ;
+        return false;
+    }
+}
+
 
 // CREATE ACCOUNT INPUT VALIDATION
 function createAccountValidation() {

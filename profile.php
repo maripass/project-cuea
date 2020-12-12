@@ -102,8 +102,9 @@
                 <input type="submit" value="Update Profile" name="updateProfile">
             <button class="btn">
                 <a style="color:white" href="profile-change-password.php">Change password</a>
-            </button> <button class="btn" style="background-color: red;margin-left:130px;">Delete account</button>
-                    
+            </button> <button class="btn" style="background-color: red;margin-left:115px;">
+        <a style="color:white" href="profile-delete-account.php">Delete Account </a></button>
+    
                 </label>
                 
             </form>

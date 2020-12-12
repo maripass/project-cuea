@@ -84,7 +84,7 @@ if(isset($_POST['updateProfile'])){
 }
 
 
-//create new user
+//profile change password
 if(isset($_POST['profileChangePassword'])){
     $oldPassword= mysqli_real_escape_string($con, $_POST['oldPassword']);
     $newPassword= mysqli_real_escape_string($con, $_POST['newPassword']);
@@ -97,8 +97,7 @@ if(isset($_POST['profileChangePassword'])){
     if($oldPasswordHash == $row['userPassword']) {
         mysqli_query($con, "UPDATE user SET userPassword='$newPasswordHash' WHERE userId='$userId'");
         $_SESSION['success'] = "Password changed successfully.";
-        unset($_SESSION['userId']);
-        unset($_SESSION['userEmail']);
+        session_destroy();
         header('Location: login.php');
     } else {
         array_push($errors,"Current password is not correct.");
