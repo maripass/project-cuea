@@ -28,8 +28,12 @@
             <a href="add-user.html" style="color: white;">
                 Pick Year</a>
         </button>
-
-        <form style="margin-top:15px; float:right;right:0px;margin-right:30px;">
+<style>
+       .filter {
+         display:none;
+       }
+</style>
+        <form class="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
           <input type="number" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY">
           <input type="submit" value="Filter">
         </form>
