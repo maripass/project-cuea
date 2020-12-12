@@ -31,7 +31,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Meter box
+            Meter Box
         </div>
     </section>
     <style>
@@ -47,35 +47,37 @@
         </button>
         <table id="customers">
             <tr>
-                <th>meter-box</th>
-                <th>Users</th>
+                <th>meter Box Number</th>
+                <!-- <th>Users</th> -->
                 <th>Active</th>
                 <th>Date</th>
                 
                 
             </tr>
-            <tr onclick="window.location.href='update-meter-box.html'">
-                <td>12345679876</td>
-                <td>106078</td>
-                <td>on</td>
-                <td>Date</td>
-                
-            </tr>
-            <tr onclick="window.location.href='update-meter-box.html'">
-                <td>25638686322</td>
-                <td>200721</td>
-                <td>on</td>
-                <td>Date</td>
-                
-            </tr >
-            <tr onclick="window.location.href='update-meter-box.html'">
-                <td>30007654321</td>
-                <td>435903</td>
-                <td>off</td>
-                <td>Date</td>
-                
-            </tr>
-
+            <?php
+                $query="SELECT * FROM meterbox ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        ?>
+                            <tr onclick="window.location.href='meter-box-update.php'">
+                               <td><?php echo $row['meterBoxNumber'] ?></td>
+                               <td>
+                                   <?php 
+                                    if($row['active']) {
+                                        echo "On";
+                                    } else {
+                                        echo "Off";
+                                    }   
+                                   ?>
+                                </td>
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
+                            </tr >
+                        <?php
+                    }
+                }
+            ?>
+            
         </table>
     </section>
 </body>
