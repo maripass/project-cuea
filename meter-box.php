@@ -39,13 +39,31 @@
                 
                 
             </tr>
-            <tr onclick="window.location.href='update-meter-box.html'">
-                <td>12345679876</td>
-                <td>On</td>
-                <td>20/11/2020</td>
-                
-            </tr>
-
+            <?php
+            
+                $userId=$_SESSION['userId'];
+                $query="SELECT * FROM meterbox WHERE userId='$userId' ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        ?>
+                            <tr onclick="window.location.href='help-reponse.php'">
+                            <td><?php echo $row['meterBoxNumber'] ?></td>
+                               <td>
+                                   <?php 
+                                        if($row['active']) {
+                                            echo "On";
+                                        } else {
+                                            echo "Off";
+                                        }   
+                                   ?>
+                                </td>
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                            </tr>
+                        <?php
+                    }
+                }
+            ?>
         </table>
     </section>
 </body>

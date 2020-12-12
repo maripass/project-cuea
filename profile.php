@@ -67,12 +67,22 @@
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="email" value="<?php echo $profileData['userEmail'] ?>" name="userEmail" placeholder="Email" id="userEmail">
+                    <input type="email" value="<?php echo $profileData['userEmail'] ?>" name="userEmail" placeholder="Email" id="userEmail" disabled>
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" value="" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
+                    <?php 
+                        if($profileData['telephone']) {
+                            ?>
+                                <input type='text' value="<?php echo $profileData['telephone'] ?>" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
+                            <?php
+                        } else {
+                            ?>
+                                <input type='text' value="" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
+                            <?php
+                        }   
+                    ?>
                 </div><br><br><br><br>
 
 
