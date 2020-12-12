@@ -43,7 +43,7 @@
         </form>
         <table id="customers">
             <tr>
-              <th>Meter Box</th>
+              <th>Meter Box Number</th>
               <th>Current Meter Reading</th>
               <th>Meter Cost</th>
               <th>Date</th>
