@@ -30,22 +30,11 @@
     </style>
 
     <section>
-        <table id="customers">
-            <tr>
-                <th>Meter box</th>
-                <th>Active</th>
-                <th>Date</th>
-                
-                
-            </tr>
-            <tr onclick="window.location.href='update-meter-box.html'">
-                <td>12345679876</td>
-                <td>On</td>
-                <td>20/11/2020</td>
-                
-            </tr>
-
-        </table>
+        <div style="border:1px solid red; width:50%;height:100px;margin-left:25%;margin-top:10%;">
+            <div style="text-align:center;margin-top:45px;font-size:30px;">
+                0000100
+            </div>
+        </div>
     </section>
 </body>
 
