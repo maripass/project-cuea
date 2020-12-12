@@ -32,19 +32,18 @@
     <section>
         <div style="border:1px solid red; width:50%;height:100px;margin-left:25%;margin-top:10%;">
             <div style="text-align:center;margin-top:30px;font-size:40px; font-weight:bold;">
-               <div id="token">0000100</div> 
+               <div id="token"></div> 
             </div>
         </div>
     </section>
     <script>
+        var x = 0;
+        var token = document.getElementById('token');
         setInterval(() => {
             incrementToken();
-            // var consumption=getElementById('consumption').innerHTML ="1";
-        }, (3000));
+        }, (5000));
         function incrementToken() {
-            
-            let x++;
-            console.log(x);
+            token.innerHTML=x++;
         }
     </script>
 </body>
