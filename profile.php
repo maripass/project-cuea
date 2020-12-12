@@ -85,13 +85,24 @@
                     ?>
                 </div><br><br><br><br>
 
-
                 <div style="width: 100%;">
-                    <input type="text" value="" name="userAddress" placeholder="Address" id="userAddress">
+                    <?php 
+                        if($profileData['telephone']) {
+                            ?>
+                                <input type='text' value="<?php echo $profileData['address'] ?>" name='userAddress' placeholder='Address' id='userAddress'>
+                            <?php
+                        } else {
+                            ?>
+                                <input type='text' value="" name='userAddress' placeholder='Address' id='userAddress'>
+                            <?php
+                        }   
+                    ?>
                 </div><br><br><br><br>
 
                 <input type="submit" value="Update Profile" name="updateProfile">
-            <button class="btn">Change password</button> <button class="btn" style="background-color: red;margin-left:130px;">Delete account</button>
+            <button class="btn">
+                <a style="color:white" href="profile-change-password.php">Change password</a>
+            </button> <button class="btn" style="background-color: red;margin-left:130px;">Delete account</button>
                     
                 </label>
                 
