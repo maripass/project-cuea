@@ -24,6 +24,27 @@ function forgotPasswordValidation() {
     }
 }
 
+// FORGOT PASSWORD INPUT VALIDATION
+function profileChangePasswordValidation() {
+    var oldPassword = document.forms["profileChangePasswordForm"]["oldPassword"].value;
+    var newPassword = document.forms["profileChangePasswordForm"]["newPassword"].value;
+    var confirmPassword = document.forms["profileChangePasswordForm"]["confirmPassword"].value;
+    if(oldPassword =='') {
+        alert( "Old Password is required." );
+        document.profileChangePasswordForm.oldPassword.focus() ;
+        return false;
+    } else if(newPassword =='') {
+        alert( "New Password is required." );
+        document.profileChangePasswordForm.newPassword.focus() ;
+        return false;
+    }  else if(confirmPassword =='') {
+        alert( "Confirm Password is required." );
+        document.profileChangePasswordForm.confirmPassword.focus() ;
+        return false;
+    }
+}
+
+
 
 // CREATE ACCOUNT INPUT VALIDATION
 function createAccountValidation() {

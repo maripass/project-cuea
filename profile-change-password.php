@@ -26,52 +26,48 @@
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
-            <form name="profileForm" method="POST" onsubmit="return profileValidation()">
+            <form name="profileChangePasswordForm" method="POST" onsubmit="return profileChangePasswordValidation()">
 
-            <div>
-            <?php
-            include("errors.php");
-            ?><br>
-        </div>
-        <style>
-            .success {
-                padding: 0px 2px;
-                border: 1px solid #3c763d;
-                color: #3c763d; 
-                background: #dff0d8; 
-                font-size: 14px;
-                text-align: center;
-            }
-        </style>
-        <div>
-            <?php
-            include("success.php");
-            ?><br>
-        </div>
+                    <div>
+                    <?php
+                    include("errors.php");
+                    ?><br>
+                </div>
+                <style>
+                    .success {
+                        padding: 0px 2px;
+                        border: 1px solid #3c763d;
+                        color: #3c763d; 
+                        background: #dff0d8; 
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
+                <div>
+                    <?php
+                    include("success.php");
+                    ?><br>
+                </div>
                 <div style="width: 100%;">
-                    <input type="text" value="" name="firstName" placeholder="Old password" id="firstName">
+                    <input type="text" value="" name="oldPassword" placeholder="Old password" id="oldPassword">
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" value="New password" name="lastName" placeholder="Last Name" id="lastName">
+                    <input type="text" value="" name="newPassword" placeholder="New Password" id="newPassword">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="text" value="Confirm New password" name="lastName" placeholder="Last Name" id="lastName">
+                    <input type="text" value="" name="confirmPassword" placeholder="Confirm New passwor" id="confirmPassword">
                 </div><br><br><br><br>
 
-                <input type="submit" value="Update Profile" name="updateProfile">
-            <button class="btn">Change password</button> <button class="btn" style="background-color: red;margin-left:130px;">Delete account</button>
-                    
-                </label>
-                
+                <input type="submit" value="Change Password" name="profileChangePassword">
+                 
             </form>
         </div>
     </section>
   
-    <script src="js/dashboard-validation"></script>
+    <script src="js/validation.js"></script>
 
 </body>
 </html>
