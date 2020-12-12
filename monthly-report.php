@@ -24,11 +24,16 @@
         </div>
     </section>
     <section>
-    <button class="btn"
+    <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-            <a href="add-user.html" style="color: white;">
-                pick month</a>
+         
+                Pick Month
         </button>
+
+        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
+          <input type="month" style="padding:10px; width:100%" >
+          <input type="submit" value="Filter">
+        </form>
         <table id="customers">
         <tr>
               <th>months</th>
@@ -71,5 +76,20 @@
 
           <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH 500</button>
     </section>
+    <style>
+       #filter {
+         display:none;
+       }
+</style>
+    <script>
+      function showHideFilter() {
+		var filter = document.getElementById("filter");
+		if(filter.style.display === "block") {
+			filter.style.display = "none";
+		} else {
+			filter.style.display = "block";
+		}
+	}
+    </script>
 </body>
 </html>
