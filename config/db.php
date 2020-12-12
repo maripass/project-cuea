@@ -86,21 +86,24 @@ if(isset($_POST['updateProfile'])){
 
 //create new user
 if(isset($_POST['profileChangePassword'])){
-    // $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
-    // $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
-    // // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
-    // $Telephone= mysqli_real_escape_string($con, $_POST['phoneNumber']);
-    // $Address= mysqli_real_escape_string($con, $_POST['userAddress']);
-    // $userId= $_SESSION['userId'];
+    $oldPassword= mysqli_real_escape_string($con, $_POST['oldPassword']);
+    $newPassword= mysqli_real_escape_string($con, $_POST['newPassword']);
+    $userId= $_SESSION['userId'];
+    $oldPasswordHash =  crypt($oldPassword, "salt@#.com");
+    $newPasswordHash =  crypt($newPassword, "salt@#.com");
     
-    // $query="UPDATE user SET firstName='$firstName', lastName='$lastName', telephone='$Telephone', address='$Address' WHERE userId='$userId'";
-    // $result=mysqli_query($con, $query);
-    // if($result){
-    //     $_SESSION['success'] = "Profile updated successfully";
-    // } else{
-    //     array_push($errors,"Could not update.");
-    // }
-    echo('gichier automatic');
+    $checkUser= mysqli_query($con, "SELECT * FROM user WHERE userId='$userId'");
+    $row = mysqli_fetch_assoc($checkUser);
+    if($oldPasswordHash == $row['userPassword']) {
+        mysqli_query($con, "UPDATE user SET userPassword='$newPasswordHash' WHERE userId='$userId'");
+        $_SESSION['success'] = "Password changed successfully.";
+        unset($_SESSION['userId']);
+        unset($_SESSION['userEmail']);
+        header('Location: login.php');
+    } else {
+        array_push($errors,"Current password is not correct.");
+    }
+    
 }
 
 
