@@ -44,9 +44,17 @@
                 $result=mysqli_query($con, $query);
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
+                        $userId = $row['userId'];
+                        $query2   = "SELECT * FROM user WHERE userId = '$userId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2) == 1) {
+                            $userData = $result2->fetch_assoc();		
+                        }
                         ?>
-                            <tr onclick="window.location.href='help-reponse.php'">
-                                <td><?php echo $row['userId'] ?></td>
+                            <tr>
+                                <td>
+                                    <a href="help-reponse.php?id=<?php echo $userData['userId'] ?>"><?php echo $userData['userEmail'] ?></a>
+                                </td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                             </tr>
                         <?php

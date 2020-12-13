@@ -4,6 +4,7 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+    $id = $_GET['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -37,29 +38,66 @@
         
         
         <div style="width: 50%; margin: auto;">
-            <div style="float: right; right: 0px; background-color: #3274d6; width: 70%; padding: 10px; margin: 10px -25px 0 0;">
-                <div style="margin-bottom: 10px; font-size: 20px;">Admin Name</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim qui ullam soluta asperiores architecto molestiae aperiam dolore doloremque sapiente iusto ducimus iste ratione, mollitia rem, id harum laborum expedita!
-                </div>
-            </div>
-    
-            <div style="float: left; left: 0px; background-color: #dcdcdc; width: 70%; padding: 10px; margin: 10px 0 0 0px;">
-                <div style="margin-bottom: 10px; font-size: 20px;">User Name</div>
-                <div>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut enim qui ullam soluta asperiores architecto molestiae aperiam dolore doloremque sapiente iusto ducimus iste ratione, mollitia rem, id harum laborum expedita!
-                </div>
-            </div>
+
+            <?php 
+                $query="SELECT * FROM help WHERE userId='$id'";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        $userId = $row['userId'];
+                        $query2   = "SELECT * FROM user WHERE userId = '$userId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2)) {
+                            $userData = $result2->fetch_assoc();		
+                        }
+                        ?>      
+                            <div style="float: left; left: 0px; background-color: #dcdcdc; width: 70%; padding: 10px; margin: 10px 0 0 0px;">
+                                <div style="margin-bottom: 10px; font-size: 20px;"><?php echo $userData['firstName'] ?> <?php echo $userData['lastName'] ?></div>
+                                <div>
+                                    <?php echo $row['message'] ?>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
+
+            <?php 
+                $query="SELECT * FROM helpresponse WHERE userId='$id'";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        $userId = $row['staffId'];
+                        $query2   = "SELECT * FROM user WHERE userId = '$userId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2)) {
+                            $userData = $result2->fetch_assoc();		
+                        }
+                        ?>
+                            <div style="float: right; right: 0px; background-color: #3274d6; width: 70%; padding: 10px; margin: 10px -25px 0 0;">
+                                <div style="margin-bottom: 10px; font-size: 20px;"><?php echo $userData['firstName'] ?> <?php echo $userData['lastName'] ?></div>
+                                <div style="margin-bottom: 10px; font-size: 15px;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
+                                <div>
+                                <?php echo $row['message'] ?>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                }
+            ?>
+
         </div>
 
-        <div style="width: 50%; position: absolute; bottom: 0px; margin-left: 25%;">
-            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+
+        <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
+            <form name="loginForm" method="POST">
                 <div>
-                    <textarea name="" id="" style="height: 100px;"></textarea>
+                    <textarea name="message" id="message" style="height: 100px;"></textarea>
                 </div>
                 
                 <div style="margin-right: -30px;">
-                    <input type="submit" value="Send">
+                    <input type="submit" value="Send" name="helpSubmit">
+
                 </div>
             </form>
         </div>

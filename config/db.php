@@ -154,8 +154,7 @@ if(isset($_POST['helpSubmit'])){
         $_SESSION['success'] = "your message has been sent successfully. we will response shortly.";
     } else{
         array_push($errors,"error connection fail. $query");
-    }
-    
+    }   
 }
 
 
