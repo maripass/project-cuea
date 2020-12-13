@@ -21,4 +21,23 @@
             array_push($errors,"Current password is not correct.");
         } 
     }
+
+    
+    //profile change password
+    if(isset($_POST['newsletter'])){
+        $name= mysqli_real_escape_string($con, $_POST['name']);
+        $message= mysqli_real_escape_string($con, $_POST['description']);
+        $staffId= $_SESSION['userId'];
+        
+        $checkName= mysqli_query($con, "SELECT * FROM newsletterresponse WHERE name='$name'");
+        $row = mysqli_fetch_assoc($checkName);
+        if($name == $row['name']) {
+            array_push($errors,"Newsletter with this name already exists.");
+        } else {
+            $query="INSERT INTO newsletterresponse (staffId, message ,name) VALUES('$staffId', '$message','$name')";
+            mysqli_query($con, $query);
+            header('Location: newsletter.php');
+            $_SESSION['success'] = "Newsletter created successfully.";
+        } 
+    }
 ?>
