@@ -41,8 +41,8 @@
         <tr>
               <th>Months</th>
               <th>Meter Box</th>
-              <th>Beggining Meter Reading</th>
-              <!-- <th>End Meter Reading</th> -->
+              <th>Previous Month Meter Reading</th>
+              <th>Current Month Meter Reading</th>
               <th>Unit Consumed</th>
               <th>Price</th>
               <th>Date</th>
@@ -66,6 +66,10 @@
                            <tr>
                                 <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
                                 <td><?php echo $row['meterBoxNumber'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['previousCurrentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
                                 <!-- <td><?php echo number_format($income_data['amount'], 2) ?></td> -->
                                 <!-- <td><?php echo $product_category_data['name'] ?></td> -->
                                 <!-- <td><?php echo $product_service_data['name'] ?></td> -->
