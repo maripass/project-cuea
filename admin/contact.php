@@ -45,8 +45,10 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='contact-response.php'">
-                                <td><?php echo $row['firstName'] ?></td>
+                            <tr>
+                                <td>
+                                    <a href="contact-response.php?id=<?php echo $row['contactId'] ?>"><?php echo $row['firstName'] ?></a>
+                                </td>
                                 <td><?php echo $row['lastName'] ?></td>
                                 <td><?php echo $row['email'] ?></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            

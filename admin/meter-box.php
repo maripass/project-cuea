@@ -41,7 +41,7 @@
     <section>
         <button class="btn"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-            <a href="Add-Meter-box.html" style="color: white;"> 
+            <a href="Add-Meter-box.php" style="color: white;"> 
                 Add Meter box
             </a>
         </button>

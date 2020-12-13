@@ -4,6 +4,12 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+    $contactId = $_GET['id'];
+    $query   = "SELECT * FROM contact WHERE contactId = '$contactId'";
+	$results = mysqli_query($con, $query);
+	if (mysqli_num_rows($results) == 1) {
+		$contactData = $results->fetch_assoc();		
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,26 +41,26 @@
     <section>
         <br><br>
         <div style="width: 50%;margin-left: 25%;">
-            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+            <form name="loginForm" method="POST">
                 <div>
-                    <input disabled type="text" name="" id="" value="Eric" placeholder="First Name">
+                    <input disabled type="text" value="<?php echo $contactData['firstName'] ?>">
                 </div>
 
                 <div>
-                    <input disabled type="text" name="" id="" value="Balole" placeholder="Last Name">
+                    <input disabled type="text" value="<?php echo $contactData['lastName'] ?>">
                 </div>
 
                 <div>
-                    <input disabled type="text" name="" id="" value="eric@gmail.com" placeholder="Email Address">
+                    <input disabled type="text" value="<?php echo $contactData['email'] ?>">
                 </div>
 
                 <div>
-                    <input disabled type="text" name="" id="" placeholder="Change user to a new metter box">
+                    <input disabled type="text" value="<?php echo $contactData['subject'] ?>">
                 </div>
 
                 <div>
-                    <textarea name="" disabled id="" style="height: 140px; padding: 15px;" placeholder="Message">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod consequuntur laborum qui sit animi, quia odio quaerat nam quae eligendi distinctio quam quis neque eveniet recusandae numquam soluta nisi asperiores.
+                    <textarea name="message" disabled id="message" style="height: 140px; padding: 15px;">
+                    <?php echo $contactData['message'] ?>
                 </textarea>
                 </div>
                 
@@ -65,11 +71,11 @@
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 24%;">
             <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
                 <div>
-                    <textarea name="" id="" style="height: 100px; padding: 15px;" placeholder="Respond to the message"></textarea>
+                    <textarea name="message" id="message" style="height: 100px; padding: 15px;" placeholder="Respond to the message"></textarea>
                 </div>
                 
                 <div style="margin-right: -30px;">
-                    <input type="submit" value="Send">
+                    <input type="submit" value="Send" name="">
                 </div>
             </form>
         </div>

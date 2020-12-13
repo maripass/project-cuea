@@ -60,13 +60,14 @@
     // help
     if(isset($_POST['helpAdminSubmit'])){
         $message= mysqli_real_escape_string($con, $_POST['message']);
-        $userId=$_SESSION['userId'];
+        $userId= mysqli_real_escape_string($con, $_POST['userId']);
+        $staffId=$_SESSION['userId'];
         
         
-        $query="INSERT INTO help (userId,message) VALUES('$userId', '$message')";
+        $query="INSERT INTO helpresponse (userId, staffId,message) VALUES('$userId', '$staffId', '$message')";
         $result=mysqli_query($con, $query);
         if($result){
-            $_SESSION['success'] = "your message has been sent successfully. we will response shortly.";
+            // $_SESSION['success'] = "your message has been sent successfully. we will response shortly.";
         } else{
             array_push($errors,"error connection fail. $query");
         }   

@@ -93,10 +93,11 @@
             <form name="loginForm" method="POST">
                 <div>
                     <textarea name="message" id="message" style="height: 100px;"></textarea>
+                    <input type="text" hidden name="userId" id="userId" value="<?php echo $id ?>">
                 </div>
                 
                 <div style="margin-right: -30px;">
-                    <input type="submit" value="Send" name="helpSubmit">
+                    <input type="submit" value="Send" name="helpAdminSubmit">
 
                 </div>
             </form>
