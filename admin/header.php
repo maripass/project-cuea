@@ -9,7 +9,7 @@
             <li><a href="blog.php">Blog</a></li>
             <li><a href="contact.php">Contact</a></li>
             <li><a href="help.php">Help</a></li>
-            <li><a href="subscriber.php">Subscriber</a></li>
+            <li><a href="subscriber.php">Subscribers</a></li>
             <li><a href="newsletter.php">Newsletter</a></li>
             <li><a href="profile.php">Profile</a></li>
             <li><a style="color:red;" href="../logout.php">Logout</a></li>

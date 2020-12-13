@@ -47,15 +47,17 @@
             <?php
                 $query="SELECT * FROM newsletterresponse ORDER BY createdAt DESC";
                 $result=mysqli_query($con, $query);
-                if(mysqli_num_rows($result) > 0){
-                    while($row= $result->fetch_assoc()) {
-                        ?>
-                            <tr>
-                               <td><?php echo $row['name'] ?></td>
-                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
-                            </tr >
-                        <?php
-                    }
+                while($row= $result->fetch_assoc()) {
+                    ?>
+                        </tr>
+                            <td>
+                                <a href="newsletter-view.php?id=<?php echo $row['newLetterResponseId'] ?>">
+                                    <?php echo $row['name'] ?>        
+                                </a>
+                            </td> 
+                            <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td> 
+                        <tr>
+                    <?php
                 }
             ?>
         </table>

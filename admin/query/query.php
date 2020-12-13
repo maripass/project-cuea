@@ -23,7 +23,7 @@
     }
 
     
-    //profile change password
+    //Newsletter
     if(isset($_POST['newsletter'])){
         $name= mysqli_real_escape_string($con, $_POST['name']);
         $message= mysqli_real_escape_string($con, $_POST['description']);
@@ -39,19 +39,20 @@
         } else {
             $query="INSERT INTO newsletterresponse (staffId, message ,name) VALUES('$staffId', '$message','$name')";
             mysqli_query($con, $query);
-
             $subscribersQuery="SELECT * FROM newsletter";
             $subscriberst=mysqli_query($con, $subscribersQuery);
-            $to      = $subscriberst;
-            $subject = $name;
-            $msg     = $message;
-            $retval = mail($to, $subject, $msg);
-            if( $retval == true ) { 
+            if(mysqli_num_rows($subscriberst) > 0){
+                while($rowResult= $subscriberst->fetch_assoc()) {
+                    $to      = $rowResult['email'];
+                    $subject = $name;
+                    $msg     = $message;
+                    $retval = mail($to, $subject, $msg);
+                }
                 $_SESSION['success'] = "Newsletter created successfully.";
                 header('Location: newsletter.php');
-            }else {
-                array_push($errors,"Error sending email.");
             }
+
+            
 
         } 
     }

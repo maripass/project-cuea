@@ -28,7 +28,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Subscriber
+            Subscribers
         </div>
     </section>
     <section>
