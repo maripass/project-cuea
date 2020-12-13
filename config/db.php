@@ -69,7 +69,6 @@ if(isset($_POST['UserLogin'])){
 if(isset($_POST['updateProfile'])){
     $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
     $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
-    // $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
     $Telephone= mysqli_real_escape_string($con, $_POST['phoneNumber']);
     $Address= mysqli_real_escape_string($con, $_POST['userAddress']);
     $userId= $_SESSION['userId'];

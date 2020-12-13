@@ -34,13 +34,10 @@
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
             <form name="profileForm" method="POST" onsubmit="return profileValidation()">
 
-                    <div>
-                    <?php
-                    include("errors.php");
-                    ?><br>
+                <div>
+                    <?php  include("errors.php"); ?><br>
                 </div>
                 <style>
                     .success {
@@ -53,9 +50,7 @@
                     }
                 </style>
                 <div>
-                    <?php
-                    include("success.php");
-                    ?><br>
+                    <?php  include("success.php"); ?><br>
                 </div>
                 <div style="width: 100%;">
                     <input type="text" value="<?php echo $profileData['firstName'] ?>" name="firstName" placeholder="First Name" id="firstName">
@@ -102,8 +97,10 @@
                 <input type="submit" value="Update Profile" name="updateProfile">
             <button class="btn">
                 <a style="color:white" href="profile-change-password.php">Change password</a>
-            </button> <button class="btn" style="background-color: red;margin-left:115px;">
-        <a style="color:white" href="profile-delete-account.php">Delete Account </a></button>
+            </button> 
+            <button class="btn" style="background-color: red;margin-left:115px;">
+                <a style="color:white" href="profile-delete-account.php">Delete Account </a>
+            </button>
     
                 </label>
                 
