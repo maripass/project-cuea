@@ -34,7 +34,7 @@
     <section>
         <button class="btn"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-            <a href="add-user.html" style="color: white;">
+            <a href="newsletter-add.php" style="color: white;">
                 Add Newsletter</a>
         </button>
         <table id="customers">
@@ -49,7 +49,7 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='update-user.php'">
+                            <tr>
                                <td><?php echo $row['email'] ?></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
                             </tr >

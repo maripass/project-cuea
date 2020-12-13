@@ -58,7 +58,7 @@
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="password" value="" name="confirmPassword" placeholder="Confirm New passwor" id="confirmPassword">
+                    <input type="password" value="" name="confirmPassword" placeholder="Confirm New password" id="confirmPassword">
                 </div><br><br><br><br>
 
                 <input type="submit" value="Change Password" name="profileChangePassword">
