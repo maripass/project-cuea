@@ -72,4 +72,23 @@
             array_push($errors,"error connection fail. $query");
         }   
     }
+
+
+
+    //Add meter box
+    if(isset($_POST['addMeterBox'])){
+        $userId= mysqli_real_escape_string($con, $_POST['user']);
+        $address= mysqli_real_escape_string($con, $_POST['address']);
+        $address= mysqli_real_escape_string($con, $_POST['address']);
+        $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
+        $active= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
+        $query="INSERT INTO meterbox (userId, active, address, houseNumber) VALUES('$userId', '$active', '$address', '$houseNumber')";
+        $result=mysqli_query($con, $query);
+        if($result){
+            $_SESSION['success'] = "Meter box created successfully. with user";
+            header('Location: meter-box.php');
+        } else{
+            array_push($errors,"error connection fail. $query");
+        }  
+    }
 ?>
