@@ -32,47 +32,55 @@
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
-            <div class="login">
-                <!-- <h1>Login</h1> -->
                 <form class="add-user-validation-form" method="post">
+                    <div>
+                        <?php  include("../errors.php"); ?><br>
+                    </div>
+                    <style>
+                        .success {
+                            padding: 0px 2px;
+                            border: 1px solid #3c763d;
+                            color: #3c763d; 
+                            background: #dff0d8; 
+                            font-size: 14px;
+                            text-align: center;
+                        }
+                    </style>
+                    <div>
+                        <?php  include("../success.php"); ?><br>
+                    </div>
                     <div style="width: 100%;">
                         <input type="text" name="firstName" placeholder="First Name" id="firstName">
                     </div><br><br><br><br>
 
                     <div style="width: 100%;">
-                        <input type="email" name="lastName" placeholder="Last Name" id="lastName">
+                        <input type="text" name="lastName" placeholder="Last Name" id="lastName">
                     </div><br><br><br><br>
     
                     <div style="width: 100%;">
-                        <input type="text" name="userEmail" placeholder="Email" id="userEmail">
+                        <input type="email" name="userEmail" placeholder="Email" id="userEmail">
                     </div><br><br><br><br>
     
 
                     <div style="width: 100%;">
                         <input type="text" name="phoneNumber" placeholder="Telephone" id="phoneNumber">
                     </div><br><br><br><br>
-    
-                
+
                     <div style="width: 100%;">
-                        <input type="text" name="username" placeholder="Address" id="username" required>
+                        <input type="password" name="password" placeholder="Password" id="password">
                     </div><br><br><br><br>
-                    
-                        <input type="submit" value="Create User">
+
+                    <div style="width: 100%;">
+                        <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword">
+                    </div><br><br><br><br>
+    
             
-                    
-                </label>
-                
+                        <input type="submit" value="Create User" name="addNewUser">
+  
             </form>
         </div>
     </section>
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <!-- import validation page -->
+    
     <script src="js/validation.js"></script>
     
 </body>

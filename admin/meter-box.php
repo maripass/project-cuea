@@ -47,8 +47,9 @@
         </button>
         <table id="customers">
             <tr>
-                <th>meter Box Number</th>
-                <!-- <th>Users</th> -->
+                <th>Meter Box Number</th>
+                <th>Address</th>
+                <th>House Number</th>
                 <th>Active</th>
                 <th>Date</th>
                 
@@ -62,6 +63,8 @@
                         ?>
                             <tr onclick="window.location.href='meter-box-update.php'">
                                <td><?php echo $row['meterBoxNumber'] ?></td>
+                               <td><?php echo $row['address'] ?></td>
+                               <td><?php echo $row['houseNumber'] ?></td>
                                <td>
                                    <?php 
                                     if($row['active']) {

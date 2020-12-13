@@ -91,4 +91,36 @@
             array_push($errors,"error connection fail. $query");
         }  
     }
+
+
+    //Add meter box
+    if(isset($_POST['addNewUser'])){
+        $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
+        $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+        $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+        $phoneNumber= mysqli_real_escape_string($con, $_POST['phoneNumber']);
+        $password= mysqli_real_escape_string($con, $_POST['password']);
+        $userPassword= crypt($password, "salt@#.com");
+
+        $user_check_query = "SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";
+        $result           = mysqli_query($con, $user_check_query);
+        $user             = mysqli_fetch_assoc($result);
+        if ($user) { 
+            if ($user['userEmail'] === $userEmail) { array_push($errors, "Email already exists"); }
+        }
+        if (count($errors) == 0) { 
+            $query="INSERT INTO user (firstName, lastName, userEmail, userPassword, telephone) VALUES('$firstName', '$lastName', '$userEmail', '$userPassword', '$phoneNumber')";
+            $result=mysqli_query($con, $query);
+            if($result){
+                $_SESSION['success'] = "User created successfully.";
+                header('Location: users.php');
+            } else{
+                array_push($errors,"error connection fail. $query");
+            }  
+        }
+        
+    }
+
+
 ?>
+
