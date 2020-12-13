@@ -4,7 +4,10 @@
 	
 	if (!isset($_SESSION['userId'])) {
 		header('location: login.php');
-  }
+    }
+
+    $the_year   = date("Y");
+	$the_month  = date("m");
   
   ?>
   <!DOCTYPE html>
@@ -36,41 +39,43 @@
         </form>
         <table id="customers">
         <tr>
-              <th>months</th>
+              <th>Months</th>
               <th>Meter Box</th>
               <th>Beggining Meter Reading</th>
-              <th>End Meter Reading</th>
+              <!-- <th>End Meter Reading</th> -->
               <th>Unit Consumed</th>
               <th>Price</th>
               <th>Date</th>
             </tr>
             <tr >
-            <td>january</td>
-              <td>12364768912</td>
-              <td>3884</td>
-              <td>4884</td>
-              <td>4884</td>
-              <td>400ksh</td>
-              <td>2020-02-05</td>
-            </tr>
+            
 
-            <td>february</td>
-              <td>12364768912</td>
-              <td>3884</td>
-              <td>4884</td>
-              <td>4884</td>
-              <td>400ksh</td>
-              <td>2020-02-05</td>
-            </tr>
-
-            <td>march</td>
-              <td>12364768912</td>
-              <td>3884</td>
-              <td>4884</td>
-              <td>4884</td>
-              <td>400ksh</td>
-              <td>2020-02-05</td>
-            </tr>
+            <?php 
+                $userId=$_SESSION['userId'];
+                $query = "SELECT * FROM meterbox WHERE userId = '$userId' AND YEAR(createdAt) = '$the_year' AND MONTH(createdAt) = '$the_month' ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        $meterBoxNumberId = $row['meterBoxNumber'];
+                        $query2   = "SELECT * FROM consumption WHERE meterBoxNumberId = '$meterBoxNumberId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2) == 1) {
+                            $consumptionData = $result2->fetch_assoc();		
+                        }
+                        ?>
+                           <tr>
+                                <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
+                                <td><?php echo $row['meterBoxNumber'] ?></td>
+                                <!-- <td><?php echo number_format($income_data['amount'], 2) ?></td> -->
+                                <!-- <td><?php echo $product_category_data['name'] ?></td> -->
+                                <!-- <td><?php echo $product_service_data['name'] ?></td> -->
+                                <!-- <td><?php echo number_format($row['price'], 2) ?></td> -->
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                            </tr>
+                        <?php
+                    }
+                }
+            ?>
 
           </table>
 

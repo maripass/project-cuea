@@ -50,7 +50,7 @@
                     }
                 ?>
             </div>
-            <div style="padding-top:600px">
+            <div>
                 <?php
                     $queryAdmin="SELECT * FROM helpresponse WHERE userId='$userId'";
                     $resultAdmin=mysqli_query($con, $queryAdmin);
