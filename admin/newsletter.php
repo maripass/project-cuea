@@ -39,7 +39,6 @@
         </button>
         
         <table id="customers">
-            
             <tr>
                 <th>Newsletter Name</th>
                 <th>Date</th>

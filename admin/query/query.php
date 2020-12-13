@@ -29,15 +29,30 @@
         $message= mysqli_real_escape_string($con, $_POST['description']);
         $staffId= $_SESSION['userId'];
         
-        $checkName= mysqli_query($con, "SELECT * FROM newsletterresponse WHERE name='$name'");
-        $row = mysqli_fetch_assoc($checkName);
-        if($name == $row['name']) {
-            array_push($errors,"Newsletter with this name already exists.");
+        $checkName= "SELECT * FROM newsletterresponse WHERE name='$name' LIMIT 1";
+        $checkNameResult=mysqli_query($con, $checkName);
+        $row=mysqli_fetch_assoc($checkNameResult);
+        if($row) {
+            if($row['name'] ==$name ){
+                array_push($errors, "Newsletter with this name already exists.");
+            }
         } else {
             $query="INSERT INTO newsletterresponse (staffId, message ,name) VALUES('$staffId', '$message','$name')";
             mysqli_query($con, $query);
-            header('Location: newsletter.php');
-            $_SESSION['success'] = "Newsletter created successfully.";
+
+            $subscribersQuery="SELECT * FROM newsletter";
+            $subscriberst=mysqli_query($con, $subscribersQuery);
+            $to      = $subscriberst;
+            $subject = $name;
+            $msg     = $message;
+            $retval = mail($to, $subject, $msg);
+            if( $retval == true ) { 
+                $_SESSION['success'] = "Newsletter created successfully.";
+                header('Location: newsletter.php');
+            }else {
+                array_push($errors,"Error sending email.");
+            }
+
         } 
     }
 ?>
