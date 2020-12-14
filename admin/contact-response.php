@@ -69,24 +69,20 @@
 
         
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 24%;">
-            <form name="loginForm" method="POST" onsubmit="return loginValidation()" action="dashboard/index.html">
+            <form method="POST">
                 <div>
                     <textarea name="message" id="message" style="height: 100px; padding: 15px;" placeholder="Respond to the message"></textarea>
+                    <input value="<?php echo $contactData['contactId'] ?>" name="contactId" id="contactId" style="height: 100px; padding: 15px;" hidden></input>
+                    <input value="<?php echo $contactData['email'] ?>" name="userEmail" id="userEmail" style="height: 100px; padding: 15px;" hidden></input>
                 </div>
                 
                 <div style="margin-right: -30px;">
-                    <input type="submit" value="Send" name="">
+                    <input type="submit" value="Send" name="contactResponse">
                 </div>
             </form>
         </div>
     </section>
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <!-- import validation page -->
+    
     <script src="js/validation.js"></script>
     
 </body>

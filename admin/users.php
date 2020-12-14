@@ -34,7 +34,7 @@
     <section>
         <button class="btn"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-            <a href="add-user.php" style="color: white;">
+            <a href="user-add.php" style="color: white;">
                 Add user</a>
         </button>
         

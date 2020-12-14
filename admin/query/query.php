@@ -117,8 +117,25 @@
             } else{
                 array_push($errors,"error connection fail. $query");
             }  
-        }
-        
+        } 
+    }
+
+
+    // Contact Response
+    if(isset($_POST['contactResponse'])){
+        $message= mysqli_real_escape_string($con, $_POST['message']);
+        $contactId= mysqli_real_escape_string($con, $_POST['contactId']);
+        $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+        $staffId=$_SESSION['userId'];
+        echo $userEmail;
+
+        $query="INSERT INTO contactresponse (contactId, staffId, message) VALUES('$contactId', '$staffId', '$message')";
+        mysqli_query($con, $query);
+   
+        // $to      = $userEmail;
+        // $subject = 'Contact';
+        // $msg     = $message;
+        // $retval = mail($to, $subject, $msg);
     }
 
 
