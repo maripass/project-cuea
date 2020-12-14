@@ -17,6 +17,26 @@
     <div class="other-banner-area">
         <h1 style="margin-top:100px; text-align: center;">Blog</h1>
     </div>
+    <div>
+            <?php
+                include("errors.php");
+            ?><br>
+        </div>
+        <style>
+            .success {
+                padding: 0px 2px;
+                border: 1px solid #3c763d;
+                color: #3c763d; 
+                background: #dff0d8; 
+                font-size: 14px;
+                text-align: center;
+            }
+        </style>
+        <div>
+            <?php
+            include("success.php");
+            ?><br>
+        </div>
     <!-- BLOG  -->
     <div class="blog-area" id="Blog" style="margin-top:30px;">
         

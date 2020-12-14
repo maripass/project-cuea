@@ -51,8 +51,8 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='blog-update.php'">
-                               <td><?php echo $row['name'] ?></td>
+                            <tr>
+                               <td><a href="blog-update.php"><?php echo $row['name'] ?></a></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
                             </tr >
                             <!-- <img src="images/<?php echo $row['image'] ?>" width="100px" height="100px" alt=""> -->

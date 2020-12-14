@@ -164,13 +164,21 @@
     if(isset($_POST['subscribeToNewsletter'])){
         $email= mysqli_real_escape_string($con, $_POST['email']);
         
-        $query="INSERT INTO newsletter (email) VALUES('$email')";
-        $result=mysqli_query($con, $query);
-        if($result){
-            $_SESSION['success'] = "You have successfully subscribed to our newsletter.";
-        } else{
-            array_push($errors,"error connection fail. $query");
-        }   
+        $check_name_query = "SELECT * FROM newsletter WHERE email='$email' LIMIT 1";
+        $results           = mysqli_query($con, $check_name_query);
+        $blog             = mysqli_fetch_assoc($results);
+        if ($blog) { 
+            if ($blog['email'] === $email) { array_push($errors, "You are already subscribed to our newsletter."); }
+        }
+        if (count($errors) == 0) { 
+            $query="INSERT INTO newsletter (email) VALUES('$email')";
+            $result=mysqli_query($con, $query);
+            if($result){
+                $_SESSION['success'] = "You have successfully subscribed to our newsletter.";
+            } else{
+                array_push($errors,"error connection fail. $query");
+            } 
+        }  
     }
 
 ?>

@@ -22,8 +22,27 @@
     <?php include('home-header.php') ?>
     <div class="other-banner-area">
         <h1 style="margin-top:100px; text-align: center;"><?php echo $blogData['name'] ?><br><div style="font-size:13px;"><?php echo date('M d Y',strtotime($blogData['createdAt'])) ?></div></h1>
-
     </div>
+    <div>
+            <?php
+                include("errors.php");
+            ?><br>
+        </div>
+        <style>
+            .success {
+                padding: 0px 2px;
+                border: 1px solid #3c763d;
+                color: #3c763d; 
+                background: #dff0d8; 
+                font-size: 14px;
+                text-align: center;
+            }
+        </style>
+        <div>
+            <?php
+            include("success.php");
+            ?><br>
+        </div>
     <!-- BLOG  -->
     <div style="width:50%; margin:auto; padding-top:50px; padding-bottom:10px;">
         <img src="admin/images/blog/<?php echo $blogData['image'] ?>" style="width: 100%;" alt="">
