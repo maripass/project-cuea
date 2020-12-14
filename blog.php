@@ -33,31 +33,27 @@
     <div class="blog-area" id="Blog" style="margin-top:30px;">
         
         <div class="text-part" style="margin-bottom: 25px;">
-        <?php
+            <?php
                 $query="SELECT * FROM blog ORDER BY createdAt DESC";
                 $result=mysqli_query($con, $query);
-                if(mysqli_num_rows($result) > 0){
-                    while($row= $result->fetch_assoc()) {
-                        ?>
-                            <div class="blog-content" > 
-                                <div class="blog-image">
-                                    <img src="admin/images/blog/<?php echo $row['image'] ?>" style="width: 250px;height: 200px;" alt="">
-                                </div>
-                                <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                                    <div style=" font-size: 22px;"><?php echo $row['name'] ?></div></br>
-                                    <div>
-                                        <?php echo $row['name'] ?>
-                                    </div>
-                                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
-                                </div>
+                while($row= $result->fetch_assoc()) {
+                    ?>
+                        <div class="blog-content" > 
+                            <div class="blog-image">
+                                <img src="admin/images/blog/<?php echo $row['image'] ?>" style="width: 250px;height: 200px;" alt="">
                             </div>
-                            <br>
-                        <?php
-                    }
+                            <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
+                                <div style=" font-size: 22px;"><?php echo $row['name'] ?></div></br>
+                                <div>
+                                    <?php echo substr($row['description'],0, 250) ?>
+                                </div>
+                                <div style="margin-bottom: 0px; bottom: 0px; position: absolute;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
+                            </div>
+                        </div>
+                        <br>
+                    <?php
                 }
-            ?>
-            
-            
+            ?>  
         </div>
     </div>
 

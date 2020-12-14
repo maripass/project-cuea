@@ -1,3 +1,6 @@
+<?php 
+	require_once('config/db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,39 +71,35 @@
     <div class="blog-area" id="Blog">
         <div class="text-part" style="margin-bottom: 25px;">
             <h1>BLOG</h1>
-            <div class="blog-content" > 
-                <div class="blog-image">
-                    <img src="images/image.jpg" style="width: 250px;height: 200px;" alt="">
+            <?php
+                $query="SELECT * FROM blog ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                while($row= $result->fetch_assoc()) {
+                    ?>
+                        <div class="blog-content" > 
+                            <div class="blog-image">
+                                <a href="blog-view?id=<?php echo $row['blogId'] ?>">
+                                    <img src="admin/images/blog/<?php echo $row['image'] ?>" style="width: 250px;height: 200px;" alt="">
+                                </a>
+                            </div>
+                        
+                            <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
+                                <div style=" font-size: 22px;"><?php echo $row['name'] ?></div></br>
+                                <div>
+                                    <?php echo substr($row['description'],0, 250) ?>
+                                </div>
+                                <div style="margin-bottom: 0px; bottom: 0px; position: absolute;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
+                            </div>
+                        </div>
+                        <br>
+                    <?php
+                }
+            ?>  
+            <a style="color:white;" href="blog.php">
+                <div style="text-align: center;">
+                    <button class="btn">View More</button>
                 </div>
-                <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                    <div style=" font-size: 22px;">Blog Name Here</div></br>
-                    <div>
-                        Description Here Description Here Description Here Description Here
-                        Description Here Description Here Description Here Description Here
-                    </div>
-                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;">Date: 10/10/2020</div>
-                </div>
-            </div>
-        </br>
-            <div class="blog-content" > 
-                <div class="blog-image">
-                    <img src="images/image.jpg" style="width: 250px;height: 200px;" alt="">
-                </div>
-                <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                    <div style=" font-size: 22px;">Blog Name Here</div></br>
-                    <div>
-                        Description Here Description Here Description Here Description Here
-                        Description Here Description Here Description Here Description Here
-                    </div>
-                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;">Date: 10/10/2020</div>
-                </div>
-            </div>
-
-            
-            <div style="text-align: center;">
-                <button class="btn">View More</button>
-            </div>
-        </div>
+            </a> 
     </div>
 <?php include('footer.php');      
 
