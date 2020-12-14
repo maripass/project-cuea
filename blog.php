@@ -40,10 +40,14 @@
                     ?>
                         <div class="blog-content" > 
                             <div class="blog-image">
-                                <img src="admin/images/blog/<?php echo $row['image'] ?>" style="width: 250px;height: 200px;" alt="">
+                                <a href="blog-view.php?id=<?php echo $row['blogId'] ?>">
+                                    <img src="admin/images/blog/<?php echo $row['image'] ?>" style="width: 250px;height: 200px;" alt="">
+                                </a>
                             </div>
-                            <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 265px; height: 170px; width: 450px;">
-                                <div style=" font-size: 22px;"><?php echo $row['name'] ?></div></br>
+                            <div style="color: #fff; position: absolute; margin-top: -190px; margin-left: 280px; height: 170px; width: 450px;">
+                                <a href="blog-view.php?id=<?php echo $row['blogId'] ?>">
+                                    <div style=" font-size: 22px;"><?php echo $row['name'] ?></div>
+                                </a></br>
                                 <div>
                                     <?php echo substr($row['description'],0, 250) ?>
                                 </div>
