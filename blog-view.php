@@ -1,7 +1,7 @@
 <?php 
     require_once('config/db.php');
-    $blogrId = $_GET['id'];
-	$query   = "SELECT * FROM blog WHERE blogrId = '$blogrId'";
+    $blogId = $_GET['id'];
+	$query   = "SELECT * FROM blog WHERE blogId = '$blogId'";
 	$results = mysqli_query($con, $query);
 	if ($results) {
 		$blogData = $results->fetch_assoc();		
@@ -34,26 +34,20 @@
     </div>
     <div class="other-banner-area">
         <h1 style="margin-top:100px; text-align: center;"><?php echo $blogData['name'] ?></h1>
+        <p><?php echo date('M d Y',strtotime($blogData['createdAt'])) ?></p>
     </div>
     <!-- BLOG  -->
     <div class="blog-area" id="Blog" style="margin-top:30px;">
+        
         <div class="text-part" style="margin-bottom: 25px;">
+
             <div class="blog-content" > 
-                <div class="blog-image">
-                    <img src="admin/images/blog/<?php echo $blogData['image'] ?>" style="width: 250px;" alt="">
-                </div>
-                <div style="color: #fff; position: absolute; margin-top: 0px; margin-left: 280px; width: 450px;">
-                    <div style=" font-size: 22px;"><?php echo $blogData['name'] ?></div>
-                    </br>
-                    <div>
-                        <?php echo $blogData['description'] ?>
-                    </div>
-                    <div style="margin-bottom: 0px; bottom: 0px; position: absolute;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
-                </div>
-            </div>            
+                <img src="admin/images/blog/<?php echo $blogData['image'] ?>" style="width: 100%;" alt="">
+                <p><?php echo $blogData['description'] ?></p>
+            </div>
+                        
         </div>
     </div>
-
     
     <?php include('footer.php');      
 
