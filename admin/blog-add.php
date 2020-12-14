@@ -34,7 +34,7 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <div style="width: 100%;">
                     <input type="text" name="name" id="name" placeholder="Name">
                 </div><br><br><br><br>
@@ -45,21 +45,14 @@
 
                 
                 <div style="width: 100%;">
-                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" style="height:250px"></textarea>
                 </div><br><br><br><br>
                 
-                <input type="submit" value="Create Blog" name="CreateBlog">            
+                <input type="submit" value="Create Blog" name="createBlog">            
                 
             </form>
         </div>
     </section>
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <!-- import validation page -->
     <script src="js/validation.js"></script>
     
 </body>

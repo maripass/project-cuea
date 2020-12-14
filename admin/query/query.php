@@ -138,5 +138,31 @@
     }
 
 
+    // Create a new blog
+    if(isset($_POST['createBlog'])){
+        $folder = "images/";
+        $name= mysqli_real_escape_string($con, $_POST['name']);
+        $image= $_FILES['image'];
+        $description= mysqli_real_escape_string($con, $_POST['description']);
+
+
+        $check_name_query = "SELECT * FROM blog WHERE name='$name' LIMIT 1";
+        $result           = mysqli_query($con, $check_name_query);
+        $blog             = mysqli_fetch_assoc($result);
+        if ($blog) { 
+            if ($blog['name'] === $name) { array_push($errors, "Name already exists"); }
+        }
+        if (count($errors) == 0) { 
+            $query="INSERT INTO blog (name, image, description) VALUES('$name', '$image', '$description')";
+            $result=mysqli_query($con, $query);
+            if($result){
+                $_SESSION['success'] = "Blog created successfully.";
+                header('Location: blog.php');
+            } else{
+                array_push($errors,"error connection fail. $query");
+            }  
+        }
+    }
+
 ?>
 
