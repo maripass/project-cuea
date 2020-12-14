@@ -1,3 +1,7 @@
+<?php 
+	require_once('config/db.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,19 +13,7 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a href="index.php" class="logo">EBMS</a>
-        <ul class="nav">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="service.php">Services</a></li>
-            <li><a href="faq.php">FAQ</a></li>
-            <li><a href="blog.php">Blog</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Login</a></li>
-            
-        </ul>
-    </div>
+    <?php include('home-header.php') ?>
     <div class="other-banner-area">
         <h1 style="margin-top:100px; text-align: center;">Services</h1>
     </div>
@@ -53,14 +45,7 @@
 
 ?>
    
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous">
-    </script>   
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-    <script src="js/main.js"></script>
+   <script src="js/main.js"></script>
     <script>
         var acc = document.getElementsByClassName("accordion");
         var i;
