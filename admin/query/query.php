@@ -140,9 +140,10 @@
 
     // Create a new blog
     if(isset($_POST['createBlog'])){
-        $folder = "images/";
+        $file_name = $_FILES['image']['name'];
+        $file_tmp = $_FILES['image']['tmp_name'];
         $name= mysqli_real_escape_string($con, $_POST['name']);
-        $image= $_FILES['image'];
+        // $image= $_FILES['image'];
         $description= mysqli_real_escape_string($con, $_POST['description']);
 
 
@@ -153,7 +154,8 @@
             if ($blog['name'] === $name) { array_push($errors, "Name already exists"); }
         }
         if (count($errors) == 0) { 
-            $query="INSERT INTO blog (name, image, description) VALUES('$name', '$image', '$description')";
+            move_uploaded_file($file_tmp,"images/blog/".$file_name);
+            $query="INSERT INTO blog (name, image, description) VALUES('$name', '$file_name', '$description')";
             $result=mysqli_query($con, $query);
             if($result){
                 $_SESSION['success'] = "Blog created successfully.";

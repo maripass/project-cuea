@@ -55,6 +55,7 @@
                                <td><?php echo $row['name'] ?></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
                             </tr >
+                            <!-- <img src="images/<?php echo $row['image'] ?>" width="100px" height="100px" alt=""> -->
                         <?php
                     }
                 }
