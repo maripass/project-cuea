@@ -42,7 +42,7 @@
         <div class="text-part" style="margin-bottom: 25px;">
 
             <div class="blog-content" > 
-                <img src="admin/images/blog/<?php echo $blogData['image'] ?>" style="width: 100%;" alt="">
+                <img src="admin/images/blog/<?php echo $blogData['image'] ?>" style="width: 100%; height: 300px" alt="">
                 <p><?php echo $blogData['description'] ?></p>
             </div>
                         
