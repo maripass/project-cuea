@@ -64,8 +64,32 @@
                 </textarea>
                 </div>
                 
-            </form><br><br><br><br><br><br><br><br><br><br><br>
-        </div>
+
+                <?php 
+                    $contactId = $contactData['contactId'];
+                    $query="SELECT * FROM contactresponse WHERE contactId='$contactId'";
+                    $result=mysqli_query($con, $query);
+                    while($row= $result->fetch_assoc()) {
+                        $userId = $row['staffId'];
+                        $query2   = "SELECT * FROM user WHERE userId = '$userId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2)) {
+                            $userData = $result2->fetch_assoc();		
+                        }
+                        ?>
+                            <div style="float: right; right: 0px; background-color: #3274d6; width: 100%; padding: 10px; margin: 10px -25px 0 0;">
+                                <div style="margin-bottom: 10px; font-size: 20px;"><?php echo $userData['firstName'] ?> <?php echo $userData['lastName'] ?></div>
+                                <div style="margin-bottom: 10px; font-size: 15px;"><?php echo date('M d Y',strtotime($row['createdAt'])) ?></div>
+                                <div>
+                                <?php echo $row['message'] ?>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                ?>
+            </form>
+        </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
 
         
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 24%;">

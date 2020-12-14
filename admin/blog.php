@@ -36,7 +36,7 @@
     <section>
         <button class="btn"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-            <a href="blog-add.html" style="color: white;">
+            <a href="blog-add.php" style="color: white;">
                 Add blog</a>
         </button>
         <table id="customers">
