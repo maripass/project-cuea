@@ -166,5 +166,25 @@
         }
     }
 
+    // Update Blog
+    if(isset($_POST['updateBlog'])){
+        $file_name = $_FILES['image']['name'];
+        $file_tmp = $_FILES['image']['tmp_name'];
+        $blogId= mysqli_real_escape_string($con, $_POST['blogId']);
+        $name= mysqli_real_escape_string($con, $_POST['name']);
+        $description= mysqli_real_escape_string($con, $_POST['description']);
+
+ 
+        move_uploaded_file($file_tmp,"images/blog/".$file_name);
+        $query="UPDATE blog SET name='$name', image='$file_name', description='$description' WHERE blogId='$blogId'";
+        $result=mysqli_query($con, $query);
+        if($result){
+            $_SESSION['success'] = "Blog created successfully.";
+            header('Location: blog.php');
+        } else{
+            array_push($errors,"error connection fail. $query");
+        }  
+    }
+
 ?>
 

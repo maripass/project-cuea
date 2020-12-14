@@ -4,13 +4,19 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+    $blogId = $_GET['id'];
+    $query   = "SELECT * FROM blog WHERE blogId = '$blogId' LIMIT 1";
+	$results = mysqli_query($con, $query);
+	if ($results) {
+		$blogData = $results->fetch_assoc();		
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Blog</title>
+    <title>Add Blog</title>
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -29,50 +35,37 @@
 
     <section class="banner">
         <div class="banner-left">
-            Update Blog
+            Add Blog
         </div>
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
-            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
+            <form method="POST">
                 <div style="width: 100%;">
-                    <select name="user" >
-                        <option value="">Select a user</option>
-                        <option value="asas">User 1</option>
-                        <option value="asas">User 2</option>
-                        <option value="asas">User</option>
-                    </select>
+                    <input type="text" value="<?php echo $blogData['name'] ?>" name="name" id="name" placeholder="Name">
+                    <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>
+                </div><br><br><br><br>
+
+                <div style="width: 100%;">
+                    <img src="images/blog/<?php echo $blogData['image'] ?>" alt="" width="100%">
+                    <input type="file" name="image" id="image" value="<?php echo $blogData['image'] ?>">
                 </div><br><br><br><br>
 
                 
                 <div style="width: 100%;">
-                    <select name="meterBoxActive" >
-                        <option value="">Active</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
+                    <textarea name="description" id="description" cols="30" rows="10" style="height:250px; padding: 10px;">
+                        <?php echo $blogData['description'] ?>
+                    </textarea>
                 </div><br><br><br><br>
                 
-                <div style="width: 100%;">
-                    <select name="electricityActive" >
-                        <option value="">Electricity Active</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
-                </div><br><br><br><br>
-                
-                
-                
-                <input type="submit" value="Update Meter box">
-            
-                    
-                
+                <input type="submit" value="Update Blog" name="updateBlog">  
+                <button class="btn" style="background-color: red;margin-left:115px;">
+                    Delete Blog 
+                </button>          
                 
             </form>
         </div>
     </section>
-    
     <script src="js/validation.js"></script>
     
 </body>
