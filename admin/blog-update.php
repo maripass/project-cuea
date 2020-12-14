@@ -40,7 +40,7 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <div style="width: 100%;">
                     <input type="text" value="<?php echo $blogData['name'] ?>" name="name" id="name" placeholder="Name">
                     <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>

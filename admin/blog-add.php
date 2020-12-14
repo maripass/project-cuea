@@ -34,7 +34,7 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <div style="width: 100%;">
                     <input type="text" name="name" id="name" placeholder="Name">
                 </div><br><br><br><br>
