@@ -43,7 +43,7 @@
             <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
 
                 <div style="width: 100%;">
-                    <select name="meterBoxNumber" id="meterBoxNumber" >
+                    <select name="meterBoxNumber" id="meterBoxNumber">
                         <option value="">Select a meter box</option>
                         <?php 
                             $queryMeterBox   = "SELECT * FROM meterbox ORDER BY createdAt DESC";
