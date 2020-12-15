@@ -59,11 +59,14 @@
                 </div><br><br><br><br>
                 
                 <input type="submit" value="Update Blog" name="updateBlog">  
-                <button class="btn" style="background-color: red;">
-                    Delete Blog 
-                </button>          
+                        
                 
             </form>
+            <form method="POST">
+            <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>
+            <input type="submit" class="btn" style="background-color: red;" name="deleteBlog" value="Delete Blog">
+                    
+            </form> 
         </div>
     </section>
     <script src="js/validation.js"></script>

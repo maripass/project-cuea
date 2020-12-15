@@ -56,7 +56,24 @@
                 </style>
 
                 <div style="width: 100%;">
-                    <input type="text" name="meterBoxNumber" value="<?php echo $meterBoxData['meterBoxNumber'] ?>" placeholder="Meter Box Number" id="meterBoxNumber">
+                    <select name="meterBoxNumber" id="meterBoxNumber" required>
+                        <option value="">Select a Meter Box</option>
+                        <?php 
+                            $queryMeterBox   = "SELECT * FROM meterbox ORDER BY createdAt DESC";
+							$resultsMeterBox = mysqli_query($con, $queryMeterBox);
+
+                            while($rowMeterBox = mysqli_fetch_assoc($resultsMeterBox)) {
+                                if($rowMeterBox['meterBoxNumber'] == $meterBoxData['meterBoxNumber']) {
+                                    ?>
+                                        <option value="<?php echo $rowMeterBox['meterBoxNumber'] ?>" selected><?php echo $rowMeterBox['meterBoxNumber'] ?></option>
+                                    <?php
+                                }
+                                ?>
+                                    <option value="<?php echo $rowMeterBox['meterBoxNumber'] ?>"> <?php echo $rowMeterBox['meterBoxNumber'] ?></option>
+                                <?php
+                            }
+                        ?>
+                    </select>
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
@@ -85,11 +102,11 @@
                             while($row = mysqli_fetch_assoc($results_user)) {
                                 if($row['userId'] == $meterBoxData['userId']) {
                                     ?>
-                                        <option value="<?php $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
+                                        <option value="<?php echo $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
                                     <?php
                                 }
                                 ?>
-                                    <option value="<?php $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
+                                    <option value="<?php echo $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
                                 <?php
                             }
                         ?>

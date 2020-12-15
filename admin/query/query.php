@@ -244,7 +244,7 @@
             $_SESSION['success'] = "Meter Box updated successfully.";
             header('Location: meter-box.php');
         } else {
-            // array_push($errors, "Could not update Meter Box: $query");
+            array_push($errors, "Could not update Meter Box: $query");
         }
     }
 
@@ -252,6 +252,35 @@
     // Update User
     if(isset($_POST['deleteUser'])){
         echo "YES";
+    }
+
+
+    // Create a new Meter Cost
+    if(isset($_POST['addMeterCost'])){
+        $costPerKwatt= mysqli_real_escape_string($con, $_POST['costPerKwatt']);
+
+        $query="INSERT INTO metercost (costPerKwatt) VALUES('$costPerKwatt')";
+        $result=mysqli_query($con, $query);
+        if($result){
+            $_SESSION['success'] = "Meter Cost created successfully.";
+            header('Location: meter-cost.php');
+        } else{
+            array_push($errors,"error connection fail. $query");
+        }  
+    }
+
+    // DELETE BLOG
+    if(isset($_POST['deleteBlog'])){
+        $blogId= mysqli_real_escape_string($con, $_POST['blogId']);
+        
+        $query="DELETE FROM blog WHERE blogId='$blogId'";
+        $result=mysqli_query($con, $query);
+        if($result){
+            $_SESSION['success'] = "Blog deleted successfully.";
+            header('Location: blog.php');
+        } else{
+            array_push($errors,"error connection fail. $query");
+        }  
     }
     
 
