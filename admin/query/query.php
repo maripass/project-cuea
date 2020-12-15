@@ -217,6 +217,26 @@
     }
 
 
+    // Update Meter Box
+    if(isset($_POST['updateMeterBox'])){
+        $meterBoxNumber= mysqli_real_escape_string($con, $_POST['meterBoxNumber']);
+        $user= mysqli_real_escape_string($con, $_POST['user']);
+        $address= mysqli_real_escape_string($con, $_POST['address']);
+        $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
+        $meterBoxActive= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
+
+        // $query   = "UPDATE user SET firstName='$firstName', lastName='$lastName', isAdmin='$isAdmin' WHERE userId = '$userId'";
+        // $results = mysqli_query($con, $query);
+
+        // if ($results) {
+        //     $_SESSION['success'] = "User updated successfully.";
+        //     header('Location: users.php');
+        // } else {
+        //     array_push($errors, "Could update your profile: $query");
+        // }
+    }
+
+
     // Update User
     if(isset($_POST['deleteUser'])){
         echo "YES";

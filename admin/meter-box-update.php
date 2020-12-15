@@ -41,6 +41,28 @@
         <div class="login">
             <!-- <h1>Login</h1> -->
             <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
+
+                <div style="width: 100%;">
+                    <select name="meterBoxNumber" id="meterBoxNumber" >
+                        <option value="">Select a meter box</option>
+                        <?php 
+                            $queryMeterBox   = "SELECT * FROM meterbox ORDER BY createdAt DESC";
+							$resultsMeterBox = mysqli_query($con, $queryMeterBox);
+
+                            while($rowMeterBox = mysqli_fetch_assoc($resultsMeterBox)) {
+                                if($rowMeterBox['meterBoxNumber'] == $meterBoxData['meterBoxNumber']) {
+                                    ?>
+                                        <option value="<?php $rowMeterBox['meterBoxNumber'] ?>" selected><?php echo $rowMeterBox['meterBoxNumber'] ?></option>
+                                    <?php
+                                }
+                                ?>
+                                    <option value="<?php echo $rowMeterBox['meterBoxNumber'] ?>"> <?php echo $rowMeterBox['meterBoxNumber'] ?></option>
+                                <?php
+                            }
+                        ?>
+                    </select>
+                </div><br><br><br><br>
+                
                 <div style="width: 100%;">
                     <select name="user" id="user" >
                         <option value="">Select a user</option>
@@ -49,9 +71,15 @@
 							$results_user = mysqli_query($con, $query_user);
 
                             while($row = mysqli_fetch_assoc($results_user)) {
-                                echo '<option value="' . $row['userId'] . '" selected>' . $row['userEmail'] . '</option>';
+                                if($row['userId'] == $meterBoxData['userId']) {
+                                    ?>
+                                        <option value="<?php $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
+                                    <?php
+                                }
+                                ?>
+                                    <option value="<?php $row['userId'] ?>" selected><?php echo $row['userEmail'] ?></option>
+                                <?php
                             }
-						
                         ?>
                     </select>
                 </div><br><br><br><br>
@@ -70,18 +98,18 @@
                     <select name="meterBoxActive" id="meterBoxActive" >
                         <option value="">Active</option>
                         <?php
-                                if($meterBoxData['isAdmin'] == 1) {
-                                    ?>
-                                        <option value="<?php $meterBoxData['isAdmin'] ?>" selected>Yes</option>
-                                    <?php
-                                }
-                            ?>
+                            if($meterBoxData['isAdmin'] == 1) {
+                                ?>
+                                    <option value="<?php $meterBoxData['isAdmin'] ?>" selected>Yes</option>
+                                <?php
+                            }
+                        ?>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </div><br><br><br><br>
 
-                <input type="submit" value="Add Meter box" name="addMeterBox">
+                <input type="submit" value="Update Meter Box" name="updateMeterBox">
             
             </form>
         </div>
