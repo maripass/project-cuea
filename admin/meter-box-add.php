@@ -33,7 +33,6 @@
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
             <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
                 <div style="width: 100%;">
                     <select name="user" id="user" >
@@ -65,14 +64,8 @@
                         <option value="0">No</option>
                     </select>
                 </div><br><br><br><br>
-
-                
-                
-                <input type="submit" value="Add Meter box" name="addMeterBox">
-            
-                    
-                
-                
+        
+                <input type="submit" value="Add Meter box" name="addMeterBox">             
             </form>
         </div>
     </section>

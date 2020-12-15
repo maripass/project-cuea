@@ -59,7 +59,7 @@
                 </div><br><br><br><br>
                 
                 <input type="submit" value="Update Blog" name="updateBlog">  
-                <button class="btn" style="background-color: red;margin-left:115px;">
+                <button class="btn" style="background-color: red;">
                     Delete Blog 
                 </button>          
                 

@@ -98,6 +98,7 @@
         $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
         $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
         $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
+        $isAdmin= mysqli_real_escape_string($con, $_POST['isAdmin']);
         $phoneNumber= mysqli_real_escape_string($con, $_POST['phoneNumber']);
         $password= mysqli_real_escape_string($con, $_POST['password']);
         $userPassword= crypt($password, "salt@#.com");
@@ -109,7 +110,7 @@
             if ($user['userEmail'] === $userEmail) { array_push($errors, "Email already exists"); }
         }
         if (count($errors) == 0) { 
-            $query="INSERT INTO user (firstName, lastName, userEmail, userPassword, telephone) VALUES('$firstName', '$lastName', '$userEmail', '$userPassword', '$phoneNumber')";
+            $query="INSERT INTO user (firstName, lastName, userEmail, userPassword, telephone, isAdmin) VALUES('$firstName', '$lastName', '$userEmail', '$userPassword', '$phoneNumber', '$isAdmin')";
             $result=mysqli_query($con, $query);
             if($result){
                 $_SESSION['success'] = "User created successfully.";
@@ -201,9 +202,26 @@
         $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
         $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
         $isAdmin= mysqli_real_escape_string($con, $_POST['isAdmin']);
-        $telephone= mysqli_real_escape_string($con, $_POST['telephone']);
+        $userId= mysqli_real_escape_string($con, $_POST['userId']);
+        $phoneNumber= mysqli_real_escape_string($con, $_POST['phoneNumber']);
+
+        $query   = "UPDATE user SET firstName='$firstName', lastName='$lastName', isAdmin='$isAdmin' WHERE userId = '$userId'";
+        $results = mysqli_query($con, $query);
+
+        if ($results) {
+            $_SESSION['success'] = "User updated successfully.";
+            header('Location: users.php');
+        } else {
+            array_push($errors, "Could update your profile: $query");
+        }
+    }
+
+
+    // Update User
+    if(isset($_POST['deleteUser'])){
         echo "YES";
     }
+    
 
 ?>
 

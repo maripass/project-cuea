@@ -60,6 +60,14 @@
                     <div style="width: 100%;">
                         <input type="email" name="userEmail" placeholder="Email" id="userEmail">
                     </div><br><br><br><br>
+
+                    <div style="width: 100%;">
+                        <select name="isAdmin" id="isAdmin">
+                            <option value="">Is Admin</option>
+                            <option value="1">Yes</option>
+							<option value="0">No</option>
+                        </select>
+                    </div><br><br><br><br>
     
 
                     <div style="width: 100%;">

@@ -102,7 +102,6 @@
                 <a style="color:white" href="profile-delete-account.php">Delete Account </a>
             </button>
     
-                </label>
                 
             </form>
         </div>

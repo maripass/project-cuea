@@ -61,8 +61,8 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='meter-box-update.php'">
-                               <td><?php echo $row['meterBoxNumber'] ?></td>
+                            <tr>
+                               <td><a href="meter-box-update.php?id=<?php echo $row['meterBoxNumber'] ?>"><?php echo $row['meterBoxNumber'] ?></a></td>
                                <td><?php echo $row['address'] ?></td>
                                <td><?php echo $row['houseNumber'] ?></td>
                                <td>

@@ -65,7 +65,8 @@
                     </div><br><br><br><br>
     
                     <div style="width: 100%;">
-                        <input type="email" name="userEmail" value="<?php echo $userData['userEmail'] ?>" placeholder="Email" id="userEmail">
+                        <input type="email" name="userEmail" value="<?php echo $userData['userEmail'] ?>" placeholder="Email" id="userEmail" disabled>
+                        <input type="text" name="userId" value="<?php echo $userData['userId'] ?>" placeholder="Email" id="userId" hidden>
                     </div><br><br><br><br>
 
                     <div style="width: 100%;">
@@ -100,6 +101,9 @@
     
             
                         <input type="submit" value="Update User" name="updateUser">
+                        <button class="btn" name="deleteUser" style="background-color: red;">
+                            Delete Account
+                        </button>
   
             </form>
         </div>
