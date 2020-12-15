@@ -51,7 +51,7 @@
                     while($row= $result->fetch_assoc()) {
                         ?>
                             <tr onclick="window.location.href='update-user.php'">
-                               <td><?php echo $row['userEmail'] ?></td>
+                                <td><a href="user-update.php?id=<?php echo $row['userId'] ?>"><?php echo $row['userEmail'] ?></a></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
                             </tr >
                         <?php

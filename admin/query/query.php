@@ -196,5 +196,14 @@
         }  
     }
 
+    // Update User
+    if(isset($_POST['updateUser'])){
+        $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
+        $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
+        $isAdmin= mysqli_real_escape_string($con, $_POST['isAdmin']);
+        $telephone= mysqli_real_escape_string($con, $_POST['telephone']);
+        echo "YES";
+    }
+
 ?>
 
