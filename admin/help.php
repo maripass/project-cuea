@@ -53,7 +53,7 @@
                         ?>
                             <tr>
                                 <td>
-                                    <a href="help-reponse.php?id=<?php echo $row['helpId'] ?>"><?php echo $userData['userEmail'] ?></a>
+                                    <a href="help-reponse.php?id=<?php echo $row['userId'] ?>"><?php echo $userData['userEmail'] ?></a>
                                 </td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                             </tr>

@@ -132,10 +132,10 @@
         $query="INSERT INTO contactresponse (contactId, staffId, message) VALUES('$contactId', '$staffId', '$message')";
         mysqli_query($con, $query);
    
-        $to      = $userEmail;
-        $subject = 'Contact';
-        $msg     = $message;
-        $retval = mail($to, $subject, $msg);
+        // $to      = $userEmail;
+        // $subject = 'Contact';
+        // $msg     = $message;
+        // $retval = mail($to, $subject, $msg);
     }
 
 
@@ -205,7 +205,7 @@
         $userId= mysqli_real_escape_string($con, $_POST['userId']);
         $phoneNumber= mysqli_real_escape_string($con, $_POST['phoneNumber']);
 
-        $query   = "UPDATE user SET firstName='$firstName', lastName='$lastName', isAdmin='$isAdmin' WHERE userId = '$userId'";
+        $query   = "UPDATE user SET firstName='$firstName', lastName='$lastName', isAdmin='$isAdmin', telephone='$phoneNumber' WHERE userId = '$userId'";
         $results = mysqli_query($con, $query);
 
         if ($results) {

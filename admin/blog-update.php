@@ -16,7 +16,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Blog</title>
+    <title>Update Blog</title>
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -35,7 +35,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Add Blog
+            Update Blog
         </div>
     </section>
     <section>
