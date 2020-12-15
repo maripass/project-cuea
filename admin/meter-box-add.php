@@ -33,9 +33,37 @@
     </section>
     <section>
         <div class="login">
-            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
+            <form method="POST">
+            <div>
+                    <?php  include("../errors.php"); ?><br>
+                </div>
+                <style>
+                    .success {
+                        padding: 0px 2px;
+                        border: 1px solid #3c763d;
+                        color: #3c763d; 
+                        background: #dff0d8; 
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
+                <div>
+                    <?php  include("../success.php"); ?><br>
+                </div>
                 <div style="width: 100%;">
-                    <select name="user" id="user" >
+                    <input type="text" name="meterBoxNumber" id="meterBoxNumber" placeholder="Meter Box Number" required>
+                </div><br><br><br><br>
+
+                <div style="width: 100%;">
+                    <select name="meterBoxActive" id="meterBoxActive" required>
+                        <option value="">Active</option>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div><br><br><br><br>
+
+                <div style="width: 100%;">
+                    <select name="user" id="user" required>
                         <option value="">Select a user</option>
                         <?php 
                             $query_user   = "SELECT * FROM user ORDER BY createdAt DESC";
@@ -48,6 +76,7 @@
                         ?>
                     </select>
                 </div><br><br><br><br>
+
                 <div style="width: 100%;">
                     <input type="text" name="address" id="address" placeholder="Address">
                 </div><br><br><br><br>
@@ -55,15 +84,7 @@
                 <div style="width: 100%;">
                     <input type="text" name="houseNumber" id="houseNumber" placeholder="House Number">
                 </div><br><br><br><br>
-
-                
-                <div style="width: 100%;">
-                    <select name="meterBoxActive" id="meterBoxActive" >
-                        <option value="">Active</option>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                </div><br><br><br><br>
+           
         
                 <input type="submit" value="Add Meter box" name="addMeterBox">             
             </form>

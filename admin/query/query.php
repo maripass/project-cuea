@@ -77,17 +77,19 @@
 
     //Add meter box
     if(isset($_POST['addMeterBox'])){
+        $meterBoxNumber= mysqli_real_escape_string($con, $_POST['meterBoxNumber']);
+        $active= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
         $userId= mysqli_real_escape_string($con, $_POST['user']);
         $address= mysqli_real_escape_string($con, $_POST['address']);
-        $address= mysqli_real_escape_string($con, $_POST['address']);
         $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
-        $active= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
-        $query="INSERT INTO meterbox (userId, active, address, houseNumber) VALUES('$userId', '$active', '$address', '$houseNumber')";
+
+        $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
         $result=mysqli_query($con, $query);
         if($result){
-            $_SESSION['success'] = "Meter box created successfully. with user";
+            $_SESSION['success'] = "Meter box created successfully.";
             header('Location: meter-box.php');
         } else{
+            echo $query;
             array_push($errors,"error connection fail. $query");
         }  
     }
