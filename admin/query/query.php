@@ -83,15 +83,24 @@
         $address= mysqli_real_escape_string($con, $_POST['address']);
         $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
 
-        $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
-        $result=mysqli_query($con, $query);
-        if($result){
-            $_SESSION['success'] = "Meter box created successfully.";
-            header('Location: meter-box.php');
-        } else{
-            echo $query;
-            array_push($errors,"error connection fail. $query");
-        }  
+        $checkBoxNumberQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
+        $result2           = mysqli_query($con, $checkBoxNumberQuery);
+        $nameResult             = mysqli_fetch_assoc($result2);
+        if ($nameResult) { 
+            if ($nameResult['meterBoxNumber'] === $meterBoxNumber) { array_push($errors, "Meter Box Number already exist."); }
+        }
+        if (count($errors) == 0) {
+            $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
+            $result=mysqli_query($con, $query);
+            if($result){
+                $_SESSION['success'] = "Meter box created successfully.";
+                header('Location: meter-box.php');
+            } else{
+                echo $query;
+                array_push($errors,"error connection fail. $query");
+            } 
+        }
+         
     }
 
 
@@ -222,19 +231,20 @@
     // Update Meter Box
     if(isset($_POST['updateMeterBox'])){
         $meterBoxNumber= mysqli_real_escape_string($con, $_POST['meterBoxNumber']);
+        $meterBoxId= mysqli_real_escape_string($con, $_POST['meterBoxId']);
         $userId= mysqli_real_escape_string($con, $_POST['user']);
         $address= mysqli_real_escape_string($con, $_POST['address']);
         $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
-        $meterBoxActive= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
+        $active= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
 
-        $query   = "UPDATE meterbox SET meterBoxNumber='$meterBoxNumber', userId='$userId', address='$address', houseNumber='$houseNumber', meterBoxActive='$meterBoxActive' WHERE meterBoxNumber = '$meterBoxNumber'";
+        $query   = "UPDATE meterbox SET meterBoxNumber='$meterBoxNumber', active='$active', address='$address', houseNumber='$houseNumber', userId='$userId' WHERE meterBoxId = '$meterBoxId'";
         $results = mysqli_query($con, $query);
 
         if ($results) {
             $_SESSION['success'] = "Meter Box updated successfully.";
             header('Location: meter-box.php');
         } else {
-            array_push($errors, "Could update your profile: $query");
+            // array_push($errors, "Could not update Meter Box: $query");
         }
     }
 

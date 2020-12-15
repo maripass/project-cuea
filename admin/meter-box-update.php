@@ -41,30 +41,42 @@
         <div class="login">
             <!-- <h1>Login</h1> -->
             <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
+                <div>
+                    <?php  include("../errors.php"); ?><br>
+                </div>
+                <style>
+                    .success {
+                        padding: 0px 2px;
+                        border: 1px solid #3c763d;
+                        color: #3c763d; 
+                        background: #dff0d8; 
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
 
                 <div style="width: 100%;">
-                    <select name="meterBoxNumber" id="meterBoxNumber">
-                        <option value="">Select a meter box</option>
-                        <?php 
-                            $queryMeterBox   = "SELECT * FROM meterbox ORDER BY createdAt DESC";
-							$resultsMeterBox = mysqli_query($con, $queryMeterBox);
+                    <input type="text" name="meterBoxNumber" value="<?php echo $meterBoxData['meterBoxNumber'] ?>" placeholder="Meter Box Number" id="meterBoxNumber">
+                </div><br><br><br><br>
 
-                            while($rowMeterBox = mysqli_fetch_assoc($resultsMeterBox)) {
-                                if($rowMeterBox['meterBoxNumber'] == $meterBoxData['meterBoxNumber']) {
-                                    ?>
-                                        <option value="<?php $rowMeterBox['meterBoxNumber'] ?>" selected><?php echo $rowMeterBox['meterBoxNumber'] ?></option>
-                                    <?php
-                                }
+                <div style="width: 100%;">
+                    <select name="meterBoxActive" id="meterBoxActive"required >
+                        <option value="">Active</option>
+                        <?php
+                            if($meterBoxData['isAdmin'] == 1) {
                                 ?>
-                                    <option value="<?php echo $rowMeterBox['meterBoxNumber'] ?>"> <?php echo $rowMeterBox['meterBoxNumber'] ?></option>
+                                    <option value="<?php $meterBoxData['isAdmin'] ?>" selected>Yes</option>
                                 <?php
                             }
                         ?>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
                     </select>
                 </div><br><br><br><br>
+
                 
                 <div style="width: 100%;">
-                    <select name="user" id="user" >
+                    <select name="user" id="user" required>
                         <option value="">Select a user</option>
                         <?php 
                             $query_user   = "SELECT * FROM user ORDER BY createdAt DESC";
@@ -91,22 +103,7 @@
 
                 <div style="width: 100%;">
                     <input type="text" value="<?php echo $meterBoxData['houseNumber'] ?>" name="houseNumber" id="houseNumber" placeholder="House Number">
-                </div><br><br><br><br>
-
-                
-                <div style="width: 100%;">
-                    <select name="meterBoxActive" id="meterBoxActive" >
-                        <option value="">Active</option>
-                        <?php
-                            if($meterBoxData['isAdmin'] == 1) {
-                                ?>
-                                    <option value="<?php $meterBoxData['isAdmin'] ?>" selected>Yes</option>
-                                <?php
-                            }
-                        ?>
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
+                    <input type="text" value="<?php echo $meterBoxData['meterBoxId'] ?>" name="meterBoxId" id="meterBoxId" hidden>
                 </div><br><br><br><br>
 
                 <input type="submit" value="Update Meter Box" name="updateMeterBox">
