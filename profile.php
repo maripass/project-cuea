@@ -80,19 +80,6 @@
                     ?>
                 </div><br><br><br><br>
 
-                <div style="width: 100%;">
-                    <?php 
-                        if($profileData['telephone']) {
-                            ?>
-                                <input type='text' value="<?php echo $profileData['address'] ?>" name='userAddress' placeholder='Address' id='userAddress'>
-                            <?php
-                        } else {
-                            ?>
-                                <input type='text' value="" name='userAddress' placeholder='Address' id='userAddress'>
-                            <?php
-                        }   
-                    ?>
-                </div><br><br><br><br>
 
                 <input type="submit" value="Update Profile" name="updateProfile">
             <button class="btn">
