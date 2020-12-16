@@ -89,14 +89,55 @@
         </div>
 
         <div style="margin-bottom: 20px;">
-            <div style="width: 49.5%; height: 100px; background-color: cyan;text-align: center; font-size: 25px; margin-top: 10px;">
-                <p style="margin-top: 20px;">00</p>
-                <p>Consumption</p>
-            </div>
-            <div style="width: 49.5%; height: 100px; background-color:teal;text-align: center; font-size: 25px; float: right; right: 0px; margin-top: -100px;">
-                <p style="margin-top: 20px;">00</p>
-                <p>Blog</p>
-            </div>
+            <?php 
+                $query5  = "SELECT COUNT(*) as total from help";
+                $result5 = mysqli_query($con, $query5);
+                $data5 	= mysqli_fetch_assoc($result5);
+                ?>
+                    <div style="width: 49.5%; height: 100px; background-color: cyan;text-align: center; font-size: 25px; margin-top: 10px;">
+                        <p style="margin-top: 20px;"> <?php echo $data5['total']; ?></p>
+                        <p>Help</p>
+                    </div>
+                <?php
+            ?>
+
+            <?php 
+                $query6  = "SELECT COUNT(*) as total from newsletter";
+                $result6 = mysqli_query($con, $query6);
+                $data6 	= mysqli_fetch_assoc($result6);
+                ?>
+                    <div style="width: 49.5%; height: 100px; background-color:teal;text-align: center; font-size: 25px; float: right; right: 0px; margin-top: -100px;">
+                        <p style="margin-top: 20px;"><?php echo $data6['total']; ?></p>
+                        <p>Subscriber</p>
+                    </div>
+                <?php
+            ?>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <?php 
+                $query7  = "SELECT COUNT(*) as total from contact";
+                $result7 = mysqli_query($con, $query7);
+                $data7 	= mysqli_fetch_assoc($result7);
+                ?>
+                    <div style="width: 49.5%; height: 100px; background-color: cyan;text-align: center; font-size: 25px; margin-top: 10px;">
+                        <p style="margin-top: 20px;"> <?php echo $data7['total']; ?></p>
+                        <p>Contact</p>
+                    </div>
+                <?php
+            ?>
+
+            <?php 
+                $query8  = "SELECT COUNT(*) as total from metercost";
+                $result8 = mysqli_query($con, $query8);
+                $data8 	= mysqli_fetch_assoc($result8);
+                ?>
+                    <div style="width: 49.5%; height: 100px; background-color:teal;text-align: center; font-size: 25px; float: right; right: 0px; margin-top: -100px;">
+                        <p style="margin-top: 20px;"><?php echo $data8['total']; ?></p>
+                        <p>Meter Cost</p>
+                    </div>
+                <?php
+            ?>
         </div>
     </section>
     
