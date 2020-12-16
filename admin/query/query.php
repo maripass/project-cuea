@@ -297,22 +297,41 @@
         if(isset($_POST['deleteUser'])){
             $userId= mysqli_real_escape_string($con, $_POST['userId']);
             $currentUserId = $_SESSION['userId'];
+            // DELETE METERBOX
             $query1="DELETE FROM meterbox WHERE userId='$userId'";
             mysqli_query($con, $query1);
-            $query2="DELETE FROM user WHERE userId='$userId'";
-            $result2=mysqli_query($con, $query2);
 
-            if($result2){
-                echo "MAXWELL 1  ";
-                if($userId == $currentUserId) {
-                    echo "MAXWELL";
-                    // session_destroy();
-                    // header('Location: ../login.php');
+            // DELETE NEWSLETTER RESPONSE
+            $query2="DELETE FROM newsletterresponse WHERE staffId='$userId'";
+            mysqli_query($con, $query2);
+
+            // DELETE HELP RESPONSE
+            $query4="DELETE FROM helpresponse WHERE staffId='$userId'";
+            mysqli_query($con, $query4);
+
+            // DELETE HELP RESPONSE
+            $query7="DELETE FROM helpresponse WHERE userId='$userId'";
+            mysqli_query($con, $query7);
+
+            // DELETE HELP
+            $query5="DELETE FROM help WHERE userId='$userId'";
+            mysqli_query($con, $query5);
+
+            // DELETE CONTACT RESPONSE
+            $query6="DELETE FROM contactresponse WHERE staffId='$userId'";
+            mysqli_query($con, $query6);
+
+            $query3="DELETE FROM user WHERE userId='$userId'";
+            $result = mysqli_query($con, $query3);
+            if($result) {
+                if($userId == $currentUserId) { 
+                    session_destroy();
+                    header('Location: ../login.php');
                 } else {
                     $_SESSION['success'] = "User deleted successfully.";
                     header('Location: users.php');
                 }
-            } else{
+            } else {
                 array_push($errors,"error connection fail. $query2");
             }
         }
