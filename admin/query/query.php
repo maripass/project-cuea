@@ -296,7 +296,7 @@
         // Update User
         if(isset($_POST['deleteUser'])){
             $userId= mysqli_real_escape_string($con, $_POST['userId']);
-
+            $userId = $_SESSION['userId'];
             $query1="DELETE FROM meterbox WHERE userId='$userId'";
             $result1=mysqli_query($con, $query1);
             if($result1){
@@ -311,8 +311,6 @@
             } else{
                 array_push($errors,"error connection fail. $query1");
             } 
-        
-  
         }
     
 
