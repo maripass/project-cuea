@@ -37,21 +37,24 @@
                     $userId = $_SESSION['userId'];
                     $query="SELECT * FROM meterbox WHERE userId='$userId'";
                     $result1=mysqli_query($con, $query);
-
-                    while($meterBoxData= $result1->fetch_assoc()) {	
-                        $meterBoxId = $meterBoxData['meterBoxId'];
-                        $query2="SELECT * FROM consumption WHERE meterBoxId='$meterBoxId' LIMIT 1";
-                        $result2=mysqli_query($con, $query2);
-                        if($result2 > 0) {
-                            while($consumptionData= $result2->fetch_assoc()) {	
-                                // echo $consumptionData['currentMeterReading'];
-                                // echo $consumptionData['consumptionId'];
-                                echo "YES";
+                    if(mysqli_num_rows($result1) > 0){
+                        while($meterBoxData= $result1->fetch_assoc()) {	
+                            $meterBoxId = $meterBoxData['meterBoxId'];
+                            $query2="SELECT * FROM consumption WHERE meterBoxId='$meterBoxId'";
+                            $result2=mysqli_query($con, $query2);
+                            if(mysqli_num_rows($result2) > 0){
+                                while($consumptionData= $result2->fetch_assoc()) {	
+                                    // echo $consumptionData['currentMeterReading'];
+                                    // echo $consumptionData['consumptionId'];
+                                    echo "YES";
+                                } 
+                            } else {
+                                echo "NO";
                             }
-                        } else {
-                            echo "NO";
+                                
                         }
- 	
+                    } else {
+                        echo "Do not have a meter box."; 
                     }
                 ?>
                <!-- <div id="token"></div>  -->
