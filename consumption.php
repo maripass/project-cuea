@@ -35,6 +35,12 @@
             <div style="text-align:center;margin-top:30px;font-size:40px; font-weight:bold;">
                 <?php 
                     $userId = $_SESSION['userId'];
+                    $meterCostVar = 0;
+                    $query3="SELECT * FROM metercost";
+                    $result3=mysqli_query($con, $query3);
+                    while($meterCost= $result3->fetch_assoc()) {
+                        $meterCostVar= $meterCost['costPerKwatt'];
+                    }
                     $query="SELECT * FROM meterbox WHERE userId='$userId'";
                     $result1=mysqli_query($con, $query);
                     if(mysqli_num_rows($result1) > 0){
@@ -44,14 +50,13 @@
                             $result2=mysqli_query($con, $query2);
                             if(mysqli_num_rows($result2) > 0){
                                 while($consumptionData= $result2->fetch_assoc()) {	
-                                    // echo $consumptionData['currentMeterReading'];
-                                    // echo $consumptionData['consumptionId'];
-                                    echo "YES";
+                                    echo  $consumptionData['currentMeterReading'];
                                 } 
                             } else {
-                                echo "NO";
-                            }
                                 
+                                $queryInsert="INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading, meterCostId) VALUES('$meterBoxId', 0, 0, 1)";
+                                $getResult=mysqli_query($con, $queryInsert);
+                            }     
                         }
                     } else {
                         echo "Do not have a meter box."; 
