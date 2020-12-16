@@ -249,11 +249,6 @@
     }
 
 
-    // Update User
-    if(isset($_POST['deleteUser'])){
-        echo "YES";
-    }
-
 
     // Create a new Meter Cost
     if(isset($_POST['addMeterCost'])){
@@ -272,7 +267,7 @@
     // DELETE BLOG
     if(isset($_POST['deleteBlog'])){
         $blogId= mysqli_real_escape_string($con, $_POST['blogId']);
-        
+
         $query="DELETE FROM blog WHERE blogId='$blogId'";
         $result=mysqli_query($con, $query);
         if($result){
@@ -282,6 +277,43 @@
             array_push($errors,"error connection fail. $query");
         }  
     }
+
+    // Delete Meter Box
+    if(isset($_POST['deleteMeterBox'])){
+        $meterBoxId= mysqli_real_escape_string($con, $_POST['meterBoxId']);
+        
+        $query="DELETE FROM meterbox WHERE meterBoxId='$meterBoxId'";
+        $result=mysqli_query($con, $query);
+        if($result){
+            $_SESSION['success'] = "Meter Box deleted successfully.";
+            header('Location: meter-box.php');
+        } else{
+            array_push($errors,"error connection fail. $query");
+        }  
+    }
+
+
+        // Update User
+        if(isset($_POST['deleteUser'])){
+            $userId= mysqli_real_escape_string($con, $_POST['userId']);
+
+            $query1="DELETE FROM meterbox WHERE userId='$userId'";
+            $result1=mysqli_query($con, $query1);
+            if($result1){
+                $query2="DELETE FROM user WHERE userId='$userId'";
+                $result2=mysqli_query($con, $query2);
+                if($result2){
+                    $_SESSION['success'] = "User deleted successfully.";
+                    header('Location: users.php');
+                } else{
+                    array_push($errors,"error connection fail. $query2");
+                }
+            } else{
+                array_push($errors,"error connection fail. $query1");
+            } 
+        
+  
+        }
     
 
 ?>

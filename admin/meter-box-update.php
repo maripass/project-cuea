@@ -126,6 +126,11 @@
                 <input type="submit" value="Update Meter Box" name="updateMeterBox">
             
             </form>
+            <form method="POST">
+                <input type="text" value="<?php echo $meterBoxData['meterBoxId'] ?>" name="meterBoxId" id="meterBoxId" hidden>
+                <input type="submit" class="btn" style="background-color: red;" name="deleteMeterBox" value="Delete Meter Box">
+                        
+            </form> 
         </div>
     </section>
     <script src="js/validation.js"></script>

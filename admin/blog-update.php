@@ -41,6 +41,22 @@
     <section>
         <div class="login">
             <form method="POST" enctype="multipart/form-data">
+            <div>
+                <?php  include("../errors.php"); ?><br>
+            </div>
+            <style>
+                .success {
+                    padding: 0px 2px;
+                    border: 1px solid #3c763d;
+                    color: #3c763d; 
+                    background: #dff0d8; 
+                    font-size: 14px;
+                    text-align: center;
+                }
+            </style>
+            <div>
+                <?php  include("../success.php"); ?><br>
+            </div>
                 <div style="width: 100%;">
                     <input type="text" value="<?php echo $blogData['name'] ?>" name="name" id="name" placeholder="Name">
                     <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>
@@ -63,9 +79,9 @@
                 
             </form>
             <form method="POST">
-            <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>
-            <input type="submit" class="btn" style="background-color: red;" name="deleteBlog" value="Delete Blog">
-                    
+                <input type="text" value="<?php echo $blogData['blogId'] ?>" name="blogId" id="blogId" hidden>
+                <input type="submit" class="btn" style="background-color: red;" name="deleteBlog" value="Delete Blog">
+                        
             </form> 
         </div>
     </section>

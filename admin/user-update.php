@@ -101,11 +101,15 @@
     
             
                         <input type="submit" value="Update User" name="updateUser">
-                        <button class="btn" name="deleteUser" style="background-color: red;">
-                            Delete Account
-                        </button>
+
   
             </form>
+
+            <form method="POST">
+                <input type="text" value="<?php echo $userData['userId'] ?>" name="userId" id="userId" hidden>
+                <input type="submit" class="btn" style="background-color: red;" name="deleteUser" value="Delete User">
+                        
+            </form> 
         </div>
     </section>
     

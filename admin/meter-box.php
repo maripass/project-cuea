@@ -67,9 +67,7 @@
                 <th>Address</th>
                 <th>House Number</th>
                 <th>Active</th>
-                <th>Date</th>
-                
-                
+                <th>Date</th> 
             </tr>
             <?php
                 $query="SELECT * FROM meterbox ORDER BY createdAt DESC";

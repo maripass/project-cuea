@@ -46,7 +46,7 @@
             </a>
         </button>
         <table id="customers">
-            <div>
+        <div>
                 <?php  include("../errors.php"); ?><br>
             </div>
             <style>
