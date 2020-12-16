@@ -296,21 +296,25 @@
         // Update User
         if(isset($_POST['deleteUser'])){
             $userId= mysqli_real_escape_string($con, $_POST['userId']);
-            $userId = $_SESSION['userId'];
+            $currentUserId = $_SESSION['userId'];
             $query1="DELETE FROM meterbox WHERE userId='$userId'";
-            $result1=mysqli_query($con, $query1);
-            if($result1){
-                $query2="DELETE FROM user WHERE userId='$userId'";
-                $result2=mysqli_query($con, $query2);
-                if($result2){
+            mysqli_query($con, $query1);
+            $query2="DELETE FROM user WHERE userId='$userId'";
+            $result2=mysqli_query($con, $query2);
+
+            if($result2){
+                echo "MAXWELL 1  ";
+                if($userId == $currentUserId) {
+                    echo "MAXWELL";
+                    // session_destroy();
+                    // header('Location: ../login.php');
+                } else {
                     $_SESSION['success'] = "User deleted successfully.";
                     header('Location: users.php');
-                } else{
-                    array_push($errors,"error connection fail. $query2");
                 }
             } else{
-                array_push($errors,"error connection fail. $query1");
-            } 
+                array_push($errors,"error connection fail. $query2");
+            }
         }
     
 
