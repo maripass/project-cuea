@@ -35,14 +35,23 @@
             <div style="text-align:center;margin-top:30px;font-size:40px; font-weight:bold;">
                 <?php 
                     $userId = $_SESSION['userId'];
-                    $query="SELECT * FROM meterbox WHERE userId='$userId' LIMIT 1";
-                    $result=mysqli_query($con, $query);
-                    if($result) {
-                        $query2="SELECT * FROM consumption WHERE userId='$userId' LIMIT 1";
+                    $query="SELECT * FROM meterbox WHERE userId='$userId'";
+                    $result1=mysqli_query($con, $query);
+
+                    while($meterBoxData= $result1->fetch_assoc()) {	
+                        $meterBoxId = $meterBoxData['meterBoxId'];
+                        $query2="SELECT * FROM consumption WHERE meterBoxId='$meterBoxId' LIMIT 1";
                         $result2=mysqli_query($con, $query2);
-                        if($result2) {
-                            echo "YES";
+                        if($result2 > 0) {
+                            while($consumptionData= $result2->fetch_assoc()) {	
+                                // echo $consumptionData['currentMeterReading'];
+                                // echo $consumptionData['consumptionId'];
+                                echo "YES";
+                            }
+                        } else {
+                            echo "NO";
                         }
+ 	
                     }
                 ?>
                <!-- <div id="token"></div>  -->
