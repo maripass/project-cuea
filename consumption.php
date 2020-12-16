@@ -6,8 +6,9 @@
 		header('location: login.php');
   }
   
-  ?>
-  <!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -32,7 +33,19 @@
     <section>
         <div style="border:1px solid red; width:50%;height:100px;margin-left:25%;margin-top:10%;">
             <div style="text-align:center;margin-top:30px;font-size:40px; font-weight:bold;">
-               <div id="token"></div> 
+                <?php 
+                    $userId = $_SESSION['userId'];
+                    $query="SELECT * FROM meterbox WHERE userId='$userId' LIMIT 1";
+                    $result=mysqli_query($con, $query);
+                    if($result) {
+                        $query2="SELECT * FROM consumption WHERE userId='$userId' LIMIT 1";
+                        $result2=mysqli_query($con, $query2);
+                        if($result2) {
+                            echo "YES";
+                        }
+                    }
+                ?>
+               <!-- <div id="token"></div>  -->
             </div>
         </div>
     </section>

@@ -83,11 +83,12 @@
         $address= mysqli_real_escape_string($con, $_POST['address']);
         $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
 
-        $checkBoxNumberQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
-        $result2           = mysqli_query($con, $checkBoxNumberQuery);
-        $nameResult             = mysqli_fetch_assoc($result2);
+        $checkBoxNumberQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' OR userId='$userId' LIMIT 1";
+        $result2    = mysqli_query($con, $checkBoxNumberQuery);
+        $nameResult = mysqli_fetch_assoc($result2);
         if ($nameResult) { 
             if ($nameResult['meterBoxNumber'] === $meterBoxNumber) { array_push($errors, "Meter Box Number already exist."); }
+            if ($nameResult['userId'] === $userId) { array_push($errors, "User already exists."); }
         }
         if (count($errors) == 0) {
             $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";

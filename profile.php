@@ -6,9 +6,9 @@
 	}
 	
 	$userId = $_SESSION['userId'];
-	$query   = "SELECT * FROM user WHERE userId = '$userId'";
+	$query   = "SELECT * FROM user WHERE userId = '$userId' LIMIT 1";
 	$results = mysqli_query($con, $query);
-	if (mysqli_num_rows($results) == 1) {
+	if ($results) {
 		$profileData = $results->fetch_assoc();		
 	}
 
