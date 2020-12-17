@@ -51,7 +51,15 @@
                             if(mysqli_num_rows($result2) > 0){
                                 while($consumptionData= $result2->fetch_assoc()) {	
                                     echo  $consumptionData['currentMeterReading'];
-
+                                    // ignore_user_abort(true);//Run in persistent mode 
+                                    // set_time_limit(0);
+                                    
+                                    // while (true) 
+                                    // { 
+                                    //   echo "Current timestamp is: "; 
+                                    //   flush();
+                                    //   sleep( 10 );
+                                    // } 
                                 } 
                             } else {
                                 
