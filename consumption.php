@@ -51,6 +51,7 @@
                             if(mysqli_num_rows($result2) > 0){
                                 while($consumptionData= $result2->fetch_assoc()) {	
                                     echo  $consumptionData['currentMeterReading'];
+
                                 } 
                             } else {
                                 
