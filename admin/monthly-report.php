@@ -34,7 +34,7 @@
     <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
          
-                Pick Month
+            Pick Month
         </button>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
@@ -42,35 +42,52 @@
           <input type="submit" value="Filter">
         </form>
         <table id="customers">
-            <tr>
-              <th>Meter Box Number</th>
-              <th>Current Meter Reading</th>
-              <th>Meter Cost</th>
+        <tr>
+              <th>Months</th>
+              <th>Meter Box</th>
+              <th>Previous Month Meter Reading</th>
+              <th>Current Month Meter Reading</th>
+              <th>Unit Consumed</th>
+              <th>Price</th>
               <th>Date</th>
             </tr>
             <tr >
-              <td>12364768912</td>
-              <td>20-10-15 3884</td>
-              <td>400ksh</td>
-              <td>2020-02-05</td>
-            </tr>
-            <tr>
-              <td>213456789123</td>
-              <td>2020-03-02 2975</td>
-              <td>200ksh</td>
-              <td>11-01-2011</td>
-            </tr>
-            <tr>
-              <td>13456778912</td>
-              <td>20-12-03 1993</td>
-              <td>500ksh</td>
-              <td>2020-10-10</td>
-            </tr>
+            
+
+            <?php 
+                $userId=$_SESSION['userId'];
+                $query = "SELECT * FROM meterbox WHERE userId = '$userId' AND YEARM(createdAt) = '$the_year' AND MONTH(createdAt) = '$the_month' ORDER BY createdAt DESC";
+                $result=mysqli_query($con, $query);
+                if(mysqli_num_rows($result) > 0){
+                    while($row= $result->fetch_assoc()) {
+                        $meterBoxNumberId = $row['meterBoxNumber'];
+                        $query2   = "SELECT * FROM consumption WHERE meterBoxNumberId = '$meterBoxNumberId'";
+                        $result2 = mysqli_query($con, $query2);
+                        if (mysqli_num_rows($result2) == 1) {
+                            $consumptionData = $result2->fetch_assoc();		
+                        }
+                        ?>
+                           <tr>
+                                <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
+                                <td><?php echo $row['meterBoxNumber'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['previousCurrentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
+                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
+                                <!-- <td><?php echo number_format($income_data['amount'], 2) ?></td> -->
+                                <!-- <td><?php echo $product_category_data['name'] ?></td> -->
+                                <!-- <td><?php echo $product_service_data['name'] ?></td> -->
+                                <!-- <td><?php echo number_format($row['price'], 2) ?></td> -->
+                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                            </tr>
+                        <?php
+                    }
+                }
+            ?>
+
           </table>
 
-          
           <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH 500</button>
-
     </section>
     <style>
        #filter {
@@ -86,6 +103,5 @@
 			filter.style.display = "block";
 		}
 	}
-    </script>
 </body>
 </html>
