@@ -18,7 +18,7 @@
     
 </head>
 
-<body>
+<body onload="getapi();">
 <?php include('header.php'); ?>
 
     <section class="banner">
@@ -99,23 +99,6 @@
 
             
   
-// Defining async function 
-async function getapi() { 
-
-    // api url 
-const api_url =  "https://employeedetails.free.beeceptor.com/my/api/path"; 
-    
-    // Storing response 
-    const response = await fetch(url); 
-    
-    // Storing data in form of JSON 
-    var data = await response.json(); 
-    console.log(data); 
-    if (response) { 
-        hideloader(); 
-    } 
-    console.log(data); 
-}
 
 
 
@@ -132,6 +115,30 @@ const api_url =  "https://employeedetails.free.beeceptor.com/my/api/path";
 
 
         }
+
+
+        // Defining async function 
+async function getapi() { 
+
+    // api url 
+    const api_url =  "https://gist.githubusercontent.com/jlengstorf/2760279/raw/af448c95b9b3616d962388df6da11f261bfc9f86/gistfile1.js"; 
+    
+    // Storing response 
+    const response = await fetch(api_url); 
+
+    var data = JSON.parse((response); 
+    
+    console.log(data); 
+
+    // Storing data in form of JSON 
+    // var data = await response.json(); 
+    // console.log(data); 
+    // if (response) { 
+    //     hideloader(); 
+    // } 
+    // console.log(data); 
+}
+
     </script>
 
     
