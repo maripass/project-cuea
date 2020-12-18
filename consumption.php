@@ -76,13 +76,61 @@
         </div>
     </section>
     <script>
-        var x = 0;
-        var token = document.getElementById('token');
+        // var x = 0;
+        // var token = document.getElementById('token');
         setInterval(() => {
-            incrementToken();
+            fetchToken();
         }, (5000));
-        function incrementToken() {
-            token.innerHTML=x++;
+        function fetchToken() {
+
+            // token.innerHTML=x++;
+
+
+
+
+            
+
+
+
+
+
+            // fetch token with ajax call
+
+
+            
+  
+// Defining async function 
+async function getapi() { 
+
+    // api url 
+const api_url =  "https://employeedetails.free.beeceptor.com/my/api/path"; 
+    
+    // Storing response 
+    const response = await fetch(url); 
+    
+    // Storing data in form of JSON 
+    var data = await response.json(); 
+    console.log(data); 
+    if (response) { 
+        hideloader(); 
+    } 
+    console.log(data); 
+}
+
+
+
+
+
+            // increment received token
+
+            // display received incremented token
+
+            // send new token by ajax call to be saved in the database
+
+
+
+
+
         }
     </script>
 
