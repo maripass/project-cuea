@@ -34,6 +34,12 @@
         <div style="border:1px solid red; width:50%;height:100px;margin-left:25%;margin-top:10%;">
             <div style="text-align:center;margin-top:30px;font-size:40px; font-weight:bold;">
                 <?php 
+
+$url = "http://localhost/project/file.json"; // path to your JSON file
+$data = file_get_contents($url); // put the contents of the file into a variable
+$characters = json_decode($data); // decode the JSON feed
+
+echo $characters[0]->gender;
                     $userId = $_SESSION['userId'];
                     $meterCostVar = 0;
                     $query3="SELECT * FROM metercost";
@@ -78,10 +84,12 @@
     <script>
         // var x = 0;
         // var token = document.getElementById('token');
-        setInterval(() => {
-            fetchToken();
+        
+        function launchTokenFetch() {
+
+            setInterval(() => {
+                getapi();
         }, (5000));
-        function fetchToken() {
 
             // token.innerHTML=x++;
 
@@ -117,18 +125,44 @@
         }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
         // Defining async function 
 async function getapi() { 
 
+
+
+
     // api url 
-    const api_url =  "https://gist.githubusercontent.com/jlengstorf/2760279/raw/af448c95b9b3616d962388df6da11f261bfc9f86/gistfile1.js"; 
+    const api_url =  "http://localhost/project/file.json"; 
     
     // Storing response 
     const response = await fetch(api_url); 
 
-    var data = JSON.parse((response); 
+    const formatted_data = response.json();
+
+
+
+    for (x in formatted_data) {
+  alert(x);
+}
+
+
+
+ 
     
-    console.log(data); 
+    console.log(formatted_data[0].gender); 
+
 
     // Storing data in form of JSON 
     // var data = await response.json(); 
@@ -137,6 +171,8 @@ async function getapi() {
     //     hideloader(); 
     // } 
     // console.log(data); 
+
+    
 }
 
     </script>
