@@ -141,9 +141,9 @@ echo $characters[0]->gender;
  function getapi() { 
 
 
-    fetch('http://localhost/project/file.json')
+    fetch('http://localhost/project/consumption-return.php')
   .then(response => response.json())
-  .then(data => console.log(data[0].gender));
+  .then(data => console.log(data[0].previous_consumption));
 
 
 
