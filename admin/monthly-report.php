@@ -56,7 +56,7 @@
 
             <?php 
                 $userId=$_SESSION['userId'];
-                $query = "SELECT * FROM meterbox WHERE userId = '$userId' AND YEARM(createdAt) = '$the_year' AND MONTH(createdAt) = '$the_month' ORDER BY createdAt DESC";
+                $query = "SELECT * FROM meterbox WHERE userId = '$userId' AND YEAR(createdAt) = '$the_year' AND MONTH(createdAt) = '$the_month' ORDER BY createdAt DESC";
                 $result=mysqli_query($con, $query);
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
