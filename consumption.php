@@ -18,7 +18,7 @@
     
 </head>
 
-<body onload="getapi();">
+<body onload="launchTokenFetch();">
 <?php include('header.php'); ?>
 
     <section class="banner">
@@ -142,8 +142,14 @@ echo $characters[0]->gender;
 
 
     fetch('http://localhost/project/consumption-return.php')
-  .then(response => response.json())
-  .then(data => console.log(data[0].previous_consumption));
+        .then(response => response.json())
+        .then(data => { 
+        var reading = data[0].previous_consumption;
+        var new_reading = parseInt(reading) + 1;
+        // console.log(new_reading);
+        fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading);
+    }
+    );
 
 
 
