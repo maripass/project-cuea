@@ -138,39 +138,16 @@ echo $characters[0]->gender;
 
 
         // Defining async function 
-async function getapi() { 
+ function getapi() { 
+
+
+    fetch('http://localhost/project/file.json')
+  .then(response => response.json())
+  .then(data => console.log(data[0].gender));
 
 
 
 
-    // api url 
-    const api_url =  "http://localhost/project/file.json"; 
-    
-    // Storing response 
-    const response = await fetch(api_url); 
-
-    const formatted_data = response.json();
-
-
-
-    for (x in formatted_data) {
-  alert(x);
-}
-
-
-
- 
-    
-    console.log(formatted_data[0].gender); 
-
-
-    // Storing data in form of JSON 
-    // var data = await response.json(); 
-    // console.log(data); 
-    // if (response) { 
-    //     hideloader(); 
-    // } 
-    // console.log(data); 
 
     
 }
