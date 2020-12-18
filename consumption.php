@@ -84,79 +84,35 @@ echo $characters[0]->gender;
     <script>
         // var x = 0;
         // var token = document.getElementById('token');
-        
+    
         function launchTokenFetch() {
 
             setInterval(() => {
                 getapi();
-        }, (5000));
+            }, (5000));
 
             // token.innerHTML=x++;
 
-
-
-
-            
-
-
-
-
-
             // fetch token with ajax call
-
-
-            
-  
-
-
-
-
 
             // increment received token
 
             // display received incremented token
 
             // send new token by ajax call to be saved in the database
-
-
-
-
-
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
         // Defining async function 
- function getapi() { 
-
-
-    fetch('http://localhost/project/consumption-return.php')
-        .then(response => response.json())
-        .then(data => { 
-        var reading = data[0].previous_consumption;
-        var new_reading = parseInt(reading) + 1;
-        // console.log(new_reading);
-        fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading);
-    }
-    );
-
-
-
-
-
-    
-}
+        function getapi() { 
+            fetch('http://localhost/project/consumption-return.php')
+                .then(response => response.json())
+                .then(data => { 
+                var reading = data[0].previous_consumption;
+                var new_reading = parseInt(reading) + 1;
+                // console.log(new_reading);
+                fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading);
+            }
+        );
 
     </script>
 

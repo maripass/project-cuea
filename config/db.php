@@ -58,6 +58,13 @@
             } else {
                 $_SESSION['userId'] = $userData['userId'];
                 $_SESSION['userEmail'] = $userData['userEmail'];
+                $userId = $userData['userId'];
+                $query3="SELECT * FROM meterbox WHERE userId='$userId' LIMIT 1";
+                $result3=mysqli_query($con, $query3);
+                if(mysqli_num_rows($result3) == 1){
+                    $meterBoxData=mysqli_fetch_assoc($result3);
+                }
+                $_SESSION['meterBoxNumber'] = $meterBoxData['meterBoxNumber'];
                 header('Location: dashboard-index.php');
             }
         } else {
