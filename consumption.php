@@ -57,8 +57,7 @@
 
                 // send new token by ajax call to be saved in the database
                 fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading).then(response => response.json())
-                .then(data => { alert('done');
-                })
+               
             
             
             }
