@@ -64,7 +64,7 @@
                 if(mysqli_num_rows($result3) == 1){
                     $meterBoxData=mysqli_fetch_assoc($result3);
                 }
-                $_SESSION['meterBoxNumber'] = $meterBoxData['meterBoxNumber'];
+                $_SESSION['meterBoxNumber'] = $meterBoxData['meterBoxId'];
                 header('Location: dashboard-index.php');
             }
         } else {

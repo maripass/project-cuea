@@ -56,10 +56,8 @@
                 token.innerHTML=new_reading;
 
                 // send new token by ajax call to be saved in the database
-                fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading).then(response => response.json())
-               
-            
-            
+                fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading);
+                           
             }
         );}
 

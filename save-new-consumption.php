@@ -5,4 +5,6 @@
     $meterBoxId = $_SESSION['meterBoxNumber'];
     $query="UPDATE consumption SET currentMeterReading='$new_reading' WHERE meterBoxId='$meterBoxId'";
     mysqli_query($con, $query);
+
+    echo $meterBoxId;
 ?>
