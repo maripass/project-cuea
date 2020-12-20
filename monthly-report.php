@@ -6,8 +6,13 @@
 		header('location: login.php');
     }
 
-    $the_year   = date("Y");
-	$the_month  = date("m");
+    $theYear  = date("Y");
+    $theMonth = date("m");
+    if (isset($_POST['filterByMonth'])) {
+        $monthInput = mysqli_real_escape_string($con, $_POST['monthInput']);
+        $theYear = date("Y", strtotime($monthInput));
+        $theMonth = date("m", strtotime($monthInput));
+	}
   
   ?>
   <!DOCTYPE html>
@@ -34,8 +39,8 @@
         </button>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
-          <input type="month" style="padding:10px; width:100%" >
-          <input type="submit" value="Filter">
+          <input type="month" style="padding:10px; width:100%" name="monthInput" id="monthInput" value="<?php echo $monthInput ?>" >
+          <input type="submit" value="Filter" name="filterByMonth">
         </form>
         <table id="customers">
         <tr>

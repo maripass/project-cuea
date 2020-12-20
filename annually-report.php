@@ -4,7 +4,7 @@
 	if (!isset($_SESSION['userId'])) {
 		header('location: login.php');
     }
-    $jsonArray = array();
+    
 	$theYear   = date("Y");
 	if (isset($_POST['filterByYear'])) {
         $yearInput = mysqli_real_escape_string($con, $_POST['yearInput']);
@@ -30,7 +30,7 @@
         </div>
     </section>
     <section>
-    <button class="btn" onclick="showHideFilter()"
+        <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
          
                 Pick Year
@@ -51,15 +51,23 @@
                 <th>Date</th>
             </tr>
             <?php
+                $query1   = "SELECT * FROM metercost";
+                $result1 = mysqli_query($con, $query1);
+                $meterCost = 0;
+                if ($result1) {
+                    while($meterCostData = $result1->fetch_assoc()) {
+                        $meterCost = $meterCostData['costPerKwatt'];
+                    }	
+                }
                 $query1     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
                 $results 	= mysqli_query($con, $query1);
                 while($row = $results->fetch_assoc()) {
                     // GET PRODUCT CATEGORY NAME
                     $meterBoxId = $row['meterBoxId'];
-                    $query2   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
-                    $result2 = mysqli_query($con, $query2);
-                    if (mysqli_num_rows($result2) == 1) {
-                        $meterBoxData = $result2->fetch_assoc();		
+                    $meterBoxQuery   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
+                    $meterBoxResult = mysqli_query($con, $meterBoxQuery);
+                    if (mysqli_num_rows($meterBoxResult) == 1) {
+                        $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
                     if($row['previoustMeterReading'] < $row['currentMeterReading']) {
                         $unitConsummed = $row['currentMeterReading'];
@@ -73,7 +81,7 @@
                             <td><?php echo $row['previoustMeterReading'] ?></td>
                             <td><?php echo $row['currentMeterReading'] ?></td>
                             <td><?php echo $unitConsummed ?></td>
-                            <td>500ksh</td>
+                            <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php                    
@@ -81,10 +89,10 @@
             ?>
 
             
-          </table>
+        </table>
 
           
-          <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH 500</button>
+        <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
     </section>
 
     <style>

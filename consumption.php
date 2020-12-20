@@ -38,21 +38,19 @@
         function launchTokenFetch() {
             setInterval(() => {
                 getapi();
-            }, (30000));   
+            }, (10000));   
         }
 
         function getapi() { 
             var token = document.getElementById('token');
-            // fetch token with ajax call
+            // get token with ajax call
             fetch('http://localhost/project/consumption-return.php')
                 .then(response => response.json())
                 .then(data => { 
                 var reading = data[0].previous_consumption;
-                var new_reading = parseInt(reading)+1;
+                var new_reading = parseInt(reading)+Math.floor(Math.random() * 10);
 
-                // console.log(new_reading++);
-
-                // display received incremented token                
+                // display received random token                
                 token.innerHTML=new_reading;
 
                 // send new token by ajax call to be saved in the database
