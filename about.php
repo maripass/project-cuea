@@ -18,7 +18,7 @@
         <h1 style="margin-top:100px; text-align: center;">About</h1>
     </div>
 
-    <div>
+        <div>
             <?php
                 include("errors.php");
             ?><br>
