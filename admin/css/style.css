@@ -15,7 +15,6 @@ body {
     width: 250px;
     height: 100%;
     background: #3274d6;
-    overflow-y: scroll;
 }
 .sidebar header{
     font-size: 22px;

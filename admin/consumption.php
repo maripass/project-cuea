@@ -1,9 +1,9 @@
 <?php 
 	require_once('../config/db.php');
 	
-	if (!isset($_SESSION['userId'])) {
-		header('location: login.php');
-  }
+	if (!isset($_SESSION['isAdmin'])) {
+        header('location: ../login.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +40,7 @@
             </div>
         </div>
     </section>
+    
     <script>
         function launchTokenFetch() {
             setInterval(() => {
@@ -50,19 +51,17 @@
         function getapi() { 
             var token = document.getElementById('token');
             // get token with ajax call
-            fetch('http://localhost/project/consumption-return.php')
+            fetch('http://localhost/project/admin/consumption-return.php')
                 .then(response => response.json())
                 .then(data => { 
                 var reading = data[0].previous_consumption;
-                var new_reading = parseInt(reading)+Math.floor(Math.random() * 10);
+                var new_reading = parseInt(reading);
 
                 // display received random token                
-                token.innerHTML=new_reading;             
+                token.innerHTML=new_reading;        
             }
         );}
-
     </script>
-
     
 </body>
 
