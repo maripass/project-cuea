@@ -3,6 +3,13 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+
+    $jsonArray = array();
+	$theYear   = date("Y");
+	if (isset($_POST['filterByYear'])) {
+		$yearInput = mysqli_real_escape_string($con, $_POST['yearInput']);
+		$theYear = $yearInput;
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -37,20 +44,34 @@
         </button>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
-          <input type="number" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY">
-          <input type="submit" value="Filter">
+          <input type="number" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY" name="yearInput" value="<?php echo $yearInput ?>">
+          <input type="submit" value="Filter" name="filterByYear">
         </form>
         <table id="customers">
             <tr>
-            <th>Months</th>
-              <th>Meter Box</th>
-              <th>Beggining Meter Reading</th>
-              <th>End Meter Reading</th>
-              <th>Unit Consumed</th>
-              <th>Price</th>
-              <th>Date</th>
-            </tr>
+                <th>Months</th>
+                <th>Meter Box</th>
+                <th>Beggining Meter Reading</th>
+                <th>End Meter Reading</th>
+                <th>Unit Consumed</th>
+                <th>Price</th>
+                <th>Date</th>
+                </tr>
             <tr >
+            <?php
+                $query1     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
+                $results 	= mysqli_query($con, $query1);
+                if (mysqli_num_rows($results) > 0) {
+                    ?>
+                        <tr style="height: 65px; font-size: 15px; color: #737373;">
+                            <th style="color: #737373;">Source</th>
+                            <th style="color: #737373;">Income</th>
+                            <th style="color: #737373;">Category</th>
+                            <th style="color: #737373;">Product/Service</th>
+                            <th style="color: #737373;">Price</th>
+                            <th style="color: #737373;">Date</th>
+                        </tr>
+                    <?php
             <td>january</td>
               <td>12364768912</td>
               <td>3884</td>
