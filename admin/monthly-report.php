@@ -15,6 +15,7 @@
         $theMonth = date("m", strtotime($monthInput));
 	}
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -34,7 +35,6 @@
       </div>
   </label>
   <?Php include('header.php'); ?>
-
     <section class="banner">
         <div class="banner-left">
           Monthly Report
@@ -60,8 +60,7 @@
                 <th>Price</th>
                 <th>Date</th>
             </tr>
-            
-
+           
             <?php
                 $meterCostQuery   = "SELECT * FROM metercost";
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
@@ -114,7 +113,7 @@
        #filter {
          display:none;
        }
-</style>
+    </style>
     <script>
       function showHideFilter() {
 		var filter = document.getElementById("filter");

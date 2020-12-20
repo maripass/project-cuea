@@ -17,7 +17,7 @@
         $theMonth = date("m", strtotime($monthInput));
 	}
   
-  ?>
+?>
   <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>

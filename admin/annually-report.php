@@ -3,7 +3,14 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+    $theYear   = date("Y");
+	if (isset($_POST['filterByYear'])) {
+        $yearInput = mysqli_real_escape_string($con, $_POST['yearInput']);
+		$theYear = $yearInput;
+    }
+    $price = 0;
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -30,64 +37,79 @@
         </div>
     </section>
     <section>
-    <button class="btn" onclick="showHideFilter()"
+        <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
          
             Pick Year
         </button>
 
-        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
-          <input type="number" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY">
-          <input type="submit" value="Filter">
+        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
+          <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
+          <input type="submit" value="Filter" name="filterByYear">
         </form>
         <table id="customers">
             <tr>
-            <th>Months</th>
-              <th>Meter Box</th>
-              <th>Beggining Meter Reading</th>
-              <th>End Meter Reading</th>
-              <th>Unit Consumed</th>
-              <th>Price</th>
-              <th>Date</th>
+                <th>Months</th>
+                <th>Meter Box</th>
+                <th>Beggining Meter Reading</th>
+                <th>End Meter Reading</th>
+                <th>Unit Consumed</th>
+                <th>Price</th>
+                <th>Date</th>
             </tr>
-            <tr >
-            <td>january</td>
-              <td>12364768912</td>
-              <td>3884</td>
-              <td>4884</td>
-              <td>4884</td>
-              <td>400ksh</td>
-              <td>2020-02-05</td>
-            </tr>
-            <tr>
-            <td>february</td>
-              <td>213456789123</td>
-              <td>4884</td>
-              <td>5887</td>
-              <td>5887</td>
-              <td>200ksh</td>
-              <td>11-01-2011</td>
-            </tr>
-            <tr>
-            <td>march</td>
-              <td>13456778912</td>
-              <td>5887</td>
-              <td>6888</td>
-              <td>6888</td>
-              <td>500ksh</td>
-              <td>2020-10-10</td>
-            </tr>
+            <?php
+                $meterCostQuery   = "SELECT * FROM metercost";
+                $meterCostResult = mysqli_query($con, $meterCostQuery);
+                $meterCost = 0;
+                if ($meterCostResult) {
+                    while($meterCostData = $meterCostResult->fetch_assoc()) {
+                        $meterCost = $meterCostData['costPerKwatt'];
+                    }	
+                }
+                $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
+                $consumptionResult 	= mysqli_query($con, $consumptionQuery);
+                while($row = $consumptionResult->fetch_assoc()) {
+                    // GET METER BOX ID
+                    $meterBoxId = $row['meterBoxId'];
+                    $meterBoxQuery   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
+                    $meterBoxResult = mysqli_query($con, $meterBoxQuery);
+                    if (mysqli_num_rows($meterBoxResult) == 1) {
+                        $meterBoxData = $meterBoxResult->fetch_assoc();		
+                    }
+                    if($row['previoustMeterReading'] < $row['currentMeterReading']) {
+                        $unitConsummed = $row['currentMeterReading'];
+                    } else {
+                        $unitConsummed = $row['previoustMeterReading'] - $row['currentMeterReading'];
+                    }
+                    ?>
+                        <tr>
+                            <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
+                            <td><?php echo $meterBoxData['meterBoxNumber'] ?></td>
+                            <td><?php echo $row['previoustMeterReading'] ?></td>
+                            <td><?php echo $row['currentMeterReading'] ?></td>
+                            <td><?php echo $unitConsummed ?></td>
+                            <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
+                            <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                        </tr>
+                    <?php                    
+                }
+            ?>
           </table>
-
           
-          <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH 500</button>
+          <?php 
+            if(mysqli_num_rows($consumptionResult) > 0){
+                ?>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+                <?php
+            }
+        ?>
     </section>
 
     <style>
        #filter {
          display:none;
        }
-</style>
+    </style>
     <script>
       function showHideFilter() {
 		var filter = document.getElementById("filter");
