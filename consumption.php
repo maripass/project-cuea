@@ -43,7 +43,7 @@
 
         function getapi() { 
             var token = document.getElementById('token');
-            // get token with ajax call
+            // Get token with ajax call
             fetch('http://localhost/project/consumption-return.php')
                 .then(response => response.json())
                 .then(data => { 

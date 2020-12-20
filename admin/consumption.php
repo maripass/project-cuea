@@ -1,11 +1,9 @@
-
 <?php 
 	require_once('../config/db.php');
 	
 	if (!isset($_SESSION['userId'])) {
 		header('location: login.php');
   }
-  
 ?>
 
 <!DOCTYPE html>
@@ -13,13 +11,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>Consumtion</title>
     <link rel="stylesheet" href="../css/dashboard.css">
-    
 </head>
 
 <body onload="launchTokenFetch();">
-<?php include('header.php'); ?>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <div id="btn">
+            <img src="images/icons/menu.svg" width="20px" height="20px" alt="">
+        </div>
+        <div id="cancel">
+            <img src="images/icons/close.svg" width="20px" height="20px" alt="">
+        </div>
+    </label>
+    <?Php include('header.php'); ?>
 
     <section class="banner">
         <div class="banner-left">
@@ -51,11 +57,7 @@
                 var new_reading = parseInt(reading)+Math.floor(Math.random() * 10);
 
                 // display received random token                
-                token.innerHTML=new_reading;
-
-                // send new token by ajax call to be saved in the database
-                fetch('http://localhost/project/save-new-consumption.php?new_reading='+new_reading);
-                           
+                token.innerHTML=new_reading;             
             }
         );}
 

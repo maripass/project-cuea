@@ -35,8 +35,8 @@
       <div id="cancel">
           <img src="images/icons/close.svg" width="20px" height="20px" alt="">
       </div>
-  </label>
-  <?Php include('header.php'); ?>
+    </label>
+    <?Php include('header.php'); ?>
     <section class="banner">
         <div class="banner-left">
           Monthly Report
