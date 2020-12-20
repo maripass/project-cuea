@@ -32,69 +32,79 @@
         </div>
     </section>
     <section>
-    <button class="btn" onclick="showHideFilter()"
+        <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-         
-                Pick Month
+            Pick Month
         </button>
 
-        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;">
+        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
           <input type="month" style="padding:10px; width:100%" name="monthInput" id="monthInput" value="<?php echo $monthInput ?>" >
           <input type="submit" value="Filter" name="filterByMonth">
         </form>
         <table id="customers">
-        <tr>
-              <th>Months</th>
-              <th>Meter Box</th>
-              <th>Previous Month Meter Reading</th>
-              <th>Current Month Meter Reading</th>
-              <th>Unit Consumed</th>
-              <th>Price</th>
-              <th>Date</th>
-            </tr>
+            <tr>
+                <th>Month</th>
+                <th>Meter Box Number</th>
+                <th>Previous Month Meter Reading</th>
+                <th>Current Month Meter Reading</th>
+                <th>Unit Consumed</th>
+                <th>Price</th>
+                <th>Date</th>
             <tr >
             
 
-            <?php 
-                $userId=$_SESSION['userId'];
-                $query = "SELECT * FROM meterbox WHERE userId = '$userId' AND YEAR(createdAt) = '$the_year' AND MONTH(createdAt) = '$the_month' ORDER BY createdAt DESC";
-                $result=mysqli_query($con, $query);
-                if(mysqli_num_rows($result) > 0){
-                    while($row= $result->fetch_assoc()) {
-                        $meterBoxNumberId = $row['meterBoxNumber'];
-                        $query2   = "SELECT * FROM consumption WHERE meterBoxNumberId = '$meterBoxNumberId'";
-                        $result2 = mysqli_query($con, $query2);
-                        if (mysqli_num_rows($result2) == 1) {
-                            $consumptionData = $result2->fetch_assoc();		
-                        }
-                        ?>
-                           <tr>
-                                <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
-                                <td><?php echo $row['meterBoxNumber'] ?></td>
-                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
-                                <td><?php echo $consumptionData['previousCurrentMeterReading'] ?></td>
-                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
-                                <td><?php echo $consumptionData['currentMeterReading'] ?></td>
-                                <!-- <td><?php echo number_format($income_data['amount'], 2) ?></td> -->
-                                <!-- <td><?php echo $product_category_data['name'] ?></td> -->
-                                <!-- <td><?php echo $product_service_data['name'] ?></td> -->
-                                <!-- <td><?php echo number_format($row['price'], 2) ?></td> -->
-                                <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
-                            </tr>
-                        <?php
+            <?php
+                $meterCostQuery   = "SELECT * FROM metercost";
+                $meterCostResult = mysqli_query($con, $meterCostQuery);
+                $meterCost = 0;
+                if ($meterCostResult) {
+                    while($meterCostData = $meterCostResult->fetch_assoc()) {
+                        $meterCost = $meterCostData['costPerKwatt'];
+                    }	
+                }
+                $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
+                $consumptionResult 	= mysqli_query($con, $consumptionQuery);
+                while($row = $consumptionResult->fetch_assoc()) {
+                    // GET METER BOX ID
+                    $meterBoxId = $row['meterBoxId'];
+                    $meterBoxQuery   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
+                    $meterBoxResult = mysqli_query($con, $meterBoxQuery);
+                    if (mysqli_num_rows($meterBoxResult) == 1) {
+                        $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
+                    if($row['previoustMeterReading'] < $row['currentMeterReading']) {
+                        $unitConsummed = $row['currentMeterReading'];
+                    } else {
+                        $unitConsummed = $row['previoustMeterReading'] - $row['currentMeterReading'];
+                    }
+                    ?>
+                        <tr>
+                            <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
+                            <td><?php echo $meterBoxData['meterBoxNumber'] ?></td>
+                            <td><?php echo $row['previoustMeterReading'] ?></td>
+                            <td><?php echo $row['currentMeterReading'] ?></td>
+                            <td><?php echo $unitConsummed ?></td>
+                            <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
+                            <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                        </tr>
+                    <?php                    
                 }
             ?>
 
           </table>
-
-          <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH 500</button>
+            <?php 
+                if(mysqli_num_rows($consumptionResult) > 0){
+                    ?>
+                        <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+                    <?php
+                }
+            ?>
     </section>
     <style>
        #filter {
          display:none;
        }
-</style>
+    </style>
     <script>
       function showHideFilter() {
 		var filter = document.getElementById("filter");

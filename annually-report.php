@@ -9,7 +9,8 @@
 	if (isset($_POST['filterByYear'])) {
         $yearInput = mysqli_real_escape_string($con, $_POST['yearInput']);
 		$theYear = $yearInput;
-	}
+    }
+    $price = 0;
   
 ?>
 
@@ -32,8 +33,7 @@
     <section>
         <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-         
-                Pick Year
+            Pick Year
         </button>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
@@ -51,18 +51,18 @@
                 <th>Date</th>
             </tr>
             <?php
-                $query1   = "SELECT * FROM metercost";
-                $result1 = mysqli_query($con, $query1);
+                $meterCostQuery   = "SELECT * FROM metercost";
+                $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
-                if ($result1) {
-                    while($meterCostData = $result1->fetch_assoc()) {
+                if ($meterCostResult) {
+                    while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
                     }	
                 }
-                $query1     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
-                $results 	= mysqli_query($con, $query1);
-                while($row = $results->fetch_assoc()) {
-                    // GET PRODUCT CATEGORY NAME
+                $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
+                $consumptionResult 	= mysqli_query($con, $consumptionQuery);
+                while($row = $consumptionResult->fetch_assoc()) {
+                    // GET METER BOX ID
                     $meterBoxId = $row['meterBoxId'];
                     $meterBoxQuery   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
                     $meterBoxResult = mysqli_query($con, $meterBoxQuery);
@@ -87,19 +87,22 @@
                     <?php                    
                 }
             ?>
-
-            
         </table>
-
           
-        <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+        <?php 
+            if(mysqli_num_rows($consumptionResult) > 0){
+                ?>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+                <?php
+            }
+        ?>
     </section>
 
     <style>
        #filter {
          display:none;
        }
-</style>
+    </style>
     <script>
       function showHideFilter() {
 		var filter = document.getElementById("filter");
