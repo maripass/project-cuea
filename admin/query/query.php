@@ -94,10 +94,17 @@
             $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
             $result=mysqli_query($con, $query);
             if($result){
-                $_SESSION['success'] = "Meter box created successfully.";
-                header('Location: meter-box.php');
+                $lookForMeterBoxIdQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
+                $lookForMeterBoxIdResult = mysqli_query($con, $lookForMeterBoxIdQuery);
+                $meterBoxData=mysqli_fetch_assoc($lookForMeterBoxIdResult);
+                if($meterBoxData) {
+                    $meterBox = $meterBoxData['meterBoxId'];
+                    $consumptionQuery="INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading) VALUES('$meterBox', 0, 0)";
+                    mysqli_query($con, $consumptionQuery);
+                    $_SESSION['success'] = "Meter box created successfully.";
+                    header('Location: meter-box.php');
+                }
             } else{
-                echo $query;
                 array_push($errors,"error connection fail. $query");
             } 
         }

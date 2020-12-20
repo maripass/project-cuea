@@ -28,7 +28,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Update Meter box
+            Add Meter Box
         </div>
     </section>
     <section>
@@ -86,7 +86,7 @@
                 </div><br><br><br><br>
            
         
-                <input type="submit" value="Add Meter box" name="addMeterBox">             
+                <input type="submit" value="Add Meter Box" name="addMeterBox">             
             </form>
         </div>
     </section>

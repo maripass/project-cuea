@@ -51,6 +51,7 @@
                 <th>Date</th>
             </tr>
             <?php
+                $meterBoxId = $_SESSION['meterBoxNumber'];
                 $meterCostQuery   = "SELECT * FROM metercost";
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
@@ -59,7 +60,7 @@
                         $meterCost = $meterCostData['costPerKwatt'];
                     }	
                 }
-                $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
+                $consumptionQuery     = "SELECT * FROM consumption WHERE meterBoxId='$meterBoxId' AND YEAR(createdAt) = '$theYear'";
                 $consumptionResult 	= mysqli_query($con, $consumptionQuery);
                 while($row = $consumptionResult->fetch_assoc()) {
                     // GET METER BOX ID

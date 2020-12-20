@@ -34,7 +34,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Update Meter box
+            Update Meter Box
         </div>
     </section>
     <section>

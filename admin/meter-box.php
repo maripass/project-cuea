@@ -42,7 +42,7 @@
         <button class="btn"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
             <a href="meter-box-add.php" style="color: white;"> 
-                Add Meter box
+                Add Meter Box
             </a>
         </button>
         <table id="customers">
