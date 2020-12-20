@@ -1,6 +1,7 @@
 <div class="sidebar">
         <header>Dashboard</header>
         <ul>
+            <li><a href="consumption.php">Consumption</a></li>
             <li><a href="monthly-report.php">Monthly Report</a></li>
             <li><a href="annually-report.php">Annually Report</a></li>
             <li><a href="meter-box.php">Meter Box</a></li>

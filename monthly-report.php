@@ -5,12 +5,13 @@
 	if (!isset($_SESSION['userId'])) {
 		header('location: login.php');
     }
-
+    $currentYear = date("Y");
+    $currentMonth = date("m");
     $theYear  = date("Y");
     $theMonth = date("m");
     if (isset($_POST['filterByMonth'])) {
         $monthInput = mysqli_real_escape_string($con, $_POST['monthInput']);
-        if($monthInput > $theYear) {
+        if(date("Y", strtotime($monthInput)) > $currentYear || date("m", strtotime($monthInput)) > $currentMonth) {
             array_push($errors, "Year/Month should not be greater than the current year/month.");
         }
         $theYear = date("Y", strtotime($monthInput));
@@ -113,14 +114,14 @@
        }
     </style>
     <script>
-      function showHideFilter() {
-		var filter = document.getElementById("filter");
-		if(filter.style.display === "block") {
-			filter.style.display = "none";
-		} else {
-			filter.style.display = "block";
-		}
-	}
+        function showHideFilter() {
+            var filter = document.getElementById("filter");
+            if(filter.style.display === "block") {
+                filter.style.display = "none";
+            } else {
+                filter.style.display = "block";
+            }
+        }
     </script>
 </body>
 </html>

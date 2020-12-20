@@ -4,11 +4,13 @@
 	if (!isset($_SESSION['isAdmin'])) {
         header('location: ../login.php');
     }
+    $currentYear = date("Y");
+    $currentMonth = date("m");
     $theYear  = date("Y");
     $theMonth = date("m");
     if (isset($_POST['filterByMonth'])) {
         $monthInput = mysqli_real_escape_string($con, $_POST['monthInput']);
-        if($monthInput > $theYear) {
+        if(date("Y", strtotime($monthInput)) > $currentYear || date("m", strtotime($monthInput)) > $currentMonth) {
             array_push($errors, "Year/Month should not be greater than the current year/month.");
         }
         $theYear = date("Y", strtotime($monthInput));
@@ -41,10 +43,14 @@
         </div>
     </section>
     <section>
-        <button class="btn" onclick="showHideFilter()"
-            style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
+        <button class="btn" onclick="showHideFilter()" style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
             Pick Month
         </button>
+        <div>
+            <?php
+                include("../errors.php");
+            ?><br>
+        </div>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
             <input type="month" style="padding:10px; width:100%" name="monthInput" id="monthInput" value="<?php echo $monthInput ?>" >
@@ -115,13 +121,14 @@
        }
     </style>
     <script>
-      function showHideFilter() {
-		var filter = document.getElementById("filter");
-		if(filter.style.display === "block") {
-			filter.style.display = "none";
-		} else {
-			filter.style.display = "block";
-		}
-	}
+        function showHideFilter() {
+            var filter = document.getElementById("filter");
+            if(filter.style.display === "block") {
+                filter.style.display = "none";
+            } else {
+                filter.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
