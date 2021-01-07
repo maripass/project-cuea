@@ -293,48 +293,48 @@
     }
 
 
-        // Update User
-        if(isset($_POST['deleteUser'])){
-            $userId = mysqli_real_escape_string($con, $_POST['userId']);
-            $currentUserId = $_SESSION['userId'];
-            // DELETE METERBOX
-            $query1 = "DELETE FROM meterbox WHERE userId='$userId'";
-            mysqli_query($con, $query1);
+    // Update User
+    if(isset($_POST['deleteUser'])){
+        $userId = mysqli_real_escape_string($con, $_POST['userId']);
+        $currentUserId = $_SESSION['userId'];
+        // DELETE METERBOX
+        $query1 = "DELETE FROM meterbox WHERE userId='$userId'";
+        mysqli_query($con, $query1);
 
-            // DELETE NEWSLETTER RESPONSE
-            $query2 = "DELETE FROM newsletterresponse WHERE staffId='$userId'";
-            mysqli_query($con, $query2);
+        // DELETE NEWSLETTER RESPONSE
+        $query2 = "DELETE FROM newsletterresponse WHERE staffId='$userId'";
+        mysqli_query($con, $query2);
 
-            // DELETE HELP RESPONSE
-            $query4 = "DELETE FROM helpresponse WHERE staffId='$userId'";
-            mysqli_query($con, $query4);
+        // DELETE HELP RESPONSE
+        $query4 = "DELETE FROM helpresponse WHERE staffId='$userId'";
+        mysqli_query($con, $query4);
 
-            // DELETE HELP RESPONSE
-            $query7="DELETE FROM helpresponse WHERE userId='$userId'";
-            mysqli_query($con, $query7);
+        // DELETE HELP RESPONSE
+        $query7="DELETE FROM helpresponse WHERE userId='$userId'";
+        mysqli_query($con, $query7);
 
-            // DELETE HELP
-            $query5 = "DELETE FROM help WHERE userId='$userId'";
-            mysqli_query($con, $query5);
+        // DELETE HELP
+        $query5 = "DELETE FROM help WHERE userId='$userId'";
+        mysqli_query($con, $query5);
 
-            // DELETE CONTACT RESPONSE
-            $query6 = "DELETE FROM contactresponse WHERE staffId='$userId'";
-            mysqli_query($con, $query6);
+        // DELETE CONTACT RESPONSE
+        $query6 = "DELETE FROM contactresponse WHERE staffId='$userId'";
+        mysqli_query($con, $query6);
 
-            $query3 = "DELETE FROM user WHERE userId='$userId'";
-            $result = mysqli_query($con, $query3);
-            if($result) {
-                if($userId == $currentUserId) { 
-                    session_destroy();
-                    header('Location: ../login.php');
-                } else {
-                    $_SESSION['success'] = "User deleted successfully.";
-                    header('Location: users.php');
-                }
+        $query3 = "DELETE FROM user WHERE userId='$userId'";
+        $result = mysqli_query($con, $query3);
+        if($result) {
+            if($userId == $currentUserId) { 
+                session_destroy();
+                header('Location: ../login.php');
             } else {
-                array_push($errors,"error connection fail. $query2");
+                $_SESSION['success'] = "User deleted successfully.";
+                header('Location: users.php');
             }
+        } else {
+            array_push($errors,"error connection fail. $query2");
         }
+    }
     
 
 ?>
