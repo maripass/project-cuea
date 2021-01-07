@@ -2,11 +2,11 @@
 function loginValidation() {
     var userEmail = document.forms["loginForm"]["userEmail"].value;
     var userPassword = document.forms["loginForm"]["userPassword"].value;
-    if(userEmail =='') {
+    if(userEmail == '') {
         alert( "Email is required." );
         document.loginForm.userEmail.focus() ;
         return false;
-    } else if(userPassword=='') {
+    } else if(userPassword =='') {
         alert("Password is required.");
         document.loginForm.userPassword.focus() ;
         return false;
@@ -67,15 +67,15 @@ function createAccountValidation() {
         alert( "First Name is required." );
         document.createAccountForm.firstName.focus() ;
         return false;
-    } else if(lastName=='') {
+    } else if(lastName == '') {
         alert("Last Name is required.");
         document.createAccountForm.lastName.focus() ;
         return false;
-    } else if(userEmail=='') {
+    } else if(userEmail == '') {
         alert("Email is required.");
         document.createAccountForm.userEmail.focus() ;
         return false;
-    } else if(userPassword=='') {
+    } else if(userPassword == '') {
         alert("Password is required.");
         document.createAccountForm.userPassword.focus() ;
         return false;

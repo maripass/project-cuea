@@ -39,76 +39,72 @@
     </section>
     <section>
         <div class="login">
-                <form class="add-user-validation-form" method="post">
-                    <div>
-                        <?php  include("../errors.php"); ?><br>
-                    </div>
-                    <style>
-                        .success {
-                            padding: 0px 2px;
-                            border: 1px solid #3c763d;
-                            color: #3c763d; 
-                            background: #dff0d8; 
-                            font-size: 14px;
-                            text-align: center;
-                        }
-                    </style>
-                    <div>
-                        <?php  include("../success.php"); ?><br>
-                    </div>
-                    <div style="width: 100%;">
-                        <input type="text" name="firstName" value="<?php echo $userData['firstName'] ?>" placeholder="First Name" id="firstName">
-                    </div><br><br><br><br>
+            <form class="add-user-validation-form" method="POST"  name="updateUserForm" onsubmit="return updateUserValidation()">
+                <div>
+                    <?php  include("../errors.php"); ?><br>
+                </div>
+                <style>
+                    .success {
+                        padding: 0px 2px;
+                        border: 1px solid #3c763d;
+                        color: #3c763d; 
+                        background: #dff0d8; 
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
+                <div>
+                    <?php  include("../success.php"); ?><br>
+                </div>
+                <div style="width: 100%;">
+                    <input type="text" name="firstName" value="<?php echo $userData['firstName'] ?>" placeholder="First Name" id="firstName">
+                </div><br><br><br><br>
 
-                    <div style="width: 100%;">
-                        <input type="text" name="lastName" value="<?php echo $userData['lastName'] ?>" placeholder="Last Name" id="lastName">
-                    </div><br><br><br><br>
-    
-                    <div style="width: 100%;">
-                        <input type="email" name="userEmail" value="<?php echo $userData['userEmail'] ?>" placeholder="Email" id="userEmail" disabled>
-                        <input type="text" name="userId" value="<?php echo $userData['userId'] ?>" placeholder="Email" id="userId" hidden>
-                    </div><br><br><br><br>
+                <div style="width: 100%;">
+                    <input type="text" name="lastName" value="<?php echo $userData['lastName'] ?>" placeholder="Last Name" id="lastName">
+                </div><br><br><br><br>
 
-                    <div style="width: 100%;">
-                        <select name="isAdmin" id="isAdmin">
-                            <option value="">Is Admin</option>
-                            <?php
-                                if($userData['isAdmin'] == 1) {
-                                    ?>
-                                        <option value="<?php $userData['isAdmin'] ?>" selected>Yes</option>
-                                    <?php
-                                }
-                            ?>
-                            <option value="1">Yes</option>
-							<option value="0">No</option>
-                        </select>
-                    </div><br><br><br><br>
-    
+                <div style="width: 100%;">
+                    <input type="email" name="userEmail" value="<?php echo $userData['userEmail'] ?>" placeholder="Email" id="userEmail" disabled>
+                    <input type="text" name="userId" value="<?php echo $userData['userId'] ?>" placeholder="Email" id="userId" hidden>
+                </div><br><br><br><br>
 
-                    <div style="width: 100%;">
-                        <?php 
-                            if($userData['telephone']) {
+                <div style="width: 100%;">
+                    <select name="isAdmin" id="isAdmin">
+                        <option value="">Is Admin</option>
+                        <?php
+                            if($userData['isAdmin'] == 1) {
                                 ?>
-                                    <input type='text' value="<?php echo $userData['telephone'] ?>" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
+                                    <option value="<?php $userData['isAdmin'] ?>" selected>Yes</option>
                                 <?php
-                            } else {
-                                ?>
-                                    <input type='text' value="" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
-                                <?php
-                            }   
+                            }
                         ?>
-                    </div><br><br><br><br>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div><br><br><br><br>
     
-            
-                        <input type="submit" value="Update User" name="updateUser">
+                <div style="width: 100%;">
+                    <?php 
+                        if($userData['telephone']) {
+                            ?>
+                                <input type='text' value="<?php echo $userData['telephone'] ?>" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
+                            <?php
+                        } else {
+                            ?>
+                                <input type='text' value="" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
+                            <?php
+                        }   
+                    ?>
+                </div><br><br><br><br>
+        
+                <input type="submit" value="Update User" name="updateUser">
 
-  
             </form>
 
             <form method="POST">
                 <input type="text" value="<?php echo $userData['userId'] ?>" name="userId" id="userId" hidden>
-                <input type="submit" class="btn" style="background-color: red;" name="deleteUser" value="Delete User">
-                        
+                <input type="submit" class="btn" style="background-color: red;" name="deleteUser" value="Delete User">      
             </form> 
         </div>
     </section>

@@ -146,27 +146,52 @@ function addUserValidation() {
         alert("User Email is required.");
         document.addUserForm.userEmail.focus() ;
        return false;
-    } else if(isAdmin =='') {
+    } else if(isAdmin == '') {
         alert("Is Admin is required.");
         document.addUserForm.isAdmin.focus() ;
        return false;
-    } else if(phoneNumber =='') {
+    } else if(phoneNumber == '') {
         alert("Phone Number is required.");
         document.addUserForm.phoneNumber.focus() ;
        return false;
-    } else if(password =='') {
+    } else if(password.length < 6) {
+        alert("Password should be greater than 6 characters.");
+        document.addUserForm.password.focus() ;
+       return false;
+    } else if(password == '') {
         alert("Password is required.");
         document.addUserForm.password.focus() ;
        return false;
-    } else if(confirmPassword =='') {
+    } else if(confirmPassword == '') {
         alert("Confirm Password is required.");
         document.addUserForm.confirmPassword.focus() ;
        return false;
     } else if(password != confirmPassword) {
-        alert("Password do not match.");
+        alert("Passwords do not match.");
         document.addUserForm.confirmPassword.focus() ;
        return false;
     } 
+}
+
+
+// UPDATE USER INPUT VALIDATION
+function updateUserValidation() {
+    var firstName = document.forms["updateUserForm"]["firstName"].value;
+    var lastName  = document.forms["updateUserForm"]["lastName"].value;
+    var isAdmin   = document.forms["updateUserForm"]["isAdmin"].value;
+    if(firstName == '') {
+        alert( "First Name is required." );
+        document.updateUserForm.firstName.focus();
+        return false;
+    } else if(lastName =='') {
+        alert("Last Name is required.");
+      document.updateUserForm.lastName.focus() ;
+       return false;
+    } else if(isAdmin == '') {
+        alert("Is Admin is required.");
+        document.updateUserForm.isAdmin.focus() ;
+       return false;
+    }  
 }
 
 // CONTACT INPUT VALIDATION
@@ -200,21 +225,31 @@ function UpdateMeterBoxValidation() {
 }
 
 // ADD-METER-BOX INPUT VALIDATION
-function AddMeterBoxValidation() {
-    var user = document.forms["AddMeterBoxForm"]["Select a user"].value;
-    var meterBoxActive  = document.forms["AddMeterBoxForm"]["meterBoxActive"].value;
-    var electricityActive     = document.forms["AddMeterBoxForm"]["electricityActive"].value;
-    if(user =='') {
-        alert( "Select a user is required." );
-        document.AddMeterBoxForm.user.focus() ;
+function addMeterBoxValidation() {
+    var meterBoxNumber = document.forms["addMeterBoxForm"]["meterBoxNumber"].value;
+    var meterBoxActive = document.forms["addMeterBoxForm"]["meterBoxActive"].value;
+    var user        = document.forms["addMeterBoxForm"]["user"].value;
+    var address     = document.forms["addMeterBoxForm"]["address"].value;
+    var houseNumber = document.forms["addMeterBoxForm"]["houseNumber"].value;
+    if(meterBoxNumber =='') {
+        alert( "Meter Box Number is required." );
+        document.addMeterBoxForm.meterBoxNumber.focus() ;
         return false;
     } else if(meterBoxActive =='') {
-         alert("meterBoxActive is required.");
-       document.AddMeterBoxForm.meterBoxActive.focus() ;
+         alert("Meter Box Active is required.");
+       document.addMeterBoxForm.meterBoxActive.focus() ;
         return false;
-    } else if(electricityActive == '') {
-        alert("electricityActive is required.");
-      document.AddMeterBoxForm.electricityActive.focus() ;
+    } else if(user == '') {
+        alert("User is required.");
+      document.addMeterBoxForm.user.focus() ;
+       return false;
+    } else if(address == '') {
+        alert("Address is required.");
+      document.addMeterBoxForm.address.focus() ;
+       return false;
+    } else if(houseNumber == '') {
+        alert("House Number is required.");
+      document.addMeterBoxForm.houseNumber.focus() ;
        return false;
     }
 }

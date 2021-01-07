@@ -33,7 +33,7 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST">
+            <form method="POST" name="addMeterBoxForm" onsubmit="return addMeterBoxValidation()">
                 <div>
                     <?php  include("../errors.php"); ?><br>
                 </div>
@@ -51,11 +51,11 @@
                     <?php  include("../success.php"); ?><br>
                 </div>
                 <div style="width: 100%;">
-                    <input type="text" name="meterBoxNumber" id="meterBoxNumber" placeholder="Meter Box Number" required>
+                    <input type="text" name="meterBoxNumber" id="meterBoxNumber" placeholder="Meter Box Number">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <select name="meterBoxActive" id="meterBoxActive" required>
+                    <select name="meterBoxActive" id="meterBoxActive">
                         <option value="">Active</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
@@ -63,7 +63,7 @@
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <select name="user" id="user" required>
+                    <select name="user" id="user">
                         <option value="">Select a user</option>
                         <?php 
                             $query_user   = "SELECT * FROM user ORDER BY createdAt DESC";
