@@ -58,6 +58,22 @@ function profileValidation() {
        return false;
     }
 }
+
+// NEWSLETTER INPUT VALIDATION
+function newletterValidation() {
+    var name = document.forms["newletterForm"]["name"].value;
+    var description  = document.forms["newletterForm"]["description"].value;
+    if(name == '') {
+        alert( "Name is required." );
+        document.newletterForm.name.focus();
+        return false;
+    } else if(description == '') {
+         alert("Description is required.");
+       document.newletterForm.description.focus();
+        return false;
+    }
+}
+
 // UPDATE-METER-BOX INPUT VALIDATION
 function UpdateMeterBoxValidation() {
     var user = document.forms["UpdateMeterBoxForm"]["user"].value;

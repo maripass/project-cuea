@@ -74,11 +74,11 @@
                     <?php 
                         if($profileData['telephone']) {
                             ?>
-                                <input type='text' value="<?php echo $profileData['telephone'] ?>" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
+                                <input type='text' value="<?php echo $profileData['telephone'] ?>" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
                             <?php
                         } else {
                             ?>
-                                <input type='text' value="" name='phoneNumber' placeholder='Telephone' id='phoneNumber'>
+                                <input type='text' value="" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
                             <?php
                         }   
                     ?>

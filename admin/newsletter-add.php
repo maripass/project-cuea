@@ -34,7 +34,7 @@
     </section>
     <section>
         <div class="login">
-            <form name="profileForm" method="POST" onsubmit="return profileValidation()">
+            <form name="newletterForm" method="POST" onsubmit="return newletterValidation()">
                 <div>
                     <?php  include("../errors.php"); ?><br>
                 </div>
