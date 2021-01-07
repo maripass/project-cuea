@@ -4,14 +4,14 @@
 
     //profile change password
     if(isset($_POST['profileAdminChangePassword'])){
-        $oldPassword= mysqli_real_escape_string($con, $_POST['oldPassword']);
-        $newPassword= mysqli_real_escape_string($con, $_POST['newPassword']);
-        $userId= $_SESSION['userId'];
+        $oldPassword = mysqli_real_escape_string($con, $_POST['oldPassword']);
+        $newPassword = mysqli_real_escape_string($con, $_POST['newPassword']);
+        $userId      = $_SESSION['userId'];
         $oldPasswordHash =  crypt($oldPassword, "salt@#.com");
         $newPasswordHash =  crypt($newPassword, "salt@#.com");
         
-        $checkUser= mysqli_query($con, "SELECT * FROM user WHERE userId='$userId'");
-        $row = mysqli_fetch_assoc($checkUser);
+        $checkUser = mysqli_query($con, "SELECT * FROM user WHERE userId='$userId'");
+        $row       = mysqli_fetch_assoc($checkUser);
         if($oldPasswordHash == $row['userPassword']) {
             mysqli_query($con, "UPDATE user SET userPassword='$newPasswordHash' WHERE userId='$userId'");
             $_SESSION['success'] = "Password changed successfully.";
@@ -25,15 +25,15 @@
     
     //Newsletter
     if(isset($_POST['newsletter'])){
-        $name= mysqli_real_escape_string($con, $_POST['name']);
-        $message= mysqli_real_escape_string($con, $_POST['description']);
-        $staffId= $_SESSION['userId'];
+        $name    = mysqli_real_escape_string($con, $_POST['name']);
+        $message = mysqli_real_escape_string($con, $_POST['description']);
+        $staffId = $_SESSION['userId'];
         
-        $checkName= "SELECT * FROM newsletterresponse WHERE name='$name' LIMIT 1";
+        $checkName = "SELECT * FROM newsletterresponse WHERE name='$name' LIMIT 1";
         $checkNameResult=mysqli_query($con, $checkName);
-        $row=mysqli_fetch_assoc($checkNameResult);
+        $row = mysqli_fetch_assoc($checkNameResult);
         if($row) {
-            if($row['name'] ==$name ){
+            if($row['name'] == $name ){
                 array_push($errors, "Newsletter with this name already exists.");
             }
         } else {
@@ -91,8 +91,8 @@
             if ($nameResult['userId'] === $userId) { array_push($errors, "User already exists."); }
         }
         if (count($errors) == 0) {
-            $query="INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
-            $result=mysqli_query($con, $query);
+            $query = "INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
+            $result = mysqli_query($con, $query);
             if($result){
                 $_SESSION['success'] = "Meter Box created successfully.";
                 header('Location: meter-box.php');
@@ -106,13 +106,13 @@
 
     //Add meter box
     if(isset($_POST['addNewUser'])){
-        $firstName= mysqli_real_escape_string($con, $_POST['firstName']);
-        $lastName= mysqli_real_escape_string($con, $_POST['lastName']);
-        $userEmail= mysqli_real_escape_string($con, $_POST['userEmail']);
-        $isAdmin= mysqli_real_escape_string($con, $_POST['isAdmin']);
-        $phoneNumber= mysqli_real_escape_string($con, $_POST['phoneNumber']);
-        $password= mysqli_real_escape_string($con, $_POST['password']);
-        $userPassword= crypt($password, "salt@#.com");
+        $firstName = mysqli_real_escape_string($con, $_POST['firstName']);
+        $lastName  = mysqli_real_escape_string($con, $_POST['lastName']);
+        $userEmail = mysqli_real_escape_string($con, $_POST['userEmail']);
+        $isAdmin   = mysqli_real_escape_string($con, $_POST['isAdmin']);
+        $phoneNumber = mysqli_real_escape_string($con, $_POST['phoneNumber']);
+        $password = mysqli_real_escape_string($con, $_POST['password']);
+        $userPassword = crypt($password, "salt@#.com");
 
         $user_check_query = "SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";
         $result           = mysqli_query($con, $user_check_query);
@@ -121,8 +121,8 @@
             if ($user['userEmail'] === $userEmail) { array_push($errors, "Email already exists"); }
         }
         if (count($errors) == 0) { 
-            $query="INSERT INTO user (firstName, lastName, userEmail, userPassword, telephone, isAdmin) VALUES('$firstName', '$lastName', '$userEmail', '$userPassword', '$phoneNumber', '$isAdmin')";
-            $result=mysqli_query($con, $query);
+            $query  = "INSERT INTO user (firstName, lastName, userEmail, userPassword, telephone, isAdmin) VALUES('$firstName', '$lastName', '$userEmail', '$userPassword', '$phoneNumber', '$isAdmin')";
+            $result = mysqli_query($con, $query);
             if($result){
                 $_SESSION['success'] = "User created successfully.";
                 header('Location: users.php');
@@ -230,12 +230,12 @@
 
     // Update Meter Box
     if(isset($_POST['updateMeterBox'])){
-        $meterBoxNumber= mysqli_real_escape_string($con, $_POST['meterBoxNumber']);
-        $meterBoxId= mysqli_real_escape_string($con, $_POST['meterBoxId']);
-        $userId= mysqli_real_escape_string($con, $_POST['user']);
-        $address= mysqli_real_escape_string($con, $_POST['address']);
-        $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
-        $active= mysqli_real_escape_string($con, $_POST['meterBoxActive']);
+        $meterBoxNumber = mysqli_real_escape_string($con, $_POST['meterBoxNumber']);
+        $meterBoxId     = mysqli_real_escape_string($con, $_POST['meterBoxId']);
+        $userId         = mysqli_real_escape_string($con, $_POST['user']);
+        $address        = mysqli_real_escape_string($con, $_POST['address']);
+        $houseNumber    = mysqli_real_escape_string($con, $_POST['houseNumber']);
+        $active         = mysqli_real_escape_string($con, $_POST['meterBoxActive']);
 
         $query   = "UPDATE meterbox SET meterBoxNumber='$meterBoxNumber', active='$active', address='$address', houseNumber='$houseNumber', userId='$userId' WHERE meterBoxId = '$meterBoxId'";
         $results = mysqli_query($con, $query);
@@ -252,10 +252,10 @@
 
     // Create a new Meter Cost
     if(isset($_POST['addMeterCost'])){
-        $costPerKwatt= mysqli_real_escape_string($con, $_POST['costPerKwatt']);
+        $costPerKwatt = mysqli_real_escape_string($con, $_POST['costPerKwatt']);
 
-        $query="INSERT INTO metercost (costPerKwatt) VALUES('$costPerKwatt')";
-        $result=mysqli_query($con, $query);
+        $query  = "INSERT INTO metercost (costPerKwatt) VALUES('$costPerKwatt')";
+        $result = mysqli_query($con, $query);
         if($result){
             $_SESSION['success'] = "Meter Cost created successfully.";
             header('Location: meter-cost.php');
@@ -266,10 +266,10 @@
 
     // DELETE BLOG
     if(isset($_POST['deleteBlog'])){
-        $blogId= mysqli_real_escape_string($con, $_POST['blogId']);
+        $blogId = mysqli_real_escape_string($con, $_POST['blogId']);
 
-        $query="DELETE FROM blog WHERE blogId='$blogId'";
-        $result=mysqli_query($con, $query);
+        $query  = "DELETE FROM blog WHERE blogId='$blogId'";
+        $result = mysqli_query($con, $query);
         if($result){
             $_SESSION['success'] = "Blog deleted successfully.";
             header('Location: blog.php');
@@ -280,10 +280,10 @@
 
     // Delete Meter Box
     if(isset($_POST['deleteMeterBox'])){
-        $meterBoxId= mysqli_real_escape_string($con, $_POST['meterBoxId']);
+        $meterBoxId = mysqli_real_escape_string($con, $_POST['meterBoxId']);
         
-        $query="DELETE FROM meterbox WHERE meterBoxId='$meterBoxId'";
-        $result=mysqli_query($con, $query);
+        $query  = "DELETE FROM meterbox WHERE meterBoxId='$meterBoxId'";
+        $result = mysqli_query($con, $query);
         if($result){
             $_SESSION['success'] = "Meter Box deleted successfully.";
             header('Location: meter-box.php');
@@ -295,18 +295,18 @@
 
         // Update User
         if(isset($_POST['deleteUser'])){
-            $userId= mysqli_real_escape_string($con, $_POST['userId']);
+            $userId = mysqli_real_escape_string($con, $_POST['userId']);
             $currentUserId = $_SESSION['userId'];
             // DELETE METERBOX
-            $query1="DELETE FROM meterbox WHERE userId='$userId'";
+            $query1 = "DELETE FROM meterbox WHERE userId='$userId'";
             mysqli_query($con, $query1);
 
             // DELETE NEWSLETTER RESPONSE
-            $query2="DELETE FROM newsletterresponse WHERE staffId='$userId'";
+            $query2 = "DELETE FROM newsletterresponse WHERE staffId='$userId'";
             mysqli_query($con, $query2);
 
             // DELETE HELP RESPONSE
-            $query4="DELETE FROM helpresponse WHERE staffId='$userId'";
+            $query4 = "DELETE FROM helpresponse WHERE staffId='$userId'";
             mysqli_query($con, $query4);
 
             // DELETE HELP RESPONSE
@@ -314,14 +314,14 @@
             mysqli_query($con, $query7);
 
             // DELETE HELP
-            $query5="DELETE FROM help WHERE userId='$userId'";
+            $query5 = "DELETE FROM help WHERE userId='$userId'";
             mysqli_query($con, $query5);
 
             // DELETE CONTACT RESPONSE
-            $query6="DELETE FROM contactresponse WHERE staffId='$userId'";
+            $query6 = "DELETE FROM contactresponse WHERE staffId='$userId'";
             mysqli_query($con, $query6);
 
-            $query3="DELETE FROM user WHERE userId='$userId'";
+            $query3 = "DELETE FROM user WHERE userId='$userId'";
             $result = mysqli_query($con, $query3);
             if($result) {
                 if($userId == $currentUserId) { 
