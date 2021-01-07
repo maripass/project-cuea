@@ -39,8 +39,7 @@
     </section>
     <section>
         <div class="login">
-            <!-- <h1>Login</h1> -->
-            <form name="UpdateMeterBoxForm" method="POST" onsubmit="return UpdateMeterBoxValidation()">
+            <form name="updateMeterBoxForm" method="POST" onsubmit="return updateMeterBoxValidation()">
                 <div>
                     <?php  include("../errors.php"); ?><br>
                 </div>
@@ -56,7 +55,7 @@
                 </style>
 
                 <div style="width: 100%;">
-                    <select name="meterBoxNumber" id="meterBoxNumber" required>
+                    <select name="meterBoxNumber" id="meterBoxNumber">
                         <option value="">Select a Meter Box</option>
                         <?php 
                             $queryMeterBox   = "SELECT * FROM meterbox ORDER BY createdAt DESC";
@@ -77,7 +76,7 @@
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <select name="meterBoxActive" id="meterBoxActive"required >
+                    <select name="meterBoxActive" id="meterBoxActive">
                         <option value="">Active</option>
                         <?php
                             if($meterBoxData['isAdmin'] == 1) {
@@ -93,7 +92,7 @@
 
                 
                 <div style="width: 100%;">
-                    <select name="user" id="user" required>
+                    <select name="user" id="user">
                         <option value="">Select a user</option>
                         <?php 
                             $query_user   = "SELECT * FROM user ORDER BY createdAt DESC";

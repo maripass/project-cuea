@@ -37,7 +37,15 @@ function profileChangePasswordValidation() {
         alert( "New Password is required." );
         document.profileChangePasswordForm.newPassword.focus() ;
         return false;
-    }  else if(confirmPassword !=newPassword) {
+    } else if(newPassword.length < 6) {
+        alert( "Password should be greater than 6 characters." );
+        document.profileChangePasswordForm.newPassword.focus() ;
+        return false;
+    } else if(confirmPassword == '') {
+        alert( "Confirm Password is required." );
+        document.profileChangePasswordForm.newPassword.focus() ;
+        return false;
+    } else if(confirmPassword != newPassword) {
         alert( "Passwords do not match." );
         document.profileChangePasswordForm.confirmPassword.focus() ;
         return false;

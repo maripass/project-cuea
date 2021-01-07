@@ -37,7 +37,7 @@
         </button>
 
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST" name="yearForm" onsubmit="return yearValidation()">
-          <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
+          <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2021" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
           <input type="submit" value="Filter" name="filterByYear">
         </form>
         <table id="customers">

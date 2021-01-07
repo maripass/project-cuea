@@ -52,7 +52,7 @@
             ?><br>
         </div>
 
-        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
+        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST" name="monthlyForm" onsubmit="return monthlyValidation()">
             <input type="month" style="padding:10px; width:100%" name="monthInput" id="monthInput" value="<?php echo $monthInput ?>" >
             <input type="submit" value="Filter" name="filterByMonth">
         </form>
@@ -130,5 +130,9 @@
             }
         }
     </script>
+
+    <script src="js/validation.js"></script>
+
+
 </body>
 </html>

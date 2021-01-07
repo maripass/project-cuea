@@ -85,8 +85,8 @@
                     <input type="text" name="houseNumber" id="houseNumber" placeholder="House Number">
                 </div><br><br><br><br>
            
-        
-                <input type="submit" value="Add Meter Box" name="addMeterBox">             
+                <input type="submit" value="Add Meter Box" name="addMeterBox">   
+                          
             </form>
         </div>
     </section>

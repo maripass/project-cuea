@@ -39,12 +39,11 @@
     <section>
         <button class="btn" onclick="showHideFilter()"
             style="float: right; right: 10px; position: absolute; background-color: #2dd36f; margin-top: -60px;">
-         
             Pick Year
         </button>
 
-        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
-          <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
+        <form id="filter" style="margin-top:15px; float:right; right:0px; margin-right:30px;" method="POST" name="yearForm" onsubmit="return yearValidation()">
+          <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2021" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
           <input type="submit" value="Filter" name="filterByYear">
         </form>
         <table id="customers">
@@ -66,8 +65,8 @@
                         $meterCost = $meterCostData['costPerKwatt'];
                     }	
                 }
-                $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
-                $consumptionResult 	= mysqli_query($con, $consumptionQuery);
+                $consumptionQuery  = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear'";
+                $consumptionResult = mysqli_query($con, $consumptionQuery);
                 while($row = $consumptionResult->fetch_assoc()) {
                     // GET METER BOX ID
                     $meterBoxId = $row['meterBoxId'];
@@ -111,14 +110,17 @@
        }
     </style>
     <script>
-      function showHideFilter() {
-		var filter = document.getElementById("filter");
-		if(filter.style.display === "block") {
-			filter.style.display = "none";
-		} else {
-			filter.style.display = "block";
-		}
-	}
+        function showHideFilter() {
+            var filter = document.getElementById("filter");
+            if(filter.style.display === "block") {
+                filter.style.display = "none";
+            } else {
+                filter.style.display = "block";
+            }
+        }
     </script>
+    
+    <script src="js/validation.js"></script>
+
 </body>
 </html>

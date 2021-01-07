@@ -205,21 +205,31 @@ function contactValidation() {
 }
 
 // UPDATE-METER-BOX INPUT VALIDATION
-function UpdateMeterBoxValidation() {
-    var user = document.forms["UpdateMeterBoxForm"]["user"].value;
-    var meterBoxActive  = document.forms["UpdateMeterBoxForm"]["meterBoxActive"].value;
-    var electricityActive     = document.forms["UpdateMeterBoxForm"]["electricityActive"].value;
-    if(user =='') {
-        alert( "user is required." );
-        document.UpdateMeterBoxForm.user.focus() ;
+function updateMeterBoxValidation() {
+    var meterBoxNumber = document.forms["updateMeterBoxForm"]["meterBoxNumber"].value;
+    var meterBoxActive  = document.forms["updateMeterBoxForm"]["meterBoxActive"].value;
+    var user     = document.forms["updateMeterBoxForm"]["user"].value;
+    var address  = document.forms["updateMeterBoxForm"]["address"].value;
+    var houseNumber  = document.forms["updateMeterBoxForm"]["houseNumber"].value;
+    if(meterBoxNumber =='') {
+        alert( "Meter Box Number is required." );
+        document.updateMeterBoxForm.meterBoxNumber.focus() ;
         return false;
     } else if(meterBoxActive =='') {
-         alert("meterBoxActive is required.");
-       document.UpdateMeterBoxForm.meterBoxActive.focus() ;
+         alert("Meter Box Active is required.");
+       document.updateMeterBoxForm.meterBoxActive.focus() ;
         return false;
-    } else if(electricityActive == '') {
-        alert("electricityActive is required.");
-      document.UpdateMeterBoxForm.electricityActive.focus() ;
+    } else if(user == '') {
+        alert("User is required.");
+      document.updateMeterBoxForm.user.focus() ;
+       return false;
+    } else if(address == '') {
+        alert("Address is required.");
+      document.updateMeterBoxForm.address.focus() ;
+       return false;
+    } else if(houseNumber == '') {
+        alert("Phone Number is required.");
+      document.updateMeterBoxForm.houseNumber.focus() ;
        return false;
     }
 }
@@ -252,4 +262,24 @@ function addMeterBoxValidation() {
       document.addMeterBoxForm.houseNumber.focus() ;
        return false;
     }
+}
+
+// MONTHLY INPUT VALIDATION
+function monthlyValidation() {
+    var monthInput = document.forms["monthlyForm"]["monthInput"].value;
+    if(monthInput =='') {
+        alert("Please pick a month.");
+        document.monthlyForm.monthInput.focus() ;
+        return false;
+    }  
+}
+
+// YEAR INPUT VALIDATION
+function yearValidation() {
+    var yearInput = document.forms["yearForm"]["yearInput"].value;
+    if(yearInput =='') {
+        alert("Please pick a year.");
+        document.yearForm.yearInput.focus() ;
+        return false;
+    }  
 }
