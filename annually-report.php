@@ -71,7 +71,7 @@
                     if (mysqli_num_rows($meterBoxResult) == 1) {
                         $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
-                    $totalPrice = $row['currentMeterReading'];
+                    $totalPrice += $row['currentMeterReading'] - $row['previoustMeterReading'];
                     $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>
