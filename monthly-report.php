@@ -58,7 +58,7 @@
                 <th>Unit Consumed</th>
                 <th>Price</th>
                 <th>Date</th>
-            <tr >
+            <tr>
             
 
             <?php

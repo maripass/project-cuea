@@ -60,6 +60,7 @@
                 $meterCostQuery   = "SELECT * FROM metercost";
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
+                $totalPrice = 0;
                 if ($meterCostResult) {
                     while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
@@ -75,11 +76,8 @@
                     if (mysqli_num_rows($meterBoxResult) == 1) {
                         $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
-                    if($row['previoustMeterReading'] < $row['currentMeterReading']) {
-                        $unitConsummed = $row['currentMeterReading'];
-                    } else {
-                        $unitConsummed = $row['previoustMeterReading'] - $row['currentMeterReading'];
-                    }
+                    $totalPrice = $row['currentMeterReading'];
+                    $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>
                             <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
@@ -98,7 +96,7 @@
           <?php 
             if(mysqli_num_rows($consumptionResult) > 0){
                 ?>
-                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $totalPrice * $meterCost ?></button>
                 <?php
             }
         ?>
