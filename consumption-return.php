@@ -2,8 +2,8 @@
 	require_once('config/db.php');
     
     $userId = $_SESSION['userId'];
-    $query="SELECT * FROM meterbox WHERE userId='$userId'";
-    $result1=mysqli_query($con, $query);
+    $query = "SELECT * FROM meterbox WHERE userId='$userId'";
+    $result1 = mysqli_query($con, $query);
     if(mysqli_num_rows($result1) > 0){
         while($meterBoxData= $result1->fetch_assoc()) {	
             $meterBoxId = $meterBoxData['meterBoxId'];
