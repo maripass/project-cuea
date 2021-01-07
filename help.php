@@ -78,7 +78,7 @@
 
 
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
-            <form name="loginForm" method="POST" onsubmit="return loginValidation()">
+            <form name="helpForm" method="POST" onsubmit="return helpValidation()">
                 <div>
                     <textarea name="message" id="message" style="height: 100px;"></textarea>
                 </div>
@@ -90,6 +90,8 @@
             </form>
         </div>
     </section>
+
+    <script src="js/dashboard-validation.js"></script>
 
 </body>
 

@@ -93,7 +93,7 @@
         <br><br><br><br>
 
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 25%;">
-            <form method="POST">
+            <form method="POST" name="helpForm" onsubmit="return helpValidation()">
                 <div>
                     <textarea name="message" id="message" style="height: 100px;"></textarea>
                     <input type="text" hidden name="userId" id="userId" value="<?php echo $id ?>">
@@ -106,6 +106,8 @@
             </form>
         </div>
     </section>
+
+    <script src="js/validation.js"></script>
 
 </body>
 

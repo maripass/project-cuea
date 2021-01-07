@@ -36,7 +36,7 @@
             Pick Year
         </button>
 
-        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST">
+        <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST" name="yearForm" onsubmit="return yearValidation()">
           <input type="number" name="yearInput" id="yearInput" style="padding:10px; width:100%" max="2020" min="2016"placeholder="YYYY" value="<?php echo $yearInput ?>">
           <input type="submit" value="Filter" name="filterByYear">
         </form>
@@ -105,14 +105,17 @@
        }
     </style>
     <script>
-      function showHideFilter() {
-		var filter = document.getElementById("filter");
-		if(filter.style.display === "block") {
-			filter.style.display = "none";
-		} else {
-			filter.style.display = "block";
-		}
-	}
+        function showHideFilter() {
+            var filter = document.getElementById("filter");
+            if(filter.style.display === "block") {
+                filter.style.display = "none";
+            } else {
+                filter.style.display = "block";
+            }
+        }
     </script>
+    
+    <script src="js/dashboard-validation.js"></script>
+
 </body>
 </html>

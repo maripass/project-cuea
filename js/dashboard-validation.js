@@ -1,9 +1,9 @@
 // CompanyDetails INPUT VALIDATION
 function companyDetailsValidation() {
     var companyName = document.forms["companyDetailsForm"]["companyName"].value;
-    var userEmail     = document.forms["companyDetailsForm"]["userEmail"].value;
-    var phoneNumber   = document.forms["companyDetailsForm"]["phoneNumber"].value;
-    var address   = document.forms["companyDetailsForm"]["address"].value;
+    var userEmail   = document.forms["companyDetailsForm"]["userEmail"].value;
+    var phoneNumber = document.forms["companyDetailsForm"]["phoneNumber"].value;
+    var address     = document.forms["companyDetailsForm"]["address"].value;
     var CostPerKgWatt   = document.forms["companyDetailsForm"]["CostPerKgWatt"].value;
     if(companyName =='') {
         alert("Name is required.");
@@ -25,8 +25,38 @@ function companyDetailsValidation() {
         alert("Costperkgwatt is required.");
         document.companyDetailsForm.CostPerKgWatt.focus() ;
         return false;
- }
-     
+    }  
+}
+
+// HELP INPUT VALIDATION
+function helpValidation() {
+    var message = document.forms["helpForm"]["message"].value;
+    if(message =='') {
+        alert("Please write something.");
+        document.helpForm.message.focus() ;
+        return false;
+    }  
+}
+
+
+// MONTHLY INPUT VALIDATION
+function monthlyValidation() {
+    var monthInput = document.forms["monthlyForm"]["monthInput"].value;
+    if(monthInput =='') {
+        alert("Please pick a month.");
+        document.monthlyForm.monthInput.focus() ;
+        return false;
+    }  
+}
+
+// YEAR INPUT VALIDATION
+function yearValidation() {
+    var yearInput = document.forms["yearForm"]["yearInput"].value;
+    if(yearInput =='') {
+        alert("Please pick a year.");
+        document.yearForm.yearInput.focus() ;
+        return false;
+    }  
 }
 
 // PROFILE INPUT VALIDATION
