@@ -40,7 +40,7 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" name="updateBlogpForm" onsubmit="return updateBlogValidation()">
             <div>
                 <?php  include("../errors.php"); ?><br>
             </div>

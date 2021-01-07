@@ -32,7 +32,7 @@
     </section>
     <section>
         <div class="login">
-                <form class="add-user-validation-form" method="post">
+                <form class="add-user-validation-form" method="post" name="addUserForm" onsubmit="return addUserValidation()">
                     <div>
                         <?php  include("../errors.php"); ?><br>
                     </div>

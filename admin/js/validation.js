@@ -74,6 +74,111 @@ function newletterValidation() {
     }
 }
 
+// HELP INPUT VALIDATION
+function helpValidation() {
+    var message = document.forms["helpForm"]["message"].value;
+    if(message == '') {
+        alert( "Please write something." );
+        document.helpForm.message.focus();
+        return false;
+    }
+}
+
+
+// ADD BLOG INPUT VALIDATION
+function addBlogValidation() {
+    var name = document.forms["addBlogpForm"]["name"].value;
+    var image = document.forms["addBlogpForm"]["image"].value;
+    var description = document.forms["addBlogpForm"]["description"].value;
+    if(name == '') {
+        alert( "Name is required." );
+        document.addBlogpForm.name.focus();
+        return false;
+    } else if(image =='') {
+        alert("Image is required.");
+      document.addBlogpForm.image.focus() ;
+       return false;
+    } else if(description =='') {
+        alert("Description is required.");
+      document.addBlogpForm.description.focus() ;
+       return false;
+    }
+}
+
+// ADD BLOG INPUT VALIDATION
+function updateBlogValidation() {
+    var name = document.forms["updateBlogpForm"]["name"].value;
+    var image = document.forms["updateBlogpForm"]["image"].value;
+    var description = document.forms["updateBlogpForm"]["description"].value;
+    if(name == '') {
+        alert( "Name is required." );
+        document.updateBlogpForm.name.focus();
+        return false;
+    } else if(image =='') {
+        alert("Image is required.");
+      document.updateBlogpForm.image.focus() ;
+       return false;
+    } else if(description =='') {
+        alert("Description is required.");
+      document.updateBlogpForm.description.focus() ;
+       return false;
+    }
+}
+
+// ADD USER INPUT VALIDATION
+function addUserValidation() {
+    var firstName = document.forms["addUserForm"]["firstName"].value;
+    var lastName  = document.forms["addUserForm"]["lastName"].value;
+    var userEmail = document.forms["addUserForm"]["userEmail"].value;
+    var isAdmin = document.forms["addUserForm"]["isAdmin"].value;
+    var phoneNumber = document.forms["addUserForm"]["phoneNumber"].value;
+    var password = document.forms["addUserForm"]["password"].value;
+    var confirmPassword = document.forms["addUserForm"]["confirmPassword"].value;
+    if(firstName == '') {
+        alert( "First Name is required." );
+        document.addUserForm.firstName.focus();
+        return false;
+    } else if(lastName =='') {
+        alert("Last Name is required.");
+      document.addUserForm.lastName.focus() ;
+       return false;
+    } else if(userEmail =='') {
+        alert("User Email is required.");
+        document.addUserForm.userEmail.focus() ;
+       return false;
+    } else if(isAdmin =='') {
+        alert("Is Admin is required.");
+        document.addUserForm.isAdmin.focus() ;
+       return false;
+    } else if(phoneNumber =='') {
+        alert("Phone Number is required.");
+        document.addUserForm.phoneNumber.focus() ;
+       return false;
+    } else if(password =='') {
+        alert("Password is required.");
+        document.addUserForm.password.focus() ;
+       return false;
+    } else if(confirmPassword =='') {
+        alert("Confirm Password is required.");
+        document.addUserForm.confirmPassword.focus() ;
+       return false;
+    } else if(password != confirmPassword) {
+        alert("Password do not match.");
+        document.addUserForm.confirmPassword.focus() ;
+       return false;
+    } 
+}
+
+// CONTACT INPUT VALIDATION
+function contactValidation() {
+    var message = document.forms["contactForm"]["message"].value;
+    if(message == '') {
+        alert( "Please write something." );
+        document.contactForm.message.focus();
+        return false;
+    }
+}
+
 // UPDATE-METER-BOX INPUT VALIDATION
 function UpdateMeterBoxValidation() {
     var user = document.forms["UpdateMeterBoxForm"]["user"].value;

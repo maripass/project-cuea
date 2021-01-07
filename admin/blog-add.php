@@ -34,23 +34,23 @@
     </section>
     <section>
         <div class="login">
-            <form method="POST" enctype="multipart/form-data">
-            <div>
-                <?php  include("../errors.php"); ?><br>
-            </div>
-            <style>
-                .success {
-                    padding: 0px 2px;
-                    border: 1px solid #3c763d;
-                    color: #3c763d; 
-                    background: #dff0d8; 
-                    font-size: 14px;
-                    text-align: center;
-                }
-            </style>
-            <div>
-                <?php  include("../success.php"); ?><br>
-            </div>
+            <form method="POST" enctype="multipart/form-data" name="addBlogpForm" onsubmit="return addBlogValidation()">
+                <div>
+                    <?php  include("../errors.php"); ?><br>
+                </div>
+                <style>
+                    .success {
+                        padding: 0px 2px;
+                        border: 1px solid #3c763d;
+                        color: #3c763d; 
+                        background: #dff0d8; 
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                </style>
+                <div>
+                    <?php  include("../success.php"); ?><br>
+                </div>
                 <div style="width: 100%;">
                     <input type="text" name="name" id="name" placeholder="Name">
                 </div><br><br><br><br>

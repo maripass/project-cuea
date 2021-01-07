@@ -93,7 +93,7 @@
 
         
         <div style="width: 50%; position: fixed; bottom: 0px; margin-left: 24%;">
-            <form method="POST">
+            <form method="POST" name="contactForm" onsubmit="return contactValidation()">
                 <div>
                     <textarea name="message" id="message" style="height: 100px; padding: 15px;" placeholder="Respond to the message"></textarea>
                     <input value="<?php echo $contactData['contactId'] ?>" name="contactId" id="contactId" style="height: 100px; padding: 15px;" hidden></input>
