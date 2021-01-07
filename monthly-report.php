@@ -76,16 +76,12 @@
                 while($row = $consumptionResult->fetch_assoc()) {
                     // GET METER BOX ID
                     $meterBoxId = $row['meterBoxId'];
-                    $meterBoxQuery   = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
+                    $meterBoxQuery  = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
                     $meterBoxResult = mysqli_query($con, $meterBoxQuery);
                     if (mysqli_num_rows($meterBoxResult) == 1) {
                         $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
-                    if($row['previoustMeterReading'] < $row['currentMeterReading']) {
-                        $unitConsummed = $row['currentMeterReading'];
-                    } else {
-                        $unitConsummed = $row['previoustMeterReading'] - $row['currentMeterReading'];
-                    }
+                    $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>
                             <td><?php echo date('M',strtotime($row['createdAt'])) ?></td>
