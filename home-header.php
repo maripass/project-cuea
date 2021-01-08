@@ -1,5 +1,7 @@
     <div class="navbar">
-        <a href="index.php" class="logo">EBMS</a>
+        <a href="index.php" class="logo">
+            <img src="images/biller.jpeg" style="width:50px;" alt="">
+        </a>
         <ul class="nav">
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
