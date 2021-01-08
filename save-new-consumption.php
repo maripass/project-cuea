@@ -8,4 +8,4 @@
     $query = "UPDATE consumption SET currentMeterReading='$new_reading' WHERE meterBoxId='$meterBoxId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
     mysqli_query($con, $query);
 
-?>
+?> 
