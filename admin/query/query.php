@@ -298,6 +298,14 @@
         $userId = mysqli_real_escape_string($con, $_POST['userId']);
         $currentUserId = $_SESSION['userId'];
         // DELETE METERBOX
+        $meterBoxQuery = "SELECT * FROM meterbox WHERE userId='$userId'";
+        $meterBoxResult = mysqli_query($con, $meterBoxQuery);
+        $meterBoxRow = mysqli_fetch_assoc($meterBoxResult);
+        if($meterBoxRow) {
+            $meterBoxId = $meterBoxRow['meterBoxId'];
+            $querys = "DELETE FROM consumption WHERE meterBoxId='$meterBoxId'";
+            mysqli_query($con, $querys);
+        }
         $query1 = "DELETE FROM meterbox WHERE userId='$userId'";
         mysqli_query($con, $query1);
 

@@ -78,7 +78,7 @@
             <?php 
                 $query4  = "SELECT COUNT(*) as total from blog";
                 $result4 = mysqli_query($con, $query4);
-                $data4 	= mysqli_fetch_assoc($result4);
+                $data4 	 = mysqli_fetch_assoc($result4);
                 ?>
                     <div style="width: 49.5%; height: 100px; background-color:teal;text-align: center; font-size: 25px; float: right; right: 0px; margin-top: -100px;">
                         <p style="margin-top: 20px;"><?php echo $data4['total']; ?></p>
