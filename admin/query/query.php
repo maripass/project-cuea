@@ -105,24 +105,23 @@
             $insertMeterBoxQuery  = "INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
             $insertMeterBoxResult = mysqli_query($con, $insertMeterBoxQuery);
             if($insertMeterBoxResult){
+                // $checkMeterBoxIdQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
+                // $checkmeterBoxIdResult    = mysqli_query($con, $checkMeterBoxIdQuery);
+                // $nameResult22 = mysqli_fetch_assoc($checkmeterBoxIdResult);
+                // if($nameResult22) { 
+                //     $meterBoxId = $nameResult22['meterBoxId'];
+                //     // echo $meterBoxId;
+                    // $createConsumptionQuery  = "INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading, meterCostId) VALUES(19, 0, 0, '$meterCostId')";
+                    // $createConsumptionResult = mysqli_query($con, $createConsumptionQuery);    
+                // } else {
+                //     echo $checkMeterBoxIdQuery;
+                // }
                 $_SESSION['success'] = "Meter Box created successfully.";
-                header('Location: meter-box.php');
+                header('Location: meter-box.php'); 
             } else{
                 array_push($errors,"error connection fail. $insertMeterBoxQuery");
             } 
-        }
-        $checkMeterBoxIdQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
-        $checkmeterBoxIdResult    = mysqli_query($con, $checkMeterBoxIdQuery);
-        $nameResult22 = mysqli_fetch_assoc($checkmeterBoxIdResult);
-        if($nameResult22) { 
-            $meterBoxId = $nameResult22['meterBoxId'];
-            // echo $meterBoxId;
-            $createConsumptionQuery  = "INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading, meterCostId) VALUES('$meterBoxId', 0, 0, '$meterCostId')";
-            $createConsumptionResult = mysqli_query($con, $createConsumptionQuery);    
-        } else {
-            echo $checkMeterBoxIdQuery;
-        }
-         
+        } 
     }
 
 
@@ -302,16 +301,22 @@
 
     // Delete Meter Box
     if(isset($_POST['deleteMeterBox'])){
-        $meterBoxId = mysqli_real_escape_string($con, $_POST['meterBoxId']);
-        
-        $query  = "DELETE FROM meterbox WHERE meterBoxId='$meterBoxId'";
-        $result = mysqli_query($con, $query);
-        if($result){
-            $_SESSION['success'] = "Meter Box deleted successfully.";
-            header('Location: meter-box.php');
-        } else{
-            array_push($errors,"error connection fail. $query");
-        }  
+        $meterBoxId = mysqli_real_escape_string($con, $_POST['meterBoxId']); 
+        // CHECK AND GET METER BOX ID
+        $meterBoxQuery  = "SELECT * FROM meterbox WHERE meterBoxId='$meterBoxId'";
+        $meterBoxResult = mysqli_query($con, $meterBoxQuery);
+        $meterBoxRow    = mysqli_fetch_assoc($meterBoxResult);
+        if($meterBoxRow) {
+            // DELETE CONSUMPTION FIRST
+            $meterBoxId = $meterBoxRow['meterBoxId'];
+            $querys     = "DELETE FROM consumption WHERE meterBoxId='$meterBoxId'";
+            mysqli_query($con, $querys);
+        }
+        // DELETE METER BOX
+        $query = "DELETE FROM meterbox WHERE meterBoxId='$meterBoxId'";
+        mysqli_query($con, $query);
+        $_SESSION['success'] = "Meter Box deleted successfully.";
+        header('Location: meter-box.php');
     }
 
 
