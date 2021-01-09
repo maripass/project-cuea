@@ -1,8 +1,8 @@
     <div class="navbar">
         <a href="index.php" class="logo">
-            <img src="images/biller.jpeg" style="width:50px;" alt="">
+            <img src="images/logo.svg" style="width:100px; margin-top: -28px;" alt="">
         </a>
-        <ul class="nav">
+        <ul class="nav" style="margin-top: -15px;">
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="service.php">Services</a></li>
@@ -15,4 +15,4 @@
     </div>
 
 
-    <a href="about.htlm">hello!</a>
+    
