@@ -83,6 +83,7 @@
         $address= mysqli_real_escape_string($con, $_POST['address']);
         $houseNumber= mysqli_real_escape_string($con, $_POST['houseNumber']);
         $meterCostId = 0;
+        $meterBoxId  = 0;
 
         $checkBoxNumberQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' OR userId='$userId' LIMIT 1";
         $result2    = mysqli_query($con, $checkBoxNumberQuery);
@@ -104,22 +105,22 @@
             $insertMeterBoxQuery  = "INSERT INTO meterbox (meterBoxNumber, active, address, houseNumber, userId) VALUES('$meterBoxNumber', '$active', '$address', '$houseNumber', '$userId')";
             $insertMeterBoxResult = mysqli_query($con, $insertMeterBoxQuery);
             if($insertMeterBoxResult){
-                $getMeterBoxIdQuery  = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
-                $getMeterBoxIdResult = mysqli_query($con, $getMeterBoxIdQuery);
-                $user        = mysqli_fetch_assoc($getMeterBoxIdResult);
-                if($user) { 
-                    $meterBoxId = $user['meterBoxId'];
-                    echo $meterBoxId;
-                    // $createConsumptionQuery  = "INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading, meterCostId) VALUES('$meterBoxId', 0, 0, '$meterCostId')";
-                    // $createConsumptionResult = mysqli_query($con, $createConsumptionQuery);    
-                } else {
-                    echo "ERROR";
-                }
-                // $_SESSION['success'] = "Meter Box created successfully.";
-                // header('Location: meter-box.php');
+                $_SESSION['success'] = "Meter Box created successfully.";
+                header('Location: meter-box.php');
             } else{
-                array_push($errors,"error connection fail. $query");
+                array_push($errors,"error connection fail. $insertMeterBoxQuery");
             } 
+        }
+        $checkMeterBoxIdQuery = "SELECT * FROM meterbox WHERE meterBoxNumber='$meterBoxNumber' LIMIT 1";
+        $checkmeterBoxIdResult    = mysqli_query($con, $checkMeterBoxIdQuery);
+        $nameResult22 = mysqli_fetch_assoc($checkmeterBoxIdResult);
+        if($nameResult22) { 
+            $meterBoxId = $nameResult22['meterBoxId'];
+            // echo $meterBoxId;
+            $createConsumptionQuery  = "INSERT INTO consumption (meterBoxId, currentMeterReading, previoustMeterReading, meterCostId) VALUES('$meterBoxId', 0, 0, '$meterCostId')";
+            $createConsumptionResult = mysqli_query($con, $createConsumptionQuery);    
+        } else {
+            echo $checkMeterBoxIdQuery;
         }
          
     }
