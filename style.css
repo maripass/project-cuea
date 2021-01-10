@@ -60,10 +60,10 @@ body{
  }
  .other-banner-area{
   position: relative;
-  background-image: url(images/image-bill.jpg);
+  background-image: url(images/bulb.jpg);
   width: 100%;
   padding-top: 100px;
-  height: 250px;
+  height: 600px;
   background-repeat:no-repeat;
   -webkit-background-size: cover;
   background-size: cover;
