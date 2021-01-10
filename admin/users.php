@@ -66,7 +66,7 @@
                 if(mysqli_num_rows($result) > 0){
                     while($row= $result->fetch_assoc()) {
                         ?>
-                            <tr onclick="window.location.href='update-user.php'">
+                            <tr >
                                 <td><a href="user-update.php?id=<?php echo $row['userId'] ?>"><?php echo $row['userEmail'] ?></a></td>
                                 <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>            
                             </tr >
