@@ -11,7 +11,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Consumtion</title>
+    <title>Consumption</title>
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
