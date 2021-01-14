@@ -4,14 +4,6 @@
 	if (!isset($_SESSION['userId'])) {
 		header('location: login.php');
 	}
-	
-	$userId = $_SESSION['userId'];
-	$query   = "SELECT * FROM user WHERE userId = '$userId' LIMIT 1";
-	$results = mysqli_query($con, $query);
-	if ($results) {
-		$profileData = $results->fetch_assoc();		
-	}
-
 ?>
 
 
@@ -29,7 +21,7 @@
 
     <section class="banner">
         <div class="banner-left">
-            Profile
+            Visa Information
         </div>
     </section>
     <section>
@@ -53,35 +45,23 @@
                     <?php  include("success.php"); ?><br>
                 </div>
                 <div style="width: 100%;">
-                    <input type="text" value="<?php echo $profileData['firstName'] ?>" name="firstName" placeholder="First Name" id="firstName">
+                    <input type="text" name="cardNumber" placeholder="Card Number" id="cardNumber">
                 </div><br><br><br><br>
 
 
                 <div style="width: 100%;">
-                    <input type="text" value="<?php echo $profileData['lastName'] ?>" name="lastName" placeholder="Last Name" id="lastName">
+                    <input type="number" name="expirationDay" placeholder="Expiration Day" id="expirationDay">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="email" value="<?php echo $profileData['userEmail'] ?>" name="userEmail" placeholder="Email" id="userEmail" disabled>
+                    <input type="number" name="expirationYear" placeholder="Expiration Year" id="expirationYear">
                 </div><br><br><br><br>
-
 
                 <div style="width: 100%;">
-                    <?php 
-                        if($profileData['telephone']) {
-                            ?>
-                                <input type='text' value="<?php echo $profileData['telephone'] ?>" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
-                            <?php
-                        } else {
-                            ?>
-                                <input type='text' value="" name='phoneNumber' placeholder='Phone Number' id='phoneNumber'>
-                            <?php
-                        }   
-                    ?>
+                    <input type="text" name="securityCode" placeholder="Security Code" id="securityCode">
                 </div><br><br><br><br>
 
-
-                <input type="submit" value="Update Profile" name="updateProfile">
+                <input type="submit" value="Add Card" name="updateProfile">
                 
             </form>
         </div>
