@@ -23,18 +23,14 @@
         </div>
     </section>
     <section>
-        <div style="width: 80%; margin-left: 10%; margin-top: 13%;">
-            <div style="width: 50%; height: 200px;">
-                <a href="mpesa-info.php">
-                    <img src="images/mpesa.jpg" width="100%" alt="">
-                </a>
-            </div>
-
-            <div style="width: 40%; height: 200px; float: right; right: 10%; margin-top: -200px; position: absolute;">
-                <a href="visa-info.php">
-                    <img src="images/visa.png" width="100%" alt="">
-                </a>
-            </div>
+        <div style="margin-left: 40%; margin-top: 13%;">
+            <h1>Go to Mpesa</h1>
+            <h1>Select Lipa Na M-PESA</h1>
+            <h1>Select the Paybill Option</h1>
+            <h1>Enter the business number <b>ebms</b></h1>
+            <h1>Enter account number <b>21212</b></h1>
+            <h1>Enter amount <b>Ksh.1000</b></h1>
+            <h1>Enter your <b>M-PESA PIN</b></h1>
         </div>
 
     </section>
