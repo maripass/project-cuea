@@ -57,6 +57,7 @@
                 <th>Current Month Meter Reading</th>
                 <th>Unit Consumed</th>
                 <th>Price</th>
+                <th>Paid</th>
                 <th>Date</th>
             <tr>
             
@@ -90,6 +91,7 @@
                             <td><?php echo $row['currentMeterReading'] ?></td>
                             <td><?php echo $unitConsummed ?></td>
                             <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
+                            <td style="color: red;">KSH 900</td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php                    
@@ -101,6 +103,10 @@
             if(mysqli_num_rows($consumptionResult) > 0){
                 ?>
                     <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+
+                    <button class="btn" style="float: right; right: 0px; padding-left: 50px; padding-right: 50px; margin-right: 10px; color: white; background-color: #2dd36f;">
+                        <a href="payment-method.php" style="color: white;">Pay Now</a>
+                    </button>
                 <?php
             }
         ?>

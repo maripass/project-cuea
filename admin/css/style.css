@@ -1,13 +1,8 @@
-
-body {
-    font-family: poppins;
-}
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-
 }
 .sidebar{
     position: fixed;
@@ -35,10 +30,8 @@ body {
     box-sizing: border-box;
     border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 1px solid black;
-    
 }
 ul li:hover a{
-    /* padding-left: 50px; */
     background-color: white;
     color:  #3274d6;
 }
@@ -52,10 +45,8 @@ label #btn, label #cancel{
     width: 100%;
     position: absolute;
     cursor: pointer;
-    /* background: #042331; */
     border-radius: 3px;
 }
-
 .btn{
     padding: 15px;
     margin-top: 20px;
@@ -65,16 +56,13 @@ label #btn, label #cancel{
     font-weight: bold;
     color: #ffffff;
 }
-
 label #btn{
     left: 0px;
     top: 0px;
     font-size: 35px;
     color:white;
     padding: 6px 12px;
-   
 }
-
 label #cancel{
     z-index: 1111;
     left: -195px;
@@ -98,22 +86,12 @@ label #cancel{
 #check:checked ~ section{
     margin-left: 250px;
 }
-section{
-    /* background: url('../images/bg.jpg');
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-     */
-}
 .banner {
     width: 100%; height: 50px; background: #3274d6;
 }
 .banner-left{
     color: white; font-size: 20px; margin-left: 70px; padding-top:15px ;
 }
-
-
-
 .login {
     width: 400px;
     background-color: #fff;
@@ -132,20 +110,10 @@ section{
     justify-content: center;
     padding-top: 20px;
 }
-/* form label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: #3274d6;
-    color: #ffffff;
-} */
 form input[type="password"], form input[type="text"], form input[type="email"], form textarea,  form select {
     width: 100%;
     height: 50px;
     border: 1px solid #dee0e4;
-    /* margin-bottom: 20px; */
     padding: 0 15px;
 }
 .error {
@@ -155,7 +123,6 @@ form input[type="password"], form input[type="text"], form input[type="email"], 
     background: #f2dede; 
     margin-bottom: 10px;
     font-size: 14px;
-    /* padding: 7px; */
 }
  form input[type="submit"] {
     width: 100%;
@@ -172,7 +139,6 @@ form input[type="submit"]:hover {
 }
 
 #customers {
-    /* border-collapse: collapse; */
       width: 100%;
     margin-top: 12px;
   }

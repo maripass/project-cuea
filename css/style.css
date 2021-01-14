@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    font-family: poppins;
     font-size: 16px;
 }
 body {
@@ -12,7 +11,6 @@ body {
     border: 1px solid #a94442; 
     color: #a94442; 
     background: #f2dede; 
-    /* margin-left: 10px; */
     font-size: 14px;
 }
 /* ERROR */
@@ -21,7 +19,6 @@ body {
     border: 1px solid #3c763d; 
     color: #3c763d; 
     background: #f2dede; 
-    /* margin-left: 10px; */
     font-size: 14px;
 }
 .login {
