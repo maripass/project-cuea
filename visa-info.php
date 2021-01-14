@@ -26,7 +26,7 @@
     </section>
     <section>
         <div class="login">
-            <form name="profileForm" method="POST" onsubmit="return profileValidation()">
+            <form name="bankAccount" method="POST" onsubmit="return bankAccountValidation()">
 
                 <div>
                     <?php  include("errors.php"); ?><br>
@@ -50,11 +50,11 @@
 
 
                 <div style="width: 100%;">
-                    <input type="number" name="expirationDay" placeholder="Expiration Day" id="expirationDay">
+                    <input type="date" name="expirationDay" placeholder="Expiration Day" id="expirationDay">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
-                    <input type="number" name="expirationYear" placeholder="Expiration Year" id="expirationYear">
+                    <input type="number" name="expirationYear" placeholder="Expiration Year" min="2016" id="expirationYear">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">
