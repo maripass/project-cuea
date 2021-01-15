@@ -91,8 +91,7 @@ function profileValidation() {
 // BANK ACCOUNT INPUT VALIDATION
 function bankAccountValidation() {
     var cardNumber     = document.forms["bankAccount"]["cardNumber"].value;
-    var expirationDay  = document.forms["bankAccount"]["expirationDay"].value;
-    var expirationYear = document.forms["bankAccount"]["expirationYear"].value;
+    var expiration  = document.forms["bankAccount"]["expiration"].value;
     var securityCode   = document.forms["bankAccount"]["securityCode"].value;
     if(cardNumber =='') {
         alert( "Card Number is required." );
@@ -102,15 +101,11 @@ function bankAccountValidation() {
          alert("Card Number should not be less or greater than 16 numbers.");
        document.bankAccount.cardNumber.focus() ;
         return false;
-    } else if(expirationDay=='') {
-        alert("Expiration Day is required.");
-      document.bankAccount.expirationDay.focus() ;
+    } else if(expiration=='') {
+        alert("Expiration is required.");
+      document.bankAccount.expiration.focus() ;
        return false;
-   } else if(expirationYear == '') {
-        alert("Expiration Year is required.");
-      document.bankAccount.expirationYear.focus() ;
-       return false;
-   } else if(isNaN(securityCode)) {
+    } else if(isNaN(securityCode)) {
         alert("Security Code is required.");
       document.bankAccount.securityCode.focus() ;
        return false;

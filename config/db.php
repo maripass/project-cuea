@@ -190,8 +190,7 @@
       // Create a new card
       if(isset($_POST['addCard'])){
         $cardNumber     = mysqli_real_escape_string($con, $_POST['cardNumber']);
-        $expirationDay  = mysqli_real_escape_string($con, $_POST['expirationDay']);
-        $expirationYear = mysqli_real_escape_string($con, $_POST['expirationYear']);
+        $expiration     = mysqli_real_escape_string($con, $_POST['expiration']);
         $securityCode   = mysqli_real_escape_string($con, $_POST['securityCode']);
         $userId         = $_SESSION['userId'];
 
@@ -204,7 +203,7 @@
             }
         }
         if (count($errors) == 0) {  
-            $query  = $query="INSERT INTO bankaccount (userId, bankAccountNumber, expirationDay, expirationYear, securityCode) VALUES('$userId', '$cardNumber', '$expirationDay', '$expirationYear', '$securityCode')";
+            $query  = $query="INSERT INTO bankaccount (userId, bankAccountNumber, expiration, securityCode) VALUES('$userId', '$cardNumber', '$expiration', '$securityCode')";
             $result = mysqli_query($con, $query);
             if($result){
                 $_SESSION['success'] = "Card Number added successfully.";

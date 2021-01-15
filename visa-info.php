@@ -25,6 +25,26 @@
         </div>
     </section>
     <section>
+    <table id="customers">
+            <tr>
+                <th>Bank Account Number</th>
+                <th>Date</th>
+            </tr>
+            <?php
+            
+                $userId = $_SESSION['userId'];
+                $query  = "SELECT * FROM bankaccount WHERE userId='$userId' ORDER BY createdAt DESC";
+                $result = mysqli_query($con, $query);
+                while($row= $result->fetch_assoc()) {
+                    ?>
+                        <tr>
+                            <td><a href=""><?php echo $row['bankAccountNumber'] ?> </a></td>
+                            <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
+                        </tr>
+                    <?php
+                }
+            ?>
+        </table>
         <div class="login">
             <form name="bankAccount" method="POST" onsubmit="return bankAccountValidation()">
 
@@ -50,11 +70,7 @@
 
 
                 <div style="width: 100%;">
-                    <input type="date" name="expirationDay" placeholder="Expiration Day" id="expirationDay">
-                </div><br><br><br><br>
-
-                <div style="width: 100%;">
-                    <input type="number" name="expirationYear" placeholder="Expiration Year" min="2016" id="expirationYear">
+                    <input type="month" name="expiration" placeholder="Expiration Day" id="expiration">
                 </div><br><br><br><br>
 
                 <div style="width: 100%;">

@@ -111,7 +111,7 @@ label #cancel{
     justify-content: center;
     padding-top: 20px;
 }
-form input[type="password"], form input[type="text"], form input[type="email"], form input[type="number"], form input[type="date"], form textarea,  form select {
+form input[type="password"], form input[type="text"], form input[type="email"], form input[type="number"], form input[type="month"], form textarea,  form select {
     width: 100%;
     height: 50px;
     border: 1px solid #dee0e4;
