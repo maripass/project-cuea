@@ -198,31 +198,7 @@
             }  
         }
     }
-    // Create a new blog
-    if(isset($_POST['addCard'])){
-        $cardNumber     = mysqli_real_escape_string($con, $_POST['cardNumber']);
-        $expirationDay  = mysqli_real_escape_string($con, $_POST['expirationDay']);
-        $expirationYear = mysqli_real_escape_string($con, $_POST['expirationYear']);
-        $securityCode   = mysqli_real_escape_string($con, $_POST['securityCode']);
-        $userId         = $_SESSION['userId'];
-
-        $checkCardNumberQuery = "SELECT * FROM bankaccount WHERE cardNumber='$cardNumber' LIMIT 1";
-        $cardNumberResult     = mysqli_query($con, $checkCardNumberQuery);
-        $cardNumberDetails    = mysqli_fetch_assoc($cardNumberResult);
-        if ($cardNumberDetails) { 
-            if ($cardNumberDetails['bankAccountNumber'] === $cardNumber) { array_push($errors, "Card Number already exists"); }
-        }
-        if (count($errors) == 0) {  
-            $query=$query="INSERT INTO bankaccount (userId, bankAccountNumber, expirationDay, expirationYear, securityCode) VALUES('$userId', '$cardNumber', '$expirationDay', '$expirationYear', '$securityCode')";
-            $result=mysqli_query($con, $query);
-            if($result){
-                $_SESSION['success'] = "Card Number added successfully.";
-                header('Location:  .php');
-            } else{
-                array_push($errors,"Card Number already Exist.");
-            }  
-        }
-    }
+  
     // Update Blog
     if(isset($_POST['updateBlog'])){
         $file_name = $_FILES['image']['name'];
