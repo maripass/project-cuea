@@ -61,7 +61,7 @@
                     <input type="text" name="securityCode" placeholder="Security Code" id="securityCode">
                 </div><br><br><br><br>
 
-                <input type="submit" value="Add Card" name="updateProfile">
+                <input type="submit" value="Add Card" name="addCard">
                 
             </form>
         </div>

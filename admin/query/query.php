@@ -213,13 +213,13 @@
             if ($cardNumberDetails['bankAccountNumber'] === $cardNumber) { array_push($errors, "Card Number already exists"); }
         }
         if (count($errors) == 0) {  
-            $query="INSERT INTO blog (name, image, description) VALUES('$name', '$file_name', '$description')";
+            $query=$query="INSERT INTO bankaccount (userId, bankAccountNumber, expirationDay, expirationYear, securityCode) VALUES('$userId', '$cardNumber', '$expirationDay', '$expirationYear', '$securityCode')";
             $result=mysqli_query($con, $query);
             if($result){
-                array_push($errors,"Card Number already Exist.");
-            } else{
                 $_SESSION['success'] = "Card Number added successfully.";
                 header('Location:  .php');
+            } else{
+                array_push($errors,"Card Number already Exist.");
             }  
         }
     }
