@@ -82,6 +82,12 @@
                     if (mysqli_num_rows($meterBoxResult) == 1) {
                         $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
+                    // GET BANK PAYMENT
+                    $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId = '$userId'";
+                    $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
+                    if (mysqli_num_rows($bankPaymentResult) == 1) {
+                        $bankPaymentData = $bankPaymentResult->fetch_assoc();		
+                    }
                     $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>

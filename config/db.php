@@ -187,8 +187,8 @@
         }  
     }
 
-      // Create a new card
-      if(isset($_POST['addCard'])){
+    // Create a new card
+    if(isset($_POST['addCard'])){
         $cardNumber     = mysqli_real_escape_string($con, $_POST['cardNumber']);
         $expiration     = mysqli_real_escape_string($con, $_POST['expiration']);
         $securityCode   = mysqli_real_escape_string($con, $_POST['securityCode']);
@@ -214,4 +214,21 @@
         }
     }
 
+    // Create a new card
+    if(isset($_POST['bankPayment'])){
+        $price         = mysqli_real_escape_string($con, $_POST['price']);
+        $bankAccountId = mysqli_real_escape_string($con, $_POST['bankAccountId']);
+        $userId = $_SESSION['userId'];
+
+        if (count($errors) == 0) {  
+            $query  = $query="INSERT INTO bankpayment (userId, bankAccountId, price) VALUES('$userId', '$bankAccountId', '$price')";
+            $result = mysqli_query($con, $query);
+            if($result){
+                $_SESSION['success'] = "Payment done successfully.";
+                header('Location:  monthly-report.php');
+            } else{
+                array_push($errors,"Error ");
+            }  
+        }
+    }
 ?>

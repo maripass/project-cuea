@@ -38,7 +38,7 @@
                 while($row= $result->fetch_assoc()) {
                     ?>
                         <tr>
-                            <td><a href=""><?php echo $row['bankAccountNumber'] ?> </a></td>
+                            <td><a href="bank-payment.php?id=<?php echo $row['bankAccountId'] ?>"><?php echo $row['bankAccountNumber'] ?> </a></td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php
