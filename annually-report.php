@@ -6,7 +6,6 @@
     }
     
     $theYear   = date("Y");
-    $theMonth = date("m");
 	if (isset($_POST['filterByYear'])) {
         $yearInput = mysqli_real_escape_string($con, $_POST['yearInput']);
 		$theYear = $yearInput;
@@ -49,7 +48,6 @@
                 <th>Current Month Meter Reading</th>
                 <th>Unit Consumed</th>
                 <th>Price of Unit Consumed</th>
-                <th>Pay</th>
                 <th>Date</th>
             </tr>
             <?php
@@ -60,6 +58,14 @@
                 $meterCost  = 0;
                 $totalPrice = 0;
                 $totalMeterPaid = 0;
+                // GET MONTHLY BANK PAYMENT
+                $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId = '$userId' AND YEAR(createdAt) = '$theYear'";
+                $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
+                if ($bankPaymentResult) {
+                    while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
+                        $totalMeterPaid    += $bankPaymentData['price'];
+                    }	
+                }	
                 if ($meterCostResult) {
                     while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
@@ -73,19 +79,11 @@
                     $meterBoxQuery  = "SELECT * FROM meterbox WHERE meterBoxId = '$meterBoxId'";
                     $meterBoxResult = mysqli_query($con, $meterBoxQuery);
                     if (mysqli_num_rows($meterBoxResult) == 1) {
-                        $meterBoxData = $meterBoxResult->fetch_assoc();		
-                    }
-                     // GET MONTHLY BANK PAYMENT
-                    $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId = '$userId' AND YEAR(createdAt) = '$theYear'";
-                    $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
-                    if ($bankPaymentResult) {
-                        while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
-                            $totalMeterPaid    += $bankPaymentData['price'];
-                        }	
+                        $meterBoxData = $meterBoxResult->fetch_assoc();	
                     }
                    
 
-                    $totalPrice += $row['currentMeterReading'] - $row['previoustMeterReading'];
+                    $totalPrice    += $row['currentMeterReading'] - $row['previoustMeterReading'];
                     $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>
@@ -95,7 +93,6 @@
                             <td><?php echo $row['currentMeterReading'] ?></td>
                             <td><?php echo $unitConsummed ?></td>
                             <td>KSH. <?php echo $unitConsummed * $meterCost ?></td>
-                            <td style="color: red;">Pay: KSH. <?php echo $bankPaymentData['price']; ?></td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php                    
@@ -106,7 +103,8 @@
         <?php 
             if(mysqli_num_rows($consumptionResult) > 0){
                 ?>
-                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $totalPrice * $meterCost ?></button>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price of Unit Consumed: KSH <?php echo $totalPrice * $meterCost ?></button>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px; background-color: #2dd36f;">Annually Paid: KSH. <?php echo $totalMeterPaid; ?></button>
                 <?php
             }
         ?>

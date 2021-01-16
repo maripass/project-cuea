@@ -61,6 +61,15 @@
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
                 $totalPrice = 0;
+                $totalMeterPaid = 0;
+                // GET MONTHLY BANK PAYMENT
+                $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE YEAR(createdAt) = '$theYear'";
+                $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
+                if ($bankPaymentResult) {
+                    while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
+                        $totalMeterPaid    += $bankPaymentData['price'];
+                    }	
+                }
                 if ($meterCostResult) {
                     while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
@@ -97,6 +106,7 @@
             if(mysqli_num_rows($consumptionResult) > 0){
                 ?>
                     <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $totalPrice * $meterCost ?></button>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px; background-color: #2dd36f;">Annually Paid: KSH. <?php echo $totalMeterPaid; ?></button>
                 <?php
             }
         ?>
