@@ -63,7 +63,8 @@
                 <th>Previous Month Meter Reading</th>
                 <th>Current Month Meter Reading</th>
                 <th>Unit Consumed</th>
-                <th>Price</th>
+                <th>Price of Unit Consumed</th>
+                <th>Pay</th>
                 <th>Date</th>
             </tr>
            
@@ -72,9 +73,18 @@
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
                 $totalPrice = 0;
+                $totalMeterPaid = 0;
                 if ($meterCostResult) {
                     while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
+                    }	
+                }
+                // GET MONTHLY BANK PAYMENT
+                $bankPaymentQuery   = "SELECT * FROM bankpayment WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
+                $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
+                if ($bankPaymentResult) {
+                    while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
+                        $totalMeterPaid += $bankPaymentData['price'];
                     }	
                 }
                 $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
@@ -96,7 +106,8 @@
                             <td><?php echo $row['previoustMeterReading'] ?></td>
                             <td><?php echo $row['currentMeterReading'] ?></td>
                             <td><?php echo $unitConsummed ?></td>
-                            <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
+                            <td>KSH. <?php echo $unitConsummed * $meterCost ?></td>
+                            <td style="color: red;">Pay: KSH. <?php echo $totalMeterPaid ?></td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php                    

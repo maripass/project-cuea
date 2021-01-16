@@ -56,20 +56,30 @@
                 <th>Previous Month Meter Reading</th>
                 <th>Current Month Meter Reading</th>
                 <th>Unit Consumed</th>
-                <th>Price</th>
-                <th>Paid</th>
+                <th>Price of Unit Consumed</th>
+                <th>Pay</th>
                 <th>Date</th>
             <tr>
             
 
             <?php
                 $meterBoxId = $_SESSION['meterBoxNumber'];
+                $userId = $_SESSION['userId'];
                 $meterCostQuery   = "SELECT * FROM metercost";
                 $meterCostResult = mysqli_query($con, $meterCostQuery);
                 $meterCost = 0;
+                $totalMeterPaid = 0;
                 if ($meterCostResult) {
                     while($meterCostData = $meterCostResult->fetch_assoc()) {
                         $meterCost = $meterCostData['costPerKwatt'];
+                    }	
+                }
+                // GET MONTHLY BANK PAYMENT
+                $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId='$userId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
+                $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
+                if ($bankPaymentResult) {
+                    while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
+                        $totalMeterPaid    += $bankPaymentData['price'];
                     }	
                 }
                 $consumptionQuery  = "SELECT * FROM consumption WHERE meterBoxId='$meterBoxId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
@@ -82,12 +92,6 @@
                     if (mysqli_num_rows($meterBoxResult) == 1) {
                         $meterBoxData = $meterBoxResult->fetch_assoc();		
                     }
-                    // GET BANK PAYMENT
-                    $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId = '$userId'";
-                    $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
-                    if (mysqli_num_rows($bankPaymentResult) == 1) {
-                        $bankPaymentData = $bankPaymentResult->fetch_assoc();		
-                    }
                     $unitConsummed = $row['currentMeterReading'] - $row['previoustMeterReading'];
                     ?>
                         <tr>
@@ -96,8 +100,8 @@
                             <td><?php echo $row['previoustMeterReading'] ?></td>
                             <td><?php echo $row['currentMeterReading'] ?></td>
                             <td><?php echo $unitConsummed ?></td>
-                            <td>KSH <?php echo $unitConsummed * $meterCost ?></td>
-                            <td style="color: red;">KSH 900</td>
+                            <td>KSH. <?php echo $unitConsummed * $meterCost ?></td>
+                            <td style="color: red;">Pay: KSH. <?php echo $totalMeterPaid ?></td>
                             <td><?php echo date('M d Y',strtotime($row['createdAt'])) ?></td>
                         </tr>
                     <?php                    
@@ -108,7 +112,7 @@
         <?php 
             if(mysqli_num_rows($consumptionResult) > 0){
                 ?>
-                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price: KSH <?php echo $unitConsummed * $meterCost ?></button>
+                    <button class="btn" style="float: right; right: 0px; margin-right: 10px;">Price of Unit Consumed: KSH <?php echo $unitConsummed * $meterCost ?></button>
 
                     <button class="btn" style="float: right; right: 0px; padding-left: 50px; padding-right: 50px; margin-right: 10px; color: white; background-color: #2dd36f;">
                         <a href="payment-method.php" style="color: white;">Pay Now</a>
