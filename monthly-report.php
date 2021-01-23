@@ -41,9 +41,20 @@
             Pick Month
         </button>
         <div>
-            <?php
-                include("errors.php");
-            ?><br>
+            <?php  include("errors.php"); ?><br>
+        </div>
+        <style>
+            .success {
+                padding: 0px 2px;
+                border: 1px solid #3c763d;
+                color: #3c763d; 
+                background: #dff0d8; 
+                font-size: 14px;
+                text-align: center;
+            }
+        </style>
+        <div>
+            <?php  include("success.php"); ?><br>
         </div>
         <form id="filter" style="margin-top:15px; float:right;right:0px;margin-right:30px;" method="POST" name="monthlyForm" onsubmit="return monthlyValidation()">
             <input type="month" style="padding:10px; width:100%" name="monthInput" id="monthInput" value="<?php echo $monthInput ?>" >
@@ -75,11 +86,11 @@
                     }	
                 }
                 // GET MONTHLY BANK PAYMENT
-                $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE userId='$userId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
+                $bankPaymentQuery  = "SELECT * FROM mpesaPayment WHERE userId='$userId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
                 $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
                 if ($bankPaymentResult) {
                     while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
-                        $totalMeterPaid    += $bankPaymentData['price'];
+                        $totalMeterPaid    += $bankPaymentData['amount'];
                     }	
                 }
                 $consumptionQuery  = "SELECT * FROM consumption WHERE meterBoxId='$meterBoxId' AND YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";

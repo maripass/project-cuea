@@ -1,16 +1,10 @@
 <?php
-function maxwell($amount, $phone_number, $acc_ref, $transaction_description) {
-    echo "MAXWELL";
-}
-if(isset($_POST['clickMe']))
-{
-    _STKPush($_POST["amount"], $_POST["phone_number"], $_POST["acc_ref"], $_POST["transaction_description"]); 
-} 
+
 class Mpesa
 {
-    protected $mpesa_secret = "mCAVnYP3F5gS4oyV";
-    protected $mpesa_key = "UgVGGeCJXpDaUp07MR3wItJHeXglOZmT";
-    protected $mpesa_passkey = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
+    protected $mpesa_secret    = "mCAVnYP3F5gS4oyV";
+    protected $mpesa_key       = "UgVGGeCJXpDaUp07MR3wItJHeXglOZmT";
+    protected $mpesa_passkey   = "bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919";
     protected $mpesa_shortcode = "174379";
 
     public function _GenerateToken()
@@ -72,6 +66,6 @@ class Mpesa
         $curl_response = curl_exec($curl);
 
 
-        echo $curl_response;
+        // echo $curl_response;
     }
 }

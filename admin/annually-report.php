@@ -63,11 +63,11 @@
                 $totalPrice = 0;
                 $totalMeterPaid = 0;
                 // GET MONTHLY BANK PAYMENT
-                $bankPaymentQuery  = "SELECT * FROM bankpayment WHERE YEAR(createdAt) = '$theYear'";
+                $bankPaymentQuery  = "SELECT * FROM mpesaPayment WHERE YEAR(createdAt) = '$theYear'";
                 $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
                 if ($bankPaymentResult) {
                     while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
-                        $totalMeterPaid    += $bankPaymentData['price'];
+                        $totalMeterPaid    += $bankPaymentData['amount'];
                     }	
                 }
                 if ($meterCostResult) {

@@ -80,11 +80,11 @@
                     }	
                 }
                 // GET MONTHLY BANK PAYMENT
-                $bankPaymentQuery   = "SELECT * FROM bankpayment WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
+                $bankPaymentQuery   = "SELECT * FROM mpesaPayment WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";
                 $bankPaymentResult = mysqli_query($con, $bankPaymentQuery);
                 if ($bankPaymentResult) {
                     while($bankPaymentData = $bankPaymentResult->fetch_assoc()) {
-                        $totalMeterPaid += $bankPaymentData['price'];
+                        $totalMeterPaid += $bankPaymentData['amount'];
                     }	
                 }
                 $consumptionQuery     = "SELECT * FROM consumption WHERE YEAR(createdAt) = '$theYear' AND MONTH(createdAt) = '$theMonth'";

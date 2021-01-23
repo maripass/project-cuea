@@ -187,51 +187,29 @@
         }  
     }
 
-    // Create a new card
-    if(isset($_POST['addCard'])){
-        $cardNumber     = mysqli_real_escape_string($con, $_POST['cardNumber']);
-        $expiration     = mysqli_real_escape_string($con, $_POST['expiration']);
-        $securityCode   = mysqli_real_escape_string($con, $_POST['securityCode']);
-        $userId         = $_SESSION['userId'];
 
-        $checkCardNumberQuery = "SELECT * FROM bankaccount WHERE bankAccountNumber='$cardNumber' LIMIT 1";
-        $cardNumberResult     = mysqli_query($con, $checkCardNumberQuery);
-        $cardNumberDetails    = mysqli_fetch_assoc($cardNumberResult);
-        if ($cardNumberDetails) { 
-            if ($cardNumberDetails['bankAccountNumber'] === $cardNumber) {
-                array_push($errors, "Card Number already exists"); 
-            }
-        }
-        if (count($errors) == 0) {  
-            $query  = $query="INSERT INTO bankaccount (userId, bankAccountNumber, expiration, securityCode) VALUES('$userId', '$cardNumber', '$expiration', '$securityCode')";
-            $result = mysqli_query($con, $query);
-            if($result){
-                $_SESSION['success'] = "Card Number added successfully.";
-                // header('Location:  .php');
-            } else{
-                array_push($errors,"Card Number already Exist.");
-            }  
+    // MPESA PAYMENT
+    if(isset($_POST['mpesaPayment'])){
+        require_once('mpesa/mpesa-functions.php');
+        $phone_number  = mysqli_real_escape_string($con, $_POST['phone_number']);
+        $amount        = mysqli_real_escape_string($con, $_POST['amount']);
+        $acc_ref       = mysqli_real_escape_string($con, $_POST['acc_ref']);
+        $transaction_description  = mysqli_real_escape_string($con, $_POST['transaction_description']);
+        $userId        = $_SESSION['userId'];
+
+        $mpesa = new Mpesa();
+
+        $mpesa_payment = $mpesa->_STKPush(1, $phone_number, $acc_ref, $transaction_description);
+        sleep(10);
+        $saveMpesaQuery  = $query="INSERT INTO mpesaPayment (userId, phoneNumber, amount) VALUES('$userId', '$phone_number', '$amount')";
+        $saveMpesaResult = mysqli_query($con, $saveMpesaQuery);
+        if($saveMpesaResult){
+            $_SESSION['success'] = "Payment done successfully.";
+            header('Location:  monthly-report.php');
+        } else {
+            array_push($errors,"Error during saving to the database.");
         }
     }
-
-    // Create a new card
-    if(isset($_POST['bankPayment'])){
-        $price         = mysqli_real_escape_string($con, $_POST['price']);
-        $bankAccountId = mysqli_real_escape_string($con, $_POST['bankAccountId']);
-        $userId = $_SESSION['userId'];
-
-        if (count($errors) == 0) {  
-            $query  = $query="INSERT INTO bankpayment (userId, bankAccountId, price) VALUES('$userId', '$bankAccountId', '$price')";
-            $result = mysqli_query($con, $query);
-            if($result){
-                $_SESSION['success'] = "Payment done successfully.";
-                header('Location:  monthly-report.php');
-            } else{
-                array_push($errors,"Error ");
-            }  
-        }
-    }
-
 
 
 ?>
