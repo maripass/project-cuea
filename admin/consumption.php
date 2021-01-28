@@ -45,7 +45,7 @@
         function launchTokenFetch() {
             setInterval(() => {
                 getapi();
-            }, (10000));   
+            },(10000));   
         }
 
         function getapi() { 
