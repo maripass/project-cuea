@@ -15,14 +15,14 @@
 <body>
     <?php include('home-header.php') ?>
     <div class="other-banner-area">
-        <h1 style="margin-top:100px; text-align: center;">Contact</h1>
+        <h1 style="margin-top:100px; text-align: center;">Application-Procedure</h1>
     </div>
 
 
-    <div class="contact-area" id="Contact" >
+    <div class="application-procedure-area" id="Application-procedure" >
         <div class="text-part" style="padding-top: 20px;">
             
-            <form name="contactForm" method="POST" onsubmit="return contactValidation()">
+            <form name="contactForm" method="POST" onsubmit="return Application-ProcedureValidation()">
                 <div>
                     <?php
                         include("errors.php");
@@ -44,6 +44,10 @@
                     ?><br>
                 </div>
                 <div>
+                    <input type="text" id="ID/pastport" name="ID/pastport" placeholder="ID/pastport">
+                </div>
+
+                <div>
                     <input type="text" id="firstNae" name="firstName" placeholder="First Name">
                 </div>
             
@@ -58,17 +62,16 @@
                     <input type="text" id="telephone" name="telephone" placeholder="Phone Number">
                 </div>
                         
-                
+                <div>
+                    <input type="text" id="Location" name="Location" placeholder="Location">
+                </div>
                 <div>
                     <input type="text" id="subject" name="subject" placeholder="Subject">
                 </div>
                 
-                
-                <div>
-                    <textarea id="message" name="message" placeholder="Write Message.." style="height:200px"></textarea>
-                </div>
+    
             
-                <input type="submit" value="Submit" name="ContactSubmit">
+                <input type="submit" value="Submit" name="Submit">
             </form>
 
         </div>
