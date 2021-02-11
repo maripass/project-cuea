@@ -9,6 +9,7 @@
             <li><a href="faq.php">FAQ</a></li>
             <li><a href="blog.php">Blog</a></li>
             <li><a href="contact.php">Contact</a></li>
+            <li><a href="application-procedure.php">Application-Procedure</a></li>
             <li><a href="login.php">Login</a></li>
             
         </ul>
