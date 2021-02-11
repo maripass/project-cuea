@@ -43,6 +43,7 @@
                     include("success.php");
                     ?><br>
                 </div>
+                <h1>Individual consumer</h1>
                 <div>
                     <input type="text" id="ID/pastport" name="ID/pastport" placeholder="ID/pastport">
                 </div>
@@ -66,11 +67,22 @@
                     <input type="text" id="Location" name="Location" placeholder="Location">
                 </div>
                 <div>
-                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                    <input type="text" id="ownership of property" name="ownership of property" placeholder="ownership of property">
                 </div>
                 
+                <div>
+                    <input type="text" id="money" name="ownership of property" placeholder="ownership of property">
+                </div>
+                <div>
+                    <input type="text" id="Assurance" name="Assurance" placeholder="Assurance">
+                </div>
+                <div>
+                    <input type="text" id="status" name="status" placeholder="status">
+                </div>
+                <div>
+                    <input type="text" id="occupation" name="occupation" placeholder="occupation">
+                </div>
     
-            
                 <input type="submit" value="Submit" name="Submit">
             </form>
 
